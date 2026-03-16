@@ -27,8 +27,7 @@ const std::map<MapColor, Sector> color_sector_map = {
 	{ MapColor( 51, 153, 255), Sector::water_swim      },
 };
 
-Worldmap::
-Worldmap() {
+Worldmap::Worldmap() {
 	util::Image image;
 
 	if (!image.load(WORLDMAP_IMAGE_FILE)) {
@@ -70,8 +69,7 @@ Worldmap() {
 	}
 }
 
-Worldmap::
-~Worldmap() {
+Worldmap::~Worldmap() {
 	if (rows != nullptr) {
 		for (unsigned int h = 0; h < height(); h++)
 			delete[] rows[h];
@@ -80,8 +78,7 @@ Worldmap::
 	}
 }
 
-const Sector Worldmap::
-get_sector(const Coordinate& coord) const {
+const Sector Worldmap::get_sector(const Coordinate& coord) const {
 	unsigned char ret = 0;
 
 	if (coord.is_valid()
@@ -92,8 +89,7 @@ get_sector(const Coordinate& coord) const {
 	return static_cast<Sector>(ret);
 }
 
-const Sector Worldmap::
-color_to_sector(const MapColor& color) const {
+const Sector Worldmap::color_to_sector(const MapColor& color) const {
 	const auto& pair = color_sector_map.find(color);
 
 	if (pair == color_sector_map.cend()) {

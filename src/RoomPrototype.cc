@@ -9,8 +9,7 @@
 #include "Room.hh"
 #include "ExitPrototype.hh"
 
-RoomPrototype::
-RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
+RoomPrototype::RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 	area(a),
 	vnum(v),
 	name(fread_string(fp)),
@@ -118,8 +117,7 @@ RoomPrototype(Area& a, const Vnum& v, FILE *fp) :
 
 }
 
-RoomPrototype::
-~RoomPrototype() {
+RoomPrototype::~RoomPrototype() {
 	while (extra_descr != nullptr) {
 		ExtraDescr *extra = extra_descr;
 		extra_descr = extra->next;

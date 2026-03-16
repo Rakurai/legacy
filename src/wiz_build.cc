@@ -153,7 +153,7 @@ String checkexitstoroom(Room *room, Room *dest)
 /* for now, no arguments, just list the current room */
 void do_roomexits(Character *ch, String argument)
 {
-	Room *dest = ch->in_room; /* this is the room we want info on */
+	Room *dest = ch->in_room; /**<this is the room we want info on */
 
 	for (const auto& from_area : Game::world().areas)
 		for (const auto& pair : from_area.second->rooms)

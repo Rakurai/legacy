@@ -5,8 +5,7 @@
 
 namespace event {
 
-void Dispatcher::
-fire(Type type, Args args) {
+void Dispatcher::fire(Type type, Args args) {
 	auto range = subscribers.equal_range(type);
 	auto it = range.first;
 
@@ -15,7 +14,7 @@ fire(Type type, Args args) {
 	// automatically, so have to check its value to see if we still need
 	// to increment.
 	while (it != range.second) {
-		Handler *p = it->second; // keep a copy of the pointer
+		Handler *p = it->second; ///< keep a copy of the pointer
 		p->notify(type, args);
 
 		if (it->second == p) // only increment if not changed
@@ -23,8 +22,7 @@ fire(Type type, Args args) {
 	}
 }
 
-void Dispatcher::
-subscribe(Type type, Handler *s) {
+void Dispatcher::subscribe(Type type, Handler *s) {
 	// in case a dispatch results in new subscribers, place them at the front
 	// so we don't have nondeterministic effects (dispatching the same event
 	// to the new subscribers)
@@ -32,8 +30,7 @@ subscribe(Type type, Handler *s) {
 	subscribers.emplace_hint(pos, type, s);
 }
 
-void Dispatcher::
-unsubscribe(Type type, Handler *s) {
+void Dispatcher::unsubscribe(Type type, Handler *s) {
 	auto range = subscribers.equal_range(type);
 	auto it = range.first;
 

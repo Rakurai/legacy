@@ -27,8 +27,8 @@ public:
 	const Vnum get_vnum(unsigned int x, unsigned int y) const;
 
 	void create_rooms() const;
-	std::set<Vnum> allowed_mob_resets; // list of mob vnums that can reset in this region
-	std::set<Vnum> allowed_room_resets; // list of room vnums that can have mobs reset into
+	std::set<Vnum> allowed_mob_resets; ///< list of mob vnums that can reset in this region
+	std::set<Vnum> allowed_room_resets; ///< list of room vnums that can have mobs reset into
 
 private:
 	Region(const Region&);

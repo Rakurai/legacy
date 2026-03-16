@@ -1,8 +1,7 @@
 #include "Shop.hh"
 #include "file.hh"
 
-Shop::
-Shop(FILE *fp) {
+Shop::Shop(FILE *fp) {
 	for (int i = 0; i < MAX_TRADE; i++)
 		buy_type[i] = fread_number(fp);
 

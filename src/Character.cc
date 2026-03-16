@@ -187,19 +187,16 @@ void Character::update() {
 	}
 }
 
-bool Character::
-has_cgroup(const Flags& cg) const {
+bool Character::has_cgroup(const Flags& cg) const {
 	return this->is_npc() ? false : pcdata->cgroup_flags.has_any_of(cg);
 }
 
-void Character::
-add_cgroup(const Flags& cg) {
+void Character::add_cgroup(const Flags& cg) {
 	if (!this->is_npc())
 		pcdata->cgroup_flags += cg;
 }
 
-void Character::
-remove_cgroup(const Flags& cg) {
+void Character::remove_cgroup(const Flags& cg) {
 	if (!this->is_npc())
 		pcdata->cgroup_flags -= cg;
 }
@@ -265,7 +262,7 @@ int GET_MAX_STAM(Character *ch)
 int GET_ATTR_AC(Character *ch)
 {
 	int base 	= GET_ATTR(ch, APPLY_AC);
-	int mod 	= 0;
+//	int mod 	= 0;
 	
 	if (IS_AWAKE(ch))
 		base += dex_app[GET_ATTR_DEX(ch)].defensive;

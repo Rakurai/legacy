@@ -67,17 +67,10 @@
 #include "World.hh"
 #include "RoomPrototype.hh"
 
-extern  void    channel_who     args((Character *ch, const char *channelname, int channel, int custom));
 
-/*
- * Local functions.
- */
-bool       remove_obj      args((Character *ch, int iWear, bool fReplace));
-void       wear_obj        args((Character *ch, Object *obj, bool fReplace));
-Character *find_keeper     args((Character *ch));
-int        get_cost        args((Character *keeper, Object *obj, bool fBuy));
-void       obj_to_keeper   args((Object *obj, Character *ch));
-Object  *get_obj_keeper  args((Character *ch, Character *keeper, const String& argument));
+/* Global for scrolls that want that extra oomph */
+extern String target_name;
+
 
 /* Convert a number to an ordinal string -- Elrac
    The string may come from a static buffer, so it should be copied
@@ -237,6 +230,31 @@ bool can_loot(Character *ch, Object *obj)
 		return true;
 
 	return false;
+}
+
+
+/*
+ * Remove an object.
+ */
+bool remove_obj(Character *ch, int iWear, bool fReplace)
+{
+	Object *obj;
+
+	if ((obj = get_eq_char(ch, iWear)) == nullptr)
+		return true;
+
+	if (!fReplace)
+		return false;
+
+	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
+		act("You can't seem to remove $p.", ch, obj, nullptr, TO_CHAR);
+		return false;
+	}
+
+	unequip_char(ch, obj);
+	act("$n stops using $p.", ch, obj, nullptr, TO_ROOM);
+	act("You stop using $p.", ch, obj, nullptr, TO_CHAR);
+	return true;
 }
 
 void do_second(Character *ch, String argument)
@@ -1578,7 +1596,7 @@ void do_give(Character *ch, String argument)
 	if (IS_SQUESTOR(ch)
 	    && ch->pcdata->squestmob != nullptr && ch->pcdata->squestobj != nullptr) {
 		if (obj == ch->pcdata->squestobj && victim == ch->pcdata->squestmob) {
-			extern void squestobj_to_squestmob args((Character * ch, Object * obj, Character * mob));
+			extern void squestobj_to_squestmob (Character * ch, Object * obj, Character * mob);
 
 			if (!ch->pcdata->squestobjf) {
 				Logging::bug("At give sqobj to sqmob without sqobj found, continuing...", 0);
@@ -2223,30 +2241,6 @@ void do_eat(Character *ch, String argument)
 	if (to_extract != nullptr)
 		extract_obj(to_extract);
 } /* end do_eat() */
-
-/*
- * Remove an object.
- */
-bool remove_obj(Character *ch, int iWear, bool fReplace)
-{
-	Object *obj;
-
-	if ((obj = get_eq_char(ch, iWear)) == nullptr)
-		return true;
-
-	if (!fReplace)
-		return false;
-
-	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
-		act("You can't seem to remove $p.", ch, obj, nullptr, TO_CHAR);
-		return false;
-	}
-
-	unequip_char(ch, obj);
-	act("$n stops using $p.", ch, obj, nullptr, TO_ROOM);
-	act("You stop using $p.", ch, obj, nullptr, TO_CHAR);
-	return true;
-}
 
 /*
  * Wear one object.
@@ -2941,9 +2935,6 @@ void do_quaff(Character *ch, String argument)
 	extract_obj(obj);
 }
 
-/* Global for scrolls that want that extra oomph */
-extern String target_name;
-
 void do_recite(Character *ch, String argument)
 {
 	Character *victim;
@@ -3215,7 +3206,7 @@ void do_brew(Character *ch, String argument)
 {
 	Object *obj;
 	skill::type sn;
-	int target_level = 0;    /* what level should we brew at? */
+	int target_level = 0;    /**<what level should we brew at? */
 
 	if (ch->is_npc()) {
 		stc("Mobiles can't brew!.\n", ch);
@@ -3349,7 +3340,7 @@ void do_scribe(Character *ch, String argument)
 {
 	Object *obj;
 	skill::type sn;
-	int target_level = 0;   /* let caster make items of lower level */
+	int target_level = 0;   /**<let caster make items of lower level */
 
 	if (ch->is_npc()) {
 		stc("Mobiles can't scribe!.\n", ch);
@@ -3894,11 +3885,11 @@ void do_buy(Character *ch, String argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	int cost, roll;
-	// char *x; /* for WIZ_CHEAT */
+	// char *x; /**<for WIZ_CHEAT */
 	int level_buyable;
-	int cash_on_char, money_in_bank; /* these together is all our money */
-	int need_bank_credit = false;    /* whether we need money from the bank */
-	int total_cost;              /* cost of multiple items */
+	int cash_on_char, money_in_bank; /**<these together is all our money */
+	int need_bank_credit = false;    /**<whether we need money from the bank */
+	int total_cost;              /**<cost of multiple items */
 	/* figure out how much moola we have -- Outsider */
 	cash_on_char = ch->silver + (ch->gold * 100);
 	money_in_bank = ch->silver_in_bank + (ch->gold_in_bank * 100);
@@ -5048,10 +5039,10 @@ void do_engrave(Character *ch, String argument)
 	ExtraDescr *eng_desc;
 	ExtraDescr *dflt_desc;
 	char buf[10 * MAX_INPUT_LENGTH];
-	char *pd;           /* ptr into desc text */
-	char *pb;           /* ptr into buffer */
-	char *l2, *ld, *la; /* line 2, line with dup author, line after dup author */
-	int  lines;         /* number of lines */
+	char *pd;           /**<ptr into desc text */
+	char *pb;           /**<ptr into buffer */
+	char *l2, *ld, *la; /**<line 2, line with dup author, line after dup author */
+	int  lines;         /**<number of lines */
 	char c0;
 	String dbuf;
 	char *eng_line;

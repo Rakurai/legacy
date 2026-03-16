@@ -32,13 +32,8 @@
 #include "sql.hh"
 #include "String.hh"
 
-#define CLAN_DIR        "../misc/"
-#define CLAN_FILE       "clans.txt"
-
 /* Forward declaration of functions in this module */
 void append_clan(Clan *);
-void remove_clan(const String&);
-int count_clans();
 
 /* Needed variables for using the list */
 Clan *clan_table_head;

@@ -17,25 +17,21 @@
 // global auction
 Auction auction;
 
-void Auction::
-init() {
+void Auction::init() {
 	item = nullptr;
 	buyer = nullptr;
 	seller = nullptr;
 }
 
-bool Auction::
-is_participant(Object *obj) const {
+bool Auction::is_participant(Object *obj) const {
 	return item != nullptr && obj == item;
 }
 
-bool Auction::
-is_participant(Character *ch) const {
+bool Auction::is_participant(Character *ch) const {
 	return item != nullptr && ch != nullptr && ((ch == buyer) || (ch == seller));
 }
 
-void Auction::
-update() {
+void Auction::update() {
 	if (item == nullptr) {
 		/* no auction in progress -- return doing nothing */
 		return;

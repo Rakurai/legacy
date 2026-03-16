@@ -55,27 +55,10 @@
 #include "World.hh"
 #include "comm.hh"
 
-extern void     squestmob_found args((Character *ch, Character *mob));
+extern void     squestmob_found (Character *ch, Character *mob);
 extern           time_t                  reboot_time;
+extern void spread_plague(Room *room, const affect::Affect *plague, int chance);
 
-/*
- * Local functions.
- */
-int     hit_gain        args((Character *ch));
-int     mana_gain       args((Character *ch));
-int     stam_gain       args((Character *ch));
-void    mobile_update   args((void));
-void    weather_update  args((void));
-void    char_update     args((void));
-void    descrip_update  args((void));
-void    obj_update      args((void));
-void    room_update     args((void));
-void    aggr_update     args((void));
-void    quest_update    args((void));
-void    underwater_update    args((void));
-void    janitor_update  args((void));
-
-/* used for saving */
 
 int     save_number = 0;
 
@@ -501,7 +484,7 @@ void gain_condition(Character *ch, int iCond, int value)
  * This function takes 25% to 35% of ALL Merc cpu time.
  * -- Furey
  */
-void mobile_update(void)
+void mobile_update()
 {
 	/* Examine all mobs. */
 	for (auto ch : Game::world().char_list)
@@ -510,7 +493,7 @@ void mobile_update(void)
 
 
 /* Update all descriptors, handles login timer */
-void descrip_update(void)
+void descrip_update()
 {
 	Descriptor *d, *d_next;
 	Character *ch;
@@ -567,7 +550,7 @@ void descrip_update(void)
 /*
  * Update all chars, including mobs.
 */
-void char_update(void)
+void char_update()
 {
 	Character *ch_quit;
 	ch_quit     = nullptr;
@@ -845,7 +828,7 @@ void char_update(void)
  * Update all objs.
  * This function is performance sensitive.
  */
-void obj_update(void)
+void obj_update()
 {
 	Object *obj;
 	Object *obj_next;
@@ -1003,7 +986,7 @@ void obj_update(void)
 }
 
 /* Update all rooms -- Montrey */
-void room_update(void) {
+void room_update() {
 	for (auto& area_pair : Game::world().areas) {
 		for (auto& pair : area_pair.second->rooms) {
 			Room *room = pair.second;
@@ -1092,7 +1075,7 @@ bool eligible_victim(Character *ch)
 	return true;
 }
 
-void aggr_update(void)
+void aggr_update()
 {
 	Descriptor *d;
 	int player_count;
@@ -1268,7 +1251,7 @@ void aggr_update(void)
 	}
 } /* end aggr_update() */
 
-void tele_update(void)
+void tele_update()
 {
 	Room *room;
 
@@ -1299,7 +1282,7 @@ void tele_update(void)
  * Mobs are not aged. It would take a lot of CPU time and contribute
  * nothing significant to realism.
  */
-void age_update(void)
+void age_update()
 {
 	Descriptor *d;
 	Character *wch;
@@ -1336,7 +1319,7 @@ void age_update(void)
    function is called from update_handler.  Maybe someday I'll figure out what
    went wrong, until then, this seems to be the best course of action.
                                                 -- Montrey */
-void wait_update(void)
+void wait_update()
 {
 	for (auto ch : Game::world().char_list) {
 		if (ch->daze > 0)       --ch->daze;
@@ -1345,12 +1328,151 @@ void wait_update(void)
 	}
 }
 
+
+/* worldwide cleanup of objects */
+void janitor_update()
+{
+	Character *rch;
+	Object *obj;
+
+	if (Game::port != DIZZYPORT)
+		return;
+
+	for (obj = Game::world().object_list; obj; obj = obj->next) {
+		if (!obj->in_room
+		    || obj->contains
+		    || obj->timer
+		    || obj->clean_timer)
+			continue;
+
+		if (obj->reset && obj->reset->command == 'O')
+			if (Location((int)obj->reset->arg3) == obj->in_room->location)
+				continue;
+
+		for (rch = obj->in_room->people; rch; rch = rch->next_in_room)
+			if (!rch->is_npc())
+				break;
+
+		if (rch)        /* found a player in the room */
+			continue;
+
+		switch (obj->item_type) {       /* leave these types alone */
+		case ITEM_FURNITURE:
+		case ITEM_MONEY:
+		case ITEM_CORPSE_PC:
+		case ITEM_FOUNTAIN:
+		case ITEM_PORTAL:
+		case ITEM_JUKEBOX:
+		case ITEM_ANVIL:
+//		case ITEM_COACH:
+		case ITEM_WEDDINGRING:
+		case ITEM_TOKEN:
+			continue;
+		}
+
+		if (roll_chance(10))
+			obj->clean_timer = number_range(80, 240);       /* 1 to 3 hours */
+	}
+
+//	Logging::bugf("janitor_update: %d items marked for cleanup", count);
+	objstate_save_items();
+}
+
+void underwater_update()
+{
+	int skill, dam;
+
+	for (auto ch : Game::world().char_list) {
+		if (!ch->is_npc() && ch->in_room->flags().has(ROOM_UNDER_WATER)) {
+			skill = get_skill_level(ch, skill::type::swimming);
+
+			if (skill == 100)
+				stc("You would be {Cdrowning{x if not for your underwater breathing skill.\n", ch);
+			else {
+				/* a drink of water */
+				gain_condition(ch, COND_THIRST,
+				               liq_table[0].affect[4] * liq_table[0].affect[COND_THIRST] / 10);
+				gain_condition(ch, COND_FULL,
+				               liq_table[0].affect[4] * liq_table[0].affect[COND_FULL] / 4);
+				dam = (ch->hit * (100 - skill)) / 400;
+
+				if (ch->hit > 100) {
+					stc("{CYou are drowning!!!{x\n", ch);
+
+					if (skill > 0) {
+						stc("{HYour skill helps slow your drowning.{x\n", ch);
+						check_improve(ch, skill::type::swimming, true, 1);
+					}
+
+					damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::swimming, -1, DAM_WATER, false, true);
+				}
+				else {
+					stc("{PYou cannot hold your breath any more!{x\n", ch);
+					stc("{CYour lungs fill with water and you lose consciousness...{x\n", ch);
+					damage(ch->fighting ? ch->fighting : ch, ch, ch->hit + 15, skill::type::swimming, -1, DAM_WATER, false, true);
+				}
+			}
+		}
+	}
+}
+
+void quest_update()
+{
+	Descriptor *d;
+	Character *ch;
+
+	for (d = descriptor_list; d != nullptr; d = d->next) {
+		if (d->is_playing()) {
+			ch = d->character;
+
+			if (ch->is_npc())
+				continue;
+
+			if (ch->pcdata->nextquest > 0) {
+				ch->pcdata->nextquest--;
+
+				if (ch->pcdata->nextquest == 0)
+					stc("You may now quest again.\n", ch);
+			}
+			else if (IS_QUESTOR(ch)) {
+				if (--ch->pcdata->countdown <= 0) {
+					ch->pcdata->nextquest = 0;
+					stc("You have run out of time for your quest!\nYou may now quest again.\n", ch);
+					quest_cleanup(ch);
+				}
+
+				if (ch->pcdata->countdown > 0 && ch->pcdata->countdown < 6)
+					stc("Better hurry, you're almost out of time for your quest!\n", ch);
+			}
+
+			/* parasite skill quest timer off of quest_update */
+			if (ch->pcdata->nextsquest > 0) {
+				ch->pcdata->nextsquest--;
+
+				if (ch->pcdata->nextsquest == 0)
+					stc("You may now skill quest again.\n", ch);
+			}
+			else if (IS_SQUESTOR(ch)) {
+				if (--ch->pcdata->sqcountdown <= 0) {
+					ch->pcdata->nextsquest = 0;
+					stc("You have run out of time for your skill quest!\n"
+					    "You may now skill quest again.\n", ch);
+					sq_cleanup(ch);
+				}
+
+				if (ch->pcdata->sqcountdown > 0 && ch->pcdata->sqcountdown < 6)
+					stc("Better hurry, you're almost out of time for your skill quest!\n", ch);
+			}
+		}
+	}
+} /* end quest_update() */
+
 /*
  * Handle all kinds of updates.
  * Called once per pulse from game loop.
  * Random times to defeat tick-timing clients and players.
  */
-void update_handler(void)
+void update_handler()
 {
 	static int      pulse_quest,
 	       pulse_mobile,
@@ -1430,141 +1552,3 @@ void update_handler(void)
 	auction.update();
 	aggr_update();
 } /* end update_handler() */
-
-/* worldwide cleanup of objects */
-void janitor_update()
-{
-	Character *rch;
-	Object *obj;
-
-	if (Game::port != DIZZYPORT)
-		return;
-
-	for (obj = Game::world().object_list; obj; obj = obj->next) {
-		if (!obj->in_room
-		    || obj->contains
-		    || obj->timer
-		    || obj->clean_timer)
-			continue;
-
-		if (obj->reset && obj->reset->command == 'O')
-			if (Location((int)obj->reset->arg3) == obj->in_room->location)
-				continue;
-
-		for (rch = obj->in_room->people; rch; rch = rch->next_in_room)
-			if (!rch->is_npc())
-				break;
-
-		if (rch)        /* found a player in the room */
-			continue;
-
-		switch (obj->item_type) {       /* leave these types alone */
-		case ITEM_FURNITURE:
-		case ITEM_MONEY:
-		case ITEM_CORPSE_PC:
-		case ITEM_FOUNTAIN:
-		case ITEM_PORTAL:
-		case ITEM_JUKEBOX:
-		case ITEM_ANVIL:
-//		case ITEM_COACH:
-		case ITEM_WEDDINGRING:
-		case ITEM_TOKEN:
-			continue;
-		}
-
-		if (roll_chance(10))
-			obj->clean_timer = number_range(80, 240);       /* 1 to 3 hours */
-	}
-
-//	Logging::bugf("janitor_update: %d items marked for cleanup", count);
-	objstate_save_items();
-}
-
-void underwater_update(void)
-{
-	int skill, dam;
-
-	for (auto ch : Game::world().char_list) {
-		if (!ch->is_npc() && ch->in_room->flags().has(ROOM_UNDER_WATER)) {
-			skill = get_skill_level(ch, skill::type::swimming);
-
-			if (skill == 100)
-				stc("You would be {Cdrowning{x if not for your underwater breathing skill.\n", ch);
-			else {
-				/* a drink of water */
-				gain_condition(ch, COND_THIRST,
-				               liq_table[0].affect[4] * liq_table[0].affect[COND_THIRST] / 10);
-				gain_condition(ch, COND_FULL,
-				               liq_table[0].affect[4] * liq_table[0].affect[COND_FULL] / 4);
-				dam = (ch->hit * (100 - skill)) / 400;
-
-				if (ch->hit > 100) {
-					stc("{CYou are drowning!!!{x\n", ch);
-
-					if (skill > 0) {
-						stc("{HYour skill helps slow your drowning.{x\n", ch);
-						check_improve(ch, skill::type::swimming, true, 1);
-					}
-
-					damage(ch->fighting ? ch->fighting : ch, ch, dam, skill::type::swimming, -1, DAM_WATER, false, true);
-				}
-				else {
-					stc("{PYou cannot hold your breath any more!{x\n", ch);
-					stc("{CYour lungs fill with water and you lose consciousness...{x\n", ch);
-					damage(ch->fighting ? ch->fighting : ch, ch, ch->hit + 15, skill::type::swimming, -1, DAM_WATER, false, true);
-				}
-			}
-		}
-	}
-}
-
-void quest_update(void)
-{
-	Descriptor *d;
-	Character *ch;
-
-	for (d = descriptor_list; d != nullptr; d = d->next) {
-		if (d->is_playing()) {
-			ch = d->character;
-
-			if (ch->is_npc())
-				continue;
-
-			if (ch->pcdata->nextquest > 0) {
-				ch->pcdata->nextquest--;
-
-				if (ch->pcdata->nextquest == 0)
-					stc("You may now quest again.\n", ch);
-			}
-			else if (IS_QUESTOR(ch)) {
-				if (--ch->pcdata->countdown <= 0) {
-					ch->pcdata->nextquest = 0;
-					stc("You have run out of time for your quest!\nYou may now quest again.\n", ch);
-					quest_cleanup(ch);
-				}
-
-				if (ch->pcdata->countdown > 0 && ch->pcdata->countdown < 6)
-					stc("Better hurry, you're almost out of time for your quest!\n", ch);
-			}
-
-			/* parasite skill quest timer off of quest_update */
-			if (ch->pcdata->nextsquest > 0) {
-				ch->pcdata->nextsquest--;
-
-				if (ch->pcdata->nextsquest == 0)
-					stc("You may now skill quest again.\n", ch);
-			}
-			else if (IS_SQUESTOR(ch)) {
-				if (--ch->pcdata->sqcountdown <= 0) {
-					ch->pcdata->nextsquest = 0;
-					stc("You have run out of time for your skill quest!\n"
-					    "You may now skill quest again.\n", ch);
-					sq_cleanup(ch);
-				}
-
-				if (ch->pcdata->sqcountdown > 0 && ch->pcdata->sqcountdown < 6)
-					stc("Better hurry, you're almost out of time for your skill quest!\n", ch);
-			}
-		}
-	}
-} /* end quest_update() */

@@ -6,8 +6,7 @@
 
 namespace conn {
 
-State * GetAlignmentState::
-handleInput(Descriptor *d, const String& argument) {
+State * GetAlignmentState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	switch (argument[0]) {

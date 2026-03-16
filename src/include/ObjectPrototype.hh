@@ -21,15 +21,15 @@ public:
     ObjectPrototype *    next = nullptr;
     ExtraDescr *        extra_descr = nullptr;
     affect::Affect *       affected = nullptr;
-    unsigned long       affect_checksum = 0; // for comparing to instances on saving
+    unsigned long       affect_checksum = 0; ///< for comparing to instances on saving
     String              name;
     String              short_descr;
     String              description;
     int              reset_num = 0;
     String              material;
     int              item_type = 0;
-    Flags               extra_flags; /* Formerly INT */
-    Flags               wear_flags;  /* Formerly INT */
+    Flags               extra_flags; /**< Formerly INT */
+    Flags               wear_flags;  /**< Formerly INT */
     int              level = 0;
     int              condition = 0;
     int              count = 0;
@@ -37,7 +37,7 @@ public:
     int                 cost = 0;
     ObjectValue         value[5];
 
-    int                 num_settings = 0; // for socketed gems
+    int                 num_settings = 0; ///< for socketed gems
 	Guild			guild = Guild::none;
 	//int					suffix[3];
 	

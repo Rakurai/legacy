@@ -27,8 +27,7 @@ int roll_stat(const Character *ch, int stat)
 	return temp;
 }
 
-State * RollStatsState::
-handleInput(Descriptor *d, const String& argument) {
+State * RollStatsState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	switch (argument[0]) {

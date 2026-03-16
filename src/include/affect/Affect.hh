@@ -19,15 +19,14 @@ namespace affect {
 /*
  * An affect.
  */
-class Affect :
-public Pooled<Affect>
+class Affect : public Pooled<Affect>
 {
 public:
     // note: the grouping of these fields is important for computing checksums.
     // if any of these change (especially these first 4) the checksum function will need updating.
     Affect *       next = nullptr;
-    Affect *       prev = nullptr; // now a doubly liked list -- Montrey
-    bool                mark = false; // mark for deletion from list, other uses
+    Affect *       prev = nullptr; ///< now a doubly liked list -- Montrey
+    bool                mark = false; ///< mark for deletion from list, other uses
 
     // fields included in checksum
     int              where = 0;
@@ -36,37 +35,39 @@ public:
     int              duration = 0;
     int              location = 0;
     int              modifier = 0;
-    int                 _bitvector = 0; // only for weapon flags now
+    int                 _bitvector = 0; ///< only for weapon flags now
     int              evolution = 0;
     bool                permanent = false;
 
     const Flags bitvector() const { return Flags(_bitvector); }
     void bitvector(const Flags& f) { _bitvector = f.to_ulong(); }
 
-} __attribute__((packed, aligned(1))); // no alignment padding, for checksums
+} __attribute__((packed, aligned(1))); ///< no alignment padding, for checksums
 
-/* where definitions */
+/**
+ * @defgroup AffectTargets Constants defining affect targets
+ * @{
+ */
 constexpr int TO_AFFECTS    = 0;
-constexpr int TO_OBJECT     = 1; // obj->extra_flags
+constexpr int TO_OBJECT     = 1; /**< obj->extra_flags */
 constexpr int TO_DEFENSE    = 2;
 constexpr int TO_WEAPON     = 5;
-/* new definitions for room affects -- Montrey */
-constexpr int TO_ROOMFLAGS  = 6;
-constexpr int TO_HPREGEN    = 7;
-constexpr int TO_MPREGEN    = 8;
+constexpr int TO_ROOMFLAGS  = 6; /**< room affects */
+constexpr int TO_HPREGEN    = 7; /**< room affects */
+constexpr int TO_MPREGEN    = 8; /**< room affects */
 
-// these aren't used by affects, just to communicate what kind of defense for printing things
-constexpr int TO_ABSORB     = 20;
-constexpr int TO_IMMUNE     = 21;
-constexpr int TO_RESIST     = 22;
-constexpr int TO_VULN       = 23;
+constexpr int TO_ABSORB     = 20; /**< used to communicate what kind of defense for printing things */
+constexpr int TO_IMMUNE     = 21; /**< used to communicate what kind of defense for printing things */
+constexpr int TO_RESIST     = 22; /**< used to communicate what kind of defense for printing things */
+constexpr int TO_VULN       = 23; /**< used to communicate what kind of defense for printing things */
+/** @} */
 
 struct table_entry
 {
-    String        name;                   /* Name of skill                */
-    String        msg_off;                /* Wear off message             */
-    String        msg_room;              // wear off message to room
-    String        msg_obj;                /* Wear off message for obects  */
+    String        name;                   /**< Name of skill                */
+    String        msg_off;                /**< Wear off message             */
+    String        msg_room;              ///< wear off message to room
+    String        msg_obj;                /**< Wear off message for obects  */
 };
 
 extern  const   std::map<::affect::type, const table_entry>     affect_table;
@@ -78,12 +79,13 @@ const ::affect::type lookup(const String& name);
 typedef int (*affect_fn)(Affect *node, void *data);
 typedef void (*owner_modifier_fn)(void *owner, const Affect *paf, bool fAdd);
 
-typedef struct fn_params {
+struct fn_params {
 	void *owner;
 //	affect_fn fn;
 	owner_modifier_fn modifier;
 	void *data;
-} affect_fn_params;
+};
+typedef fn_params affect_fn_params;
 
 // handy little container to pass an affect enum value as a data parameter by pointer
 struct fn_data_container_type {
@@ -175,7 +177,3 @@ void                sort_room                 ( Room *ch, comparator comp );
 void                remort_affect_modify_char ( Character *ch, int where, Flags bitvector, bool fAdd );
 
 } // namespace affect
-
-// weird things out of namespace, fix up when possible
-void show_affect_to_char(const affect::Affect *paf, Character *ch);
-void spread_plague(Room *room, const affect::Affect *plague, int chance );

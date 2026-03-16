@@ -21,7 +21,7 @@ constexpr int MAX_KEY_HASH = 1024;
 constexpr int PAGELEN = 22;
 
 // moved from Character.hh
-constexpr int MAX_ATTR = 48; // last apply (that we want to have bonus modifiers for) + 1
+constexpr int MAX_ATTR = 48; ///< last apply (that we want to have bonus modifiers for) + 1
 
 // for character stats
 constexpr size_t DEFENSE_MOD_MEM_SIZE = sizeof(int) * 32;

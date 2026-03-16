@@ -43,55 +43,13 @@
 #include "Social.hh"
 #include "String.hh"
 
-#define SOCIAL_FILE "../misc/social.txt"
 
-void insert_social(Social *);
-void remove_social(const String&);
-int count_socials();
 
 int maxSocial;
 
-Social *social_table_head;     /* and social table */
-Social *social_table_tail;     /* and social table */
+Social *social_table_head;     /**<and social table */
+Social *social_table_tail;     /**<and social table */
 
-void load_social(FILE *fp, Social *social)
-{
-	social->name =          fread_string(fp);
-	social->char_no_arg =   fread_string(fp);
-	social->others_no_arg = fread_string(fp);
-	social->char_found =    fread_string(fp);
-	social->others_found =  fread_string(fp);
-	social->vict_found =    fread_string(fp);
-	social->char_auto =     fread_string(fp);
-	social->others_auto =   fread_string(fp);
-}
-
-void load_social_table()
-{
-	FILE *fp;
-	int i;
-	Social *new_social;
-	fp = fopen(SOCIAL_FILE, "r");
-
-	if (!fp) {
-		Logging::bug("Could not open " SOCIAL_FILE " for reading.", 0);
-		return;
-	}
-
-	fscanf(fp, "%d\n", &maxSocial);
-	social_table_head = new Social;
-	social_table_tail = new Social;
-	social_table_head->next = social_table_tail;
-	social_table_tail->previous = social_table_head;
-
-	for (i = 0; i < maxSocial; i++) {
-		new_social = new Social;
-		load_social(fp, new_social);
-		insert_social(new_social);
-	}
-
-	fclose(fp);
-}
 
 /*
  * May 9th by Clerve.
@@ -149,6 +107,45 @@ void remove_social(const String& name)
 	}
 }
 
+void load_social(FILE *fp, Social *social)
+{
+	social->name =          fread_string(fp);
+	social->char_no_arg =   fread_string(fp);
+	social->others_no_arg = fread_string(fp);
+	social->char_found =    fread_string(fp);
+	social->others_found =  fread_string(fp);
+	social->vict_found =    fread_string(fp);
+	social->char_auto =     fread_string(fp);
+	social->others_auto =   fread_string(fp);
+}
+
+void load_social_table()
+{
+	FILE *fp;
+	int i;
+	Social *new_social;
+	fp = fopen(SOCIAL_FILE, "r");
+
+	if (!fp) {
+		Logging::bugf("Could not open %s for reading.", SOCIAL_FILE);
+		return;
+	}
+
+	fscanf(fp, "%d\n", &maxSocial);
+	social_table_head = new Social;
+	social_table_tail = new Social;
+	social_table_head->next = social_table_tail;
+	social_table_tail->previous = social_table_head;
+
+	for (i = 0; i < maxSocial; i++) {
+		new_social = new Social;
+		load_social(fp, new_social);
+		insert_social(new_social);
+	}
+
+	fclose(fp);
+}
+
 /*
  * May 9th by Clerve.
  * Counting all socials
@@ -188,7 +185,7 @@ void save_social_table()
 	fp = fopen(SOCIAL_FILE, "w");
 
 	if (!fp) {
-		Logging::bug("Could not open " SOCIAL_FILE " for writing.", 0);
+		Logging::bugf("Could not open %s for writing.", SOCIAL_FILE);
 		return;
 	}
 

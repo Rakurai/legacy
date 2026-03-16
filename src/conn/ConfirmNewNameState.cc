@@ -5,8 +5,7 @@
 
 namespace conn {
 
-State * ConfirmNewNameState::
-handleInput(Descriptor *d, const String& argument) {
+State * ConfirmNewNameState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	/* We're past all the reconnect stuff, we can be sure that the character

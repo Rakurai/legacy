@@ -9,9 +9,21 @@ namespace gem {
 // constants
 constexpr int MAX_GEM_SETTINGS = 4;
 
-// obj value fields
+/**
+ * @defgroup GemValueFields Constants defining gem value fields
+ * @{
+ */
 constexpr int GEM_VALUE_TYPE = 0;
 constexpr int GEM_VALUE_QUALITY = 1;
+/** @} */
+
+/**
+ * @defgroup GemObjectPrimitives Constants defining gem object primitives
+ * @{
+ */
+constexpr int OBJ_VNUM_GEM_RUBY   = 121;
+constexpr int OBJ_VNUM_GEM_EMERALD = 122;
+/** @} */
 
 // gem qualities
 enum Quality : int {
@@ -24,10 +36,6 @@ enum Quality : int {
 	Dazzling,
 	COUNT
 };
-
-// gem object primitives
-constexpr int OBJ_VNUM_GEM_RUBY   = 121;
-constexpr int OBJ_VNUM_GEM_EMERALD = 122;
 
 struct type_st
 {

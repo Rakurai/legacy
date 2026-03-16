@@ -18,7 +18,7 @@ namespace conn {
 bool check_player_exist(Descriptor *d, const String& name)
 {
 	Descriptor *dold;
-	StoredPlayer *exist = nullptr;    /* is character in storage */
+	StoredPlayer *exist = nullptr;    /**<is character in storage */
 
 	for (dold = descriptor_list; dold; dold = dold->next) {
 		if (dold != d
@@ -110,8 +110,7 @@ bool check_reconnect(Descriptor *d, const String& name)
 	return false;
 }
 
-State * GetNameState::
-handleInput(Descriptor *d, const String& args) {
+State * GetNameState::handleInput(Descriptor *d, const String& args) {
 	String argument(args);
 
 	if (argument.empty()) {

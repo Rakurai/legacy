@@ -6,8 +6,8 @@
 
 namespace affect {
 
-#define get_cache(ch) ((ch)->affect_cache == nullptr ? nullptr : (int *)(ch)->affect_cache)
-#define cache_size (int)::affect::type::size
+#define GET_CACHE(ch) ((ch)->affect_cache == nullptr ? nullptr : (int *)(ch)->affect_cache)
+#define CACHE_SIZE (int)::affect::type::size
 
 void free_cache(Character *ch) {
 	delete[] (int *)ch->affect_cache;
@@ -17,45 +17,45 @@ void free_cache(Character *ch) {
 bool in_cache(const Character *ch, ::affect::type type) {
 	return (
 		type > ::affect::type::none
-	 && (int)type < cache_size
+	 && (int)type < CACHE_SIZE
 	 && ch->affect_cache
-	 && get_cache(ch)[(int)type] > 0);
+	 && GET_CACHE(ch)[(int)type] > 0);
 }
 
 void update_cache(Character *ch, ::affect::type type, bool fAdd) {
-	if (type <= ::affect::type::none /* 0 */ || (int)type >= cache_size) {
+	if (type <= ::affect::type::none /* 0 */ || (int)type >= CACHE_SIZE) {
 		Logging::bug("update_cache: called with type = %d", (int)type);
 		return;
 	}
 
 	if (fAdd) {
-		if (get_cache(ch) == nullptr) {
-			ch->affect_cache = new int[cache_size]; // every type
+		if (GET_CACHE(ch) == nullptr) {
+			ch->affect_cache = new int[CACHE_SIZE]; // every type
 
-			for (int i = 0; i < cache_size; i++)
-				get_cache(ch)[i] = 0;
+			for (int i = 0; i < CACHE_SIZE; i++)
+				GET_CACHE(ch)[i] = 0;
 		}
 
-		get_cache(ch)[(int)type]++;
-		get_cache(ch)[0]++;
+		GET_CACHE(ch)[(int)type]++;
+		GET_CACHE(ch)[0]++;
 	}
 	else {
-		if (get_cache(ch) == nullptr) {
+		if (GET_CACHE(ch) == nullptr) {
 			Logging::bugf("update_cache: illegal removal from nullptr affect cache at type %d (%s)",
 				type, lookup(type).name);
 			return;
 		}
 
-		if (get_cache(ch)[(int)type] == 0) {
+		if (GET_CACHE(ch)[(int)type] == 0) {
 			Logging::bugf("update_cache: illegal removal of uncounted value at type %d (%s)",
 				type, lookup(type).name);
 			return;
 		}
 
-		get_cache(ch)[(int)type]--;
-		get_cache(ch)[0]--;
+		GET_CACHE(ch)[(int)type]--;
+		GET_CACHE(ch)[0]--;
 
-		if (get_cache(ch)[0] == 0)
+		if (GET_CACHE(ch)[0] == 0)
 			free_cache(ch);
 	}
 }
@@ -66,8 +66,8 @@ String print_cache(Character *ch) {
 	if (ch->affect_cache == nullptr)
 		return buf;
 
-	for (int type_n = 1; type_n < cache_size; type_n++) {
-		int count = get_cache(ch)[type_n];
+	for (int type_n = 1; type_n < CACHE_SIZE; type_n++) {
+		int count = GET_CACHE(ch)[type_n];
 
 		if (count > 0) {
 			if (!buf.empty())

@@ -19,7 +19,7 @@ public:
         String  name;
         String  desc;
 
-        Vnum minvnum = 0;    /* actual arena, not prep rooms or view room */
+        Vnum minvnum = 0;    /**< actual arena, not prep rooms or view room */
         Vnum maxvnum = 0;
         Room *chalprep = nullptr;
         Room *defprep = nullptr;

@@ -44,9 +44,9 @@ char *const distance[4] = {
 	"off in the distance "
 };
 
-void    scan_list       args((Room *scan_room, Character *ch, int depth, int door));
-void    scan_room       args((Room *room, Character *ch, int depth, int door, Exit *pexit));
-void    scan_char       args((Character *victim, Character *ch, int depth, int door));
+void    scan_list       (Room *scan_room, Character *ch, int depth, int door);
+void    scan_room       (Room *room, Character *ch, int depth, int door, Exit *pexit);
+void    scan_char       (Character *victim, Character *ch, int depth, int door);
 
 void do_scan(Character *ch, String argument)
 {

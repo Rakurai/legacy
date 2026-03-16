@@ -61,7 +61,7 @@
 #include "World.hh"
 #include "RoomPrototype.hh"
 
-DECLARE_SPEC_FUN(spec_clanguard);
+extern DECLARE_SPEC_FUN(spec_clanguard);
 
 const std::map<Sector, int> stamina_loss = {
 	{ Sector::none,          0 },
@@ -85,9 +85,6 @@ const std::map<Sector, int> stamina_loss = {
 /*
  * Local functions.
  */
-int     find_door       args((Character *ch, char *arg));
-bool    has_key         args((Character *ch, int key));
-int     find_exit       args((Character *ch, const String& arg));
 
 void move_char(Character *ch, int door, bool follow)
 {
@@ -2182,7 +2179,7 @@ void do_push(Character *ch, String argument)
 				do_fly(victim, "");
 
 			if (!IS_FLYING(victim)) {
-				int count = 0;  /* just to prevent an infinite loop */
+				int count = 0;  /**<just to prevent an infinite loop */
 				long brief = victim->comm_flags.has(COMM_BRIEF);
 				victim->comm_flags += COMM_BRIEF;
 
@@ -2513,7 +2510,7 @@ void do_drag(Character *ch, String argument)
 				do_fly(victim, "");
 
 			if (!IS_FLYING(victim)) {
-				int count = 0;  /* just to prevent an infinite loop */
+				int count = 0;  /**<just to prevent an infinite loop */
 				long brief = victim->comm_flags.has(COMM_BRIEF);
 				victim->comm_flags += COMM_BRIEF;
 
@@ -3224,8 +3221,8 @@ or in a non-teleport/recall area.
 */
 void do_spousegate(Character *ch, String argument)
 {
-	Character *victim;   /* the spouse in question */
-	bool gate_pet = false;   /* take pet with you */
+	Character *victim;   /**<the spouse in question */
+	bool gate_pet = false;   /**<take pet with you */
 
 	if (ch->is_npc())
 		return;

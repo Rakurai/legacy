@@ -9,8 +9,7 @@
 #include "String.hh"
 #include "World.hh"
 
-GameTime::
-GameTime(std::time_t system_time) {
+GameTime::GameTime(std::time_t system_time) {
 	unsigned long lhour, lday, lmonth;
 	lhour           = (system_time - 650336715) / (PULSE_TICK / PULSE_PER_SECOND);
 	hour            = lhour  % MUD_DAY;
@@ -27,8 +26,7 @@ GameTime(std::time_t system_time) {
 	else                sunlight = Night;
 }
 
-const String& GameTime::
-day_name() const {
+const String& GameTime::day_name() const {
 	static const String days[] = {
 		"Regeneration",
 		"Endeavor",
@@ -42,8 +40,7 @@ day_name() const {
 	return days[day % 7];
 }
 
-const String& GameTime::
-month_name() const {
+const String& GameTime::month_name() const {
 	static const String months[] = {
 		"Abundance", "Perseverance", "Challenge",
 		"Sacrifice", "Continuity", "Reverence",
@@ -56,10 +53,9 @@ month_name() const {
 	return months[month];
 }
 
-const String GameTime::
-day_string() const {
+const String GameTime::day_string() const {
 	String suffix;
-	int iday = day+1; // convert from 0-enumerated
+	int iday = day+1; ///< convert from 0-enumerated
 
 	if (iday > 3 && iday < 20) suffix = "th";
 	else if (iday % 10 == 1)   suffix = "st";
@@ -70,8 +66,7 @@ day_string() const {
 	return Format::format("%d%s", iday, suffix);
 }
 
-void GameTime::
-update() {
+void GameTime::update() {
 	++hour;
 
 	if (hour >= MUD_DAY) {

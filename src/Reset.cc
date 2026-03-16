@@ -13,8 +13,7 @@
 #include "World.hh"
 #include "RoomPrototype.hh"
 
-Reset::
-Reset(FILE *fp) {
+Reset::Reset(FILE *fp) {
 	ObjectPrototype *temp_index;
 	String tmp_buf;
 

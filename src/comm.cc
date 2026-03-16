@@ -94,15 +94,15 @@ const unsigned char echo_on_str  [] = { IAC, WONT, TELOPT_ECHO, '\0' };
  * Signal handling.
  */
 
-String exe_file; // the executable this process booted from
+String exe_file; ///< the executable this process booted from
 
 /*
  * Global variables.
  */
-Descriptor    *descriptor_list;    /* All open descriptors         */
-Descriptor    *d_next;             /* Next descriptor in loop      */
-bool                god;                /* All new chars are gods!      */
-bool            merc_down;              /* shutdown */
+Descriptor    *descriptor_list;    /**<All open descriptors         */
+Descriptor    *d_next;             /**<Next descriptor in loop      */
+bool                god;                /**<All new chars are gods!      */
+bool            merc_down;              /**<shutdown */
 char                str_boot_time[MAX_INPUT_LENGTH];
 time_t              reboot_time = 0;
 int                 control;
@@ -112,22 +112,21 @@ int                                     last_signal = -1;
 /*
  * OS-dependent local functions.
  */
-void    game_loop_unix          args((int control));
-int     init_socket             args((int port));
-void    init_descriptor         args((int control));
-bool    read_from_descriptor    args((Descriptor *d));
-bool    write_to_descriptor     args((int desc, const String& txt, int length));
+void    game_loop_unix          (int control);
+int     init_socket             (int port);
+void    init_descriptor         (int control);
+bool    read_from_descriptor    (Descriptor *d);
+bool    write_to_descriptor     (int desc, const String& txt, int length);
 
-/*
- * Other local functions (OS-independent).
- */
+// /*
+//  * Other local functions (OS-independent).
+//  */
 void show_string(Descriptor *d, bool clear_remainder);
-int     main                    args((int argc, char **argv));
-bool    process_output          args((Descriptor *d, bool fPrompt));
-void    read_from_buffer        args((Descriptor *d));
-void    stop_idling             args((Character *ch));
-void    bust_a_prompt           args((Character *ch));
-char    *get_multi_command     args((Descriptor *d, const String& argument));
+bool    process_output          (Descriptor *d, bool fPrompt);
+void    read_from_buffer        (Descriptor *d);
+void    stop_idling             (Character *ch);
+void    bust_a_prompt           (Character *ch);
+char *get_multi_command(Descriptor *d, const String& argument);
 String expand_color_codes(Character *ch, const String& str);
 
 void echo_off(Descriptor *d) {
@@ -687,7 +686,7 @@ void init_descriptor(int control)
 #endif
 	struct hostent *from;
 	int desc;
-	unsigned int size; /* Added unsigned Lotus359 */
+	unsigned int size; /**<Added unsigned Lotus359 */
 #if defined(SAND)
 	char *tmp_name;
 #endif
@@ -701,9 +700,9 @@ void init_descriptor(int control)
 		return;
 	}
 
-#if !defined(FNDELAY)
- #define FNDELAY O_NDELAY
-#endif
+//#if !defined(FNDELAY)
+//#define FNDELAY O_NDELAY
+//#endif
 
 	if (fcntl(desc, F_SETFL, FNDELAY) == -1) {
 		wiznet("init_descriptor: error setting FNDELAY",

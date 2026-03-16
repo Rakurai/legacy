@@ -58,14 +58,24 @@ char logline[MAX_STRING_LENGTH] = " "; /* extern for debug */
 
 /* Disabled Commands Stuff */
 
-/*
- * Command logging types.
+/**
+ * @defgroup CommandLoggingTypes Command Logging Types
+ * @brief Defines the logging behavior for commands in the game.
+ * 
+ * These constants specify whether a command's execution should be logged
+ * under normal circumstances, always logged, or never logged.
+ * @{
  */
 constexpr int LOG_NORMAL = 0;
 constexpr int LOG_ALWAYS = 1;
 constexpr int LOG_NEVER  = 2;
+/** @} */
 
-/* shorthand */
+/**
+ * @defgroup CommandGroupShorthandFlags Shorthand Flags
+ * @brief Defines shorthand constants for various group flags used in the game.
+ * @{
+ */
 constexpr Flags::Bit GP  = GROUP_PLAYER;
 constexpr Flags::Bit GM  = GROUP_MOBILE;
 constexpr Flags::Bit GC  = GROUP_CLAN;
@@ -78,6 +88,7 @@ constexpr Flags::Bit GWQ = GROUP_QUEST;
 constexpr Flags::Bit GWB = GROUP_BUILD;
 constexpr Flags::Bit GWC = GROUP_CODE;
 constexpr Flags::Bit GWS = GROUP_SECURE;
+/** @} */
 
 /*
  * Command table.

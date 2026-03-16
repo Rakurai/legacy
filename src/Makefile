@@ -10,7 +10,7 @@ $(shell mkdir -p $(OBJDIR) >/dev/null)
 
 CXX      = g++
 STD      = -std=c++14
-WARNING  = -Wall -Winline -Wno-write-strings -Wno-format-security -Wsign-compare
+WARNING  = -Wall -Winline -Wno-write-strings -Wno-format-security -Wsign-compare -Wno-deprecated-declarations
 DEBUG    = -ggdb
 DEFINE   = -Dunix -DSQL -DDEBUG -DIPV6
 INCLUDE  = -I$(INCDIR) -I/usr/include -I/usr/local/include -I/opt/local/include

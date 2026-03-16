@@ -11,8 +11,7 @@
 #include "Room.hh"
 #include "World.hh"
 
-Weather::
-Weather(const GameTime& t) :
+Weather::Weather(const GameTime& t) :
 	time(t)
 {
 	if (time.month >= 7 && time.month <= 12)
@@ -26,8 +25,7 @@ Weather(const GameTime& t) :
 	else                    sky = Cloudless;
 }
 
-const String Weather::
-describe() const {
+const String Weather::describe() const {
 	static const String sky_look[4] = {
 		"bright and sunny",
 		"cloudy",
@@ -54,8 +52,7 @@ describe() const {
 	return buf;
 }
 
-void Weather::
-update()
+void Weather::update()
 {
 	String buf;
 	int diff;

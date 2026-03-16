@@ -2,8 +2,7 @@
 #include "String.hh"
 #include "Format.hh"
 
-const String worldmap::Coordinate::
-to_string(bool short_loc) const {
+const String worldmap::Coordinate::to_string(bool short_loc) const {
 	if (!is_valid())
 		return "(null)";
 

@@ -3,8 +3,7 @@
 #include "Format.hh"
 #include "Vnum.hh"
 
-RoomID::
-RoomID(const Vnum& vnum, int number) : RoomID() {
+RoomID::RoomID(const Vnum& vnum, int number) : RoomID() {
 	if (number < 1 || (number >> num_bits_number()) > 0)
 		return; // error
 
@@ -15,9 +14,8 @@ RoomID(const Vnum& vnum, int number) : RoomID() {
 	vnum_data = (unsigned short)vnum.value();
 }
 
-RoomID::
-RoomID(const String& s) : RoomID() {
-	String str(s.strip()); // splitting also strips both returns below
+RoomID::RoomID(const String& s) : RoomID() {
+	String str(s.strip()); ///< splitting also strips both returns below
 
 	int num = 1;
 
@@ -37,24 +35,21 @@ RoomID(const String& s) : RoomID() {
 	*this = RoomID(Vnum(vnum), num); // will error check
 }
 
-const Vnum RoomID::
-get_vnum() const {
+const Vnum RoomID::get_vnum() const {
 	if (!is_valid())
 		return Vnum(0);
 
 	return Vnum(vnum_data);
 }
 
-const int RoomID::
-get_number() const {
+const int RoomID::get_number() const {
 	if (!is_valid())
 		return 0;
 
 	return ((number_data << 2) >> 2)+1;
 }
 
-const String RoomID::
-to_string(bool short_loc) const {
+const String RoomID::to_string(bool short_loc) const {
 	if (!is_valid())
 		return "(null)";
 

@@ -7,8 +7,7 @@
 #include "merc.hh"
 #include "MobProg.hh"
 
-MobilePrototype::
-MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
+MobilePrototype::MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
 	area(area),
 	vnum(vnum)
 {
@@ -130,14 +129,12 @@ MobilePrototype(Area& area, const Vnum& vnum, FILE *fp) :
 	read_mobprogs(fp);
 }
 
-MobilePrototype::
-~MobilePrototype() {
+MobilePrototype::~MobilePrototype() {
 	for (auto mobprog : mobprogs)
 		delete mobprog;
 }
 
-void MobilePrototype::
-read_mobprogs(FILE *fp) {
+void MobilePrototype::read_mobprogs(FILE *fp) {
 	while (true) {
 		char letter = fread_letter(fp);
 

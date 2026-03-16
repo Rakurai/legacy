@@ -503,7 +503,7 @@ void do_testpose(Character *ch, String argument)
 		return;
 	}
 
-	unsigned int pose = atoi(arg); // 1-indexed
+	unsigned int pose = atoi(arg); ///< 1-indexed
 
 	if (pose < 1 || pose > new_pose_table[guild].size()) {
 		stc("Pose number out of range!\n", ch);
@@ -1913,7 +1913,7 @@ void do_outfit(Character *ch, String argument)
 
 	/* do the weapon thing */
 	if ((obj = get_eq_char(ch, WEAR_WIELD)) == nullptr) {
-		skill::type sn = skill::type::dagger; // default
+		skill::type sn = skill::type::dagger; ///< default
 		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
 
 		for (const auto& entry : weapon_table) {

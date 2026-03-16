@@ -6,8 +6,7 @@
 
 namespace conn {
 
-State * ReadMOTDState::
-handleInput(Descriptor *d, const String& argument) {
+State * ReadMOTDState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	set_color(ch, WHITE, BOLD);

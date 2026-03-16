@@ -75,7 +75,6 @@
 #include "Location.hh"
 #include "RoomPrototype.hh"
 
-extern void     email_file    args((Character *ch, const char *file, const char *str));
 
 char   *const   where_name      [] = {
 	"<used as light>     ",
@@ -101,16 +100,6 @@ char   *const   where_name      [] = {
 	"<wedding ring>      ",
 };
 
-
-/*
- * Local functions.
- */
-void    show_list_to_char       args((Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont));
-void    show_char_to_char_0     args((Character *victim, Character *ch));
-void    show_char_to_char_1     args((Character *victim, Character *ch));
-void    show_char_to_char       args((Character *list, Character *ch));
-bool    check_blind             args((Character *ch));
-const String list_exits(Character *ch, bool fAuto);
 
 String format_obj_to_char(Object *obj, Character *ch, bool fShort)
 {
@@ -1665,7 +1654,7 @@ void do_show(Character *ch, String argument)
 	}
 }
 
-#define MAX_PROMPT_LEN 300
+constexpr int MAX_PROMPT_LEN = 300;
 void do_prompt(Character *ch, String argument)
 {
 	String buf;
@@ -1778,6 +1767,63 @@ void do_nosummon(Character *ch, String argument)
 		stc("You are now immune to summoning.\n", ch);
 		ch->act_flags += PLR_NOSUMMON;
 	}
+}
+
+const String list_exits(Character *ch, bool fAuto) {
+	String buf;
+
+	if (fAuto)
+		Format::sprintf(buf, "[Exits:");
+	else if (IS_IMMORTAL(ch))
+		Format::sprintf(buf, "Obvious exits from room %s:\n", ch->in_room->location.to_string());
+	else
+		Format::sprintf(buf, "Obvious exits:\n");
+
+	bool found = false;
+
+	for (int door = 0; door <= 5; door++) {
+		const Exit *pexit;
+
+		if ((pexit = ch->in_room->exit[door]) != nullptr
+		    &&   pexit->to_room != nullptr
+		    &&   can_see_room(ch, pexit->to_room)) {
+//		    &&   !pexit->exit_flags.has(EX_CLOSED)) {
+
+			found = true;
+
+			if (fAuto) {
+				buf += " ";
+				if (pexit->exit_flags.has(EX_CLOSED))
+					buf += Format::format("{Y(%s){x", Exit::dir_name(door));
+				else
+					buf += Exit::dir_name(door);
+			}
+			else {
+				buf += Format::format("%-5s - ", Exit::dir_name(door).capitalize());
+
+				if (pexit->exit_flags.has(EX_CLOSED))
+					buf += "{Y(closed){x";
+				else if ((pexit->to_room->is_dark() && !affect::exists_on_char(ch, affect::type::night_vision))
+					  || pexit->to_room->is_very_dark())
+					buf += "{cToo dark to tell{x";
+				else
+					buf += pexit->to_room->name();
+
+				if (IS_IMMORTAL(ch))
+					buf += Format::format(" (room %s)\n", pexit->to_room->location.to_string());
+				else
+					buf += "\n";
+			}
+		}
+	}
+
+	if (!found)
+		buf += fAuto ? " none" : "None.\n";
+
+	if (fAuto)
+		buf += "]\n";
+
+	return buf;
 }
 
 void do_look(Character *ch, String argument)
@@ -2336,62 +2382,6 @@ void exits_in(Character *ch)
 	page_to_char(output, ch);
 } /* End do_exits_in */
 
-const String list_exits(Character *ch, bool fAuto) {
-	String buf;
-
-	if (fAuto)
-		Format::sprintf(buf, "[Exits:");
-	else if (IS_IMMORTAL(ch))
-		Format::sprintf(buf, "Obvious exits from room %s:\n", ch->in_room->location.to_string());
-	else
-		Format::sprintf(buf, "Obvious exits:\n");
-
-	bool found = false;
-
-	for (int door = 0; door <= 5; door++) {
-		const Exit *pexit;
-
-		if ((pexit = ch->in_room->exit[door]) != nullptr
-		    &&   pexit->to_room != nullptr
-		    &&   can_see_room(ch, pexit->to_room)) {
-//		    &&   !pexit->exit_flags.has(EX_CLOSED)) {
-
-			found = true;
-
-			if (fAuto) {
-				buf += " ";
-				if (pexit->exit_flags.has(EX_CLOSED))
-					buf += Format::format("{Y(%s){x", Exit::dir_name(door));
-				else
-					buf += Exit::dir_name(door);
-			}
-			else {
-				buf += Format::format("%-5s - ", Exit::dir_name(door).capitalize());
-
-				if (pexit->exit_flags.has(EX_CLOSED))
-					buf += "{Y(closed){x";
-				else if ((pexit->to_room->is_dark() && !affect::exists_on_char(ch, affect::type::night_vision))
-					  || pexit->to_room->is_very_dark())
-					buf += "{cToo dark to tell{x";
-				else
-					buf += pexit->to_room->name();
-
-				if (IS_IMMORTAL(ch))
-					buf += Format::format(" (room %s)\n", pexit->to_room->location.to_string());
-				else
-					buf += "\n";
-			}
-		}
-	}
-
-	if (!found)
-		buf += fAuto ? " none" : "None.\n";
-
-	if (fAuto)
-		buf += "]\n";
-
-	return buf;
-}
 /*
  * Thanks to Zrin for auto-exit part.
  */
@@ -2613,8 +2603,8 @@ void do_who(Character *ch, String argument)
 	tmp_charitem;
 	String buf;
 	char buf2[MIL];
-	String block1;  /* [level race class] */
-	char block2[MIL];  /* [rank clan] */
+	String block1;  /**<*< [level race class] */
+	char block2[MIL];  /**<[rank clan] */
 	char rbuf[32];
 	String output;
 	Descriptor *d;
@@ -3679,7 +3669,7 @@ void prac_by_group(Character *ch, const String& argument)
 	skill::type sn;
 	char buf[50];
 	String line;
-	int line_cols = 0;  /* number of filled data columns (19 char each) */
+	int line_cols = 0;  /**<number of filled data columns (19 char each) */
 	String output;
 
 	for (unsigned int gt = 0; gt < group_table.size(); gt++) { /* loop thru groups */
@@ -3757,7 +3747,7 @@ void prac_by_key(Character *ch, const String& key, const char *argument)
 	int ip;
 	int adept;
 	char buf[50];
-	int line_cols = 0;  /* number of filled data columns (19 char each) */
+	int line_cols = 0;  /**<number of filled data columns (19 char each) */
 	String output;
 
 	String arg;
@@ -4684,7 +4674,7 @@ void do_gameout(Character *ch, String argument)
 void do_pit(Character *ch, String argument)
 {
 	Object *pit;
-	Object sel_pit; /* a real live container-type object! */
+	Object sel_pit; /**<a real live container-type object! */
 	Object *obj, *next_obj;
 	int num1 = -1, num2 = -1;
 	int level1 = 0, level2 = 0;
@@ -4774,7 +4764,7 @@ void do_pit(Character *ch, String argument)
 		keywords = one_argument(keywords, arg); // get the wear slot name
 
 		if (!arg.empty()) {
-			int index = flag_index_lookup(arg, wear_flags); // gets the index
+			int index = flag_index_lookup(arg, wear_flags); ///< gets the index
 
 			if (index == -1) {
 				stc("That is not a wear location you can search for in the pit.\n", ch);
@@ -4797,7 +4787,7 @@ void do_pit(Character *ch, String argument)
 		keywords = one_argument(keywords, arg); // get the weapon type name
 
 		if (!arg.empty()) {
-			int index = weapon_lookup(arg); // gets the index
+			int index = weapon_lookup(arg); ///< gets the index
 
 			if (index == -1) {
 				stc("That is not a weapon type you can search for in the pit.\n", ch);

@@ -23,15 +23,15 @@ public:
 	Sector		sector_type;
 	int			heal_rate = 100;
 	int			mana_rate = 100;
-	Guild			guild = Guild::none;		/* guild-only room -- Montrey */
+	Guild			guild = Guild::none;		/**< guild-only room -- Montrey */
 
 	String 		owner = "";
 	Clan *		clan = nullptr;
-	int         count = 0; // number of rooms created from this prototype, incremented by Room
+	int         count = 0; ///< number of rooms created from this prototype, incremented by Room
 
 	// pointers owned here
 	ExtraDescr *	extra_descr = nullptr;
-	ExitPrototype *		exit    [6] = {nullptr}; // prototypes for building rooms
+	ExitPrototype *		exit    [6] = {nullptr}; ///< prototypes for building rooms
 
 	inline bool operator==(const RoomPrototype& rhs) const {
 		return this->vnum == rhs.vnum;

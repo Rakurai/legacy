@@ -19,7 +19,7 @@ public:
 	Player(Character &);
 	virtual ~Player() {}
 
-	Character &	        ch;	/* i may be missing something, but this seems like a 'duh',
+	Character &	        ch;	/**< i may be missing something, but this seems like a 'duh',
 				   make it point backwards to the character -- Montrey */
 
 	long				id = 0;
@@ -31,8 +31,8 @@ public:
 	String              gameout;
 	String              afk;
 	String              title;
-	String              immname;   /* Immortal Name */
-    String              immprefix; // immtalk prefix
+	String              immname;   /**< Immortal Name */
+    String              immprefix; ///< immtalk prefix
 	time_t			    last_note = 0;
 	time_t			    last_idea = 0;
 	time_t			    last_roleplay = 0;
@@ -57,16 +57,16 @@ public:
 	std::vector<int> learned;
 	std::vector<int> evolution;
 
-    Vnum                quest_giver = 0;  /* Elrac */
-    int                 questpoints = 0;  /* Vassago */
-    int			        questpoints_donated = 0; /* Clerve */
-    long		        gold_donated = 0; /* Montrey */
-    int              nextquest = 0;    /* Vassago */
-    int              countdown = 0;    /* Vassago */
-    Vnum             questobj = 0;     /* Vassago */
-    Vnum             questmob = 0;     /* Vassago */
-    Location             questloc;     /* -- Elrac */
-    int              questobf = 0;     /* Lotus */
+    Vnum                quest_giver = 0;  /**< Elrac */
+    int                 questpoints = 0;  /**< Vassago */
+    int			        questpoints_donated = 0; /**< Clerve */
+    long		        gold_donated = 0; /**< Montrey */
+    int              nextquest = 0;    /**< Vassago */
+    int              countdown = 0;    /**< Vassago */
+    Vnum             questobj = 0;     /**< Vassago */
+    Vnum             questmob = 0;     /**< Vassago */
+    Location             questloc;     /**< -- Elrac */
+    int              questobf = 0;     /**< Lotus */
 
 	int			        skillpoints = 0;
 	Vnum                 squest_giver = 0;
@@ -76,8 +76,8 @@ public:
 	Character *         squestmob = nullptr;
 	bool                squestobjf = false;
 	bool		        squestmobf = false;
-	Location	        squestloc1; /* obj */
-	Location	        squestloc2;	/* mob */
+	Location	        squestloc1; /**< obj */
+	Location	        squestloc2;	/**< mob */
 
 	std::vector<bool>   group_known;
 	int			        rolepoints = 0;
@@ -93,7 +93,7 @@ public:
 	int              color          [MAX_COLORS] = {0};
 	int              bold           [MAX_COLORS] = {0};
 	Flags               cgroup_flags;
-    Flags               plr_flags; /* Extra PLR flags */
+    Flags               plr_flags; /**< Extra PLR flags */
     String              rank;
     int              lastcolor      [2] = {0};
     int              pktimer = 0;
@@ -132,7 +132,11 @@ private:
 
 long get_pc_id();
 
-/* mudding experience for newbies */
+/**
+ * @defgroup MuddingExperience Constants defining mudding experience levels for newbies
+ * @{
+ */
 constexpr int MEXP_TOTAL_NEWBIE = 0;
 constexpr int MEXP_LEGACY_NEWBIE = 1;
 constexpr int MEXP_LEGACY_OLDBIE = 2;
+/** @} */

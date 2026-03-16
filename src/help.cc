@@ -32,6 +32,10 @@ const String stupidassline =
         "{G*{T-=-=-{C*{T-=-=-{B*{T-=-=-{V*{T-=-=-{P*{T-=-=-{Y*{T-=-=-{W*{T-=-=-{Y*{T-=-=-{P*{T-=-=-{V*{T-=-=-{B*{T-=-=-{C*{T-=-=-{G*{x\n";
 #endif
 
+/**
+ * @defgroup HelpSQLColumns Helpfile SQL Columns
+ * @{
+ */
 #define HTABLE "helps"
 #define HCOL_ID "id"
 #define HCOL_ORDER "onum"
@@ -39,38 +43,43 @@ const String stupidassline =
 #define HCOL_GROUP "hgroup"
 #define HCOL_KEYS "keywords"
 #define HCOL_TEXT "text"
+/** @} */
 
-/* help file type defines */
-/* here, and not in the table, is where order is important.  helps are sorted
-   by precedence of their type, so imm helps will follow mortal helps, etc.
-   if any changes to the order need to be made, make the change, then wipe the
-   table and reload fresh, because loadhelps() will not wipe the table properly
-   if numbers don't match up.  same goes for if any categories are removed */
-#define	HELP_INFO		Flags::A
-#define	HELP_CLAN		Flags::B
-#define	HELP_SKILL		Flags::C
-#define	HELP_SPELL		Flags::D
-#define	HELP_RACE		Flags::E
-#define	HELP_CLASS		Flags::F
-#define	HELP_REMORT		Flags::G
-#define	HELP_MOVE		Flags::H
-#define	HELP_OBJECT		Flags::I
-#define	HELP_COMM		Flags::J
-#define	HELP_COMBAT		Flags::K
-#define HELP_MISC		Flags::L
-#define	HELP_WIZQUEST		Flags::M
-#define	HELP_WIZSECURE		Flags::N
-#define	HELP_WIZCODE		Flags::O
-#define	HELP_WIZGEN		Flags::P
-#define	HELP_WIZBUILD		Flags::Q
-#define	HELP_WIZHELP		Flags::R
+/**
+ * @defgroup HelpFlags Help file type defines
+ * @{
+ * here, and not in the table, is where order is important.  helps are sorted
+ * by precedence of their type, so imm helps will follow mortal helps, etc.
+ * if any changes to the order need to be made, make the change, then wipe the
+ * table and reload fresh, because loadhelps() will not wipe the table properly
+ * if numbers don't match up.  same goes for if any categories are removed
+ */
+constexpr Flags::Bit HELP_INFO		= Flags::A;
+constexpr Flags::Bit HELP_CLAN		= Flags::B;
+constexpr Flags::Bit HELP_SKILL		= Flags::C;
+constexpr Flags::Bit HELP_SPELL		= Flags::D;
+constexpr Flags::Bit HELP_RACE		= Flags::E;
+constexpr Flags::Bit HELP_CLASS		= Flags::F;
+constexpr Flags::Bit HELP_REMORT	= Flags::G;
+constexpr Flags::Bit HELP_MOVE		= Flags::H;
+constexpr Flags::Bit HELP_OBJECT	= Flags::I;
+constexpr Flags::Bit HELP_COMM		= Flags::J;
+constexpr Flags::Bit HELP_COMBAT	= Flags::K;
+constexpr Flags::Bit HELP_MISC		= Flags::L;
+constexpr Flags::Bit HELP_WIZQUEST	= Flags::M;
+constexpr Flags::Bit HELP_WIZSECURE	= Flags::N;
+constexpr Flags::Bit HELP_WIZCODE	= Flags::O;
+constexpr Flags::Bit HELP_WIZGEN	= Flags::P;
+constexpr Flags::Bit HELP_WIZBUILD	= Flags::Q;
+constexpr Flags::Bit HELP_WIZHELP	= Flags::R;
+/** @} */
 
 struct helpfile_table_type
 {
 	String name;
 	int	group;
 };
-//extern	const	std::vector<helpfile_table_type> helpfile_table;	/* help name group table */
+//extern	const	std::vector<helpfile_table_type> helpfile_table;	/**<help name group table */
 
 const std::vector<helpfile_table_type> helpfile_table = {
 	{       "wizhelp",      HELP_WIZHELP    },

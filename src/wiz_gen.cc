@@ -50,7 +50,7 @@
 #include "World.hh"
 
 
-extern bool    swearcheck              args((const String& argument));
+extern bool    swearcheck              (const String& argument);
 extern bool check_parse_name(const String& name);
 
 void do_adjust(Character *ch, String argument)
@@ -1781,7 +1781,7 @@ void do_guild(Character *ch, String argument)
    imm who is sending the message. Also broadcasts to all other imms in game. */
 void do_heed(Character *ch, String argument)
 {
-	char buf[100 + MIL]; /* enough for pompous intro + text */
+	char buf[100 + MIL]; /**<enough for pompous intro + text */
 	Character *victim, *truevictim = nullptr;
 	Descriptor *d;
 
@@ -2223,7 +2223,7 @@ void do_olevel(Character *ch, String argument)
 {
 	extern int top_obj_index;
 	char buf[MAX_STRING_LENGTH];
-	char tmpbuf[80];        // Extra buffer, needed to fix mis-alignment. by Clerve
+	char tmpbuf[80];        ///< Extra buffer, needed to fix mis-alignment. by Clerve
 	String buffer;
 	ObjectPrototype *pObjIndex;
 	int vnum, blevel, elevel;
@@ -2241,7 +2241,7 @@ void do_olevel(Character *ch, String argument)
 
 	blevel = atoi(arg1);
 	elevel = blevel;
-	Flags::Bit wear_loc = Flags::all;          /* standard: everything */
+	Flags::Bit wear_loc = Flags::all;          /**<standard: everything */
 	with_wear = false;
 
 	/* Check for 2nd argument - optional ending level */
@@ -2367,7 +2367,7 @@ void do_mlevel(Character *ch, String argument)
 {
 	extern int top_mob_index;
 	char buf[MAX_STRING_LENGTH];
-	char tmpbuf[80];        // needed to mix misalignment due to colorcodes.. Clerve
+	char tmpbuf[80];        ///< needed to mix misalignment due to colorcodes.. Clerve
 	String buffer;
 	MobilePrototype *pMobIndex;
 	int vnum, blevel, elevel;
@@ -2505,8 +2505,8 @@ void do_owhere(Character *ch, String argument)
 	Object *obj, *in_obj;
 	int count = 1, vnum = 0;
 	bool fGround = false;
-	Location place_last_found;   /* the vnum of the place where we last found an item */
-	Vnum item_last_found = 0;    /* the vnum of the last item displayed */
+	Location place_last_found;   /**<the vnum of the place where we last found an item */
+	Vnum item_last_found = 0;    /**<the vnum of the last item displayed */
 
 	String arg, arg2;
 	argument = one_argument(argument, arg);
@@ -3700,20 +3700,20 @@ void do_superwiz(Character *ch, String argument)
 	}
 }
 
-Room *find_location(Character *ch, const String& arg)
+Room *find_location(Character *ch, const String& argument)
 {
 	Character *victim;
 	Object *obj;
 
-	Room *room = Game::world().get_room(Location(arg));
+	Room *room = Game::world().get_room(Location(argument));
 
 	if (room != nullptr)
 		return room;
 
-	if ((victim = get_char_world(ch, arg, VIS_CHAR)) != nullptr)
+	if ((victim = get_char_world(ch, argument, VIS_CHAR)) != nullptr)
 		return victim->in_room;
 
-	if ((obj = get_obj_world(ch, arg)) != nullptr)
+	if ((obj = get_obj_world(ch, argument)) != nullptr)
 		return obj->in_room;
 
 	return nullptr;

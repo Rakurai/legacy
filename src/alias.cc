@@ -38,7 +38,7 @@
 #include "Player.hh"
 #include "String.hh"
 
-char    *get_multi_command     args((Descriptor *d, const String& argument));
+extern char *get_multi_command(Descriptor *d, const String& argument);
 
 /* does aliasing and other fun stuff */
 void substitute_alias(Descriptor *d, String argument)

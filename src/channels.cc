@@ -53,13 +53,8 @@
 #include "tables.hh"
 #include "World.hh"
 
-bool    check_channel_social    args((Character *ch, int channel,
-                                      int custom, const String& command, const String& argument));
 
-void    send_to_query           args((Character *ch, const char *string));
-bool    swearcheck              args((const String& argument));
-extern bool     is_ignoring(Character *ch, Character *victim);
-const char   *makedrunk               args((Character *ch, const char *string));
+extern bool is_ignoring(Character *ch, Character *victim);
 
 
 /* RT code to display channel status */
@@ -320,7 +315,7 @@ bool swearcheck(const String& argument)
 	/* For partial matches, cause we do want to trigger dickhead */
 	struct swear_type {
 		char *word;
-		int level;      /* level of checking -- Montrey
+		int level;      /**<level of checking -- Montrey
                                    1 - only when surrounded by whitespace
                                    2 - at the beginning of any word */
 	};

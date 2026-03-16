@@ -21,7 +21,7 @@
 #include "World.hh"
 
 /* needed functions */
-void    wear_obj        args((Character *ch, Object *obj, bool fReplace));
+extern void    wear_obj        (Character *ch, Object *obj, bool fReplace);
 
 extern bool     global_quick;
 

@@ -10,7 +10,7 @@
 #include "String.hh"
 #include "tables.hh"
 
-String item_name(int item_type)
+const String item_name(int item_type)
 {
 	for (const auto& entry : item_table)
 		if (item_type == entry.type)
@@ -19,7 +19,7 @@ String item_name(int item_type)
 	return "none";
 }
 
-String weapon_name(int weapon_type)
+const String weapon_name(int weapon_type)
 {
 	for (const auto& entry : weapon_table)
 		if (weapon_type == entry.type)
@@ -31,7 +31,7 @@ String weapon_name(int weapon_type)
 /*
  * Return ascii name of an item type.
  */
-String item_type_name(Object *obj)
+const String item_type_name(Object *obj)
 {
 	switch (obj->item_type) {
 	case ITEM_LIGHT:            return "light";
@@ -107,7 +107,7 @@ String item_type_name(Object *obj)
 /*
  * Return ascii name of a damage type.
  */
-String dam_type_name(int type)
+const String dam_type_name(int type)
 {
 	switch (type) {
 		case DAM_NONE        : return "(none)";
@@ -141,7 +141,7 @@ String dam_type_name(int type)
 /*
  * Return ascii name of an affect location.
  */
-String affect_loc_name(int location)
+const String affect_loc_name(int location)
 {
 	switch (location) {
 	case APPLY_NONE:            	return "none";
@@ -262,7 +262,7 @@ const String off_bit_name(const Flags& flags) {
 	return print_bit_names(off_flags, flags);
 }
 
-String wiz_bit_name(const Flags& flags)
+const String wiz_bit_name(const Flags& flags)
 {
 	String buf;
 
@@ -275,7 +275,7 @@ String wiz_bit_name(const Flags& flags)
 	return buf.empty() ? "none" : buf.substr(1);
 }
 
-String get_color_name(int color, int bold)
+const String get_color_name(int color, int bold)
 {
 	for (const auto& entry : color_table)
 		if (entry.color == color
@@ -285,7 +285,7 @@ String get_color_name(int color, int bold)
 	return "";
 }
 
-String get_color_code(int color, int bold)
+const String get_color_code(int color, int bold)
 {
 	for (const auto& entry : color_table)
 		if (entry.color == color
@@ -295,7 +295,7 @@ String get_color_code(int color, int bold)
 	return "";
 }
 
-String get_custom_color_name(Character *ch, int slot)
+const String get_custom_color_name(Character *ch, int slot)
 {
 	int color, bold;
 
@@ -311,7 +311,7 @@ String get_custom_color_name(Character *ch, int slot)
 	return get_color_name(color, bold);
 }
 
-String get_custom_color_code(Character *ch, int slot)
+const String get_custom_color_code(Character *ch, int slot)
 {
 	int color, bold;
 

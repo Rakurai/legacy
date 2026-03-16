@@ -68,14 +68,15 @@
 #include "sql.hh"
 #include "String.hh"
 
-#define MAX_EDIT_LENGTH 4000
-#define WRAP_WIDTH      70
-#define ARG_1 Flags::A
-#define ARG_2 Flags::B
+constexpr int MAX_EDIT_LENGTH = 4000;
+constexpr int WRAP_WIDTH      = 70;
+constexpr Flags::Bit ARG_1   = Flags::A;
+constexpr Flags::Bit ARG_2   = Flags::B;
 
 /* Module global variables */
 
-static int num1, num2;
+static int num1;
+static int num2;
 static Flags numeric_args;
 static Edit *ed;
 
@@ -350,7 +351,7 @@ static bool is_blank_line(char *line)
 	return true;
 } /* end is_blank_line() */
 
-static void backup(void)
+static void backup()
 {
 	strcpy(ed->edit_backup, ed->edit_string);
 	ed->edit_undo_ok = true;

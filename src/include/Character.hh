@@ -15,10 +15,8 @@ namespace affect { class Affect; }
  * One character (PC or NPC).
  */
 
-// moved to memory.hh
-//#define MAX_ATTR                     48 // last apply (that we want to have bonus modifiers for) + 1
-constexpr int MAX_ATTR_FLAG = 5;      // number of bit vectors that can be added by affects
-constexpr int MAX_ATTR_VALUE = 30000; // within range of 16 bit signed int
+constexpr int MAX_ATTR_FLAG = 5;      ///< number of bit vectors that can be added by affects
+constexpr int MAX_ATTR_VALUE = 30000; ///< within range of 16 bit signed int
 
 class Character :
 public Pooled<Character>, // must be first inherited
@@ -41,8 +39,8 @@ public:
     Character *         master = nullptr;
     Character *         leader = nullptr;
     Character *         fighting = nullptr;
-    const Reset *	    reset = nullptr;		/* let's make it keep track of what reset it */
-    Character *         pet = nullptr;			/* not saving at quit - Montrey */
+    const Reset *	    reset = nullptr;		/**<let's make it keep track of what reset it */
+    Character *         pet = nullptr;			/**<not saving at quit - Montrey */
     SPEC_FUN *          spec_fun = nullptr;
     MobilePrototype *   pIndexData = nullptr;
     Descriptor *        desc = nullptr;
@@ -62,18 +60,18 @@ public:
     String              prompt;
     String              prefix;
     String              reply;
-    Flags               group_flags; // mobs can be members of a group for spec_fun, like ogres/trolls
-    bool                replylock = false;     /* <--- made this a bool to simplify */
+    Flags               group_flags; ///< mobs can be members of a group for spec_fun, like ogres/trolls
+    bool                replylock = false;     /**<<--- made this a bool to simplify */
     bool		        invitation_accepted = false;
 
-    int                 skill_fails = 0; // number of times they have failed a skill in a row
+    int                 skill_fails = 0; ///< number of times they have failed a skill in a row
 
     /* stats */
 //    int              base_stat[MAX_STATS];
 //    int              mod_stat[MAX_STATS];
 
     int                 attr_base[MAX_ATTR] = {0};
-    int *               apply_cache = nullptr; // maximum stat without eq/affects
+    int *               apply_cache = nullptr; ///< maximum stat without eq/affects
     void *              affect_cache = nullptr;
     int *            defense_mod = nullptr;
 //    long                affect_bits;
@@ -86,13 +84,13 @@ public:
     int              mana = 0;
     int              stam = 0;
 
-    Guild              guild = Guild::none; // was 'class'
+    Guild              guild = Guild::none; ///< was 'class'
     int              race = 0;
     int              level = 0;
-    int                 lines = 0;  /* for the pager */
+    int                 lines = 0;  /**<for the pager */
     time_t              logon = 0;
-    time_t              last_bank = 0;  /* For Bank, duh */
-    int              timer = 0;  /* Main timer is now part of descriptor */
+    time_t              last_bank = 0;  /**<For Bank, duh */
+    int              timer = 0;  /**<Main timer is now part of descriptor */
     int              wait = 0;
     int              daze = 0;
     int              fightpulse = 0;
@@ -102,10 +100,10 @@ public:
     int                silver_in_bank = 0;
     int                 exp = 0;
     Flags               act_flags;
-    Flags               comm_flags;   /* RT added to pad the vector */
-    Flags               revoke_flags;  /* New Revoke stuff */
-    Flags               wiznet_flags; /* wiz stuff */
-    Flags               censor_flags;			/* New censor flags -- Montrey */
+    Flags               comm_flags;   /**<RT added to pad the vector */
+    Flags               revoke_flags;  /**<New Revoke stuff */
+    Flags               wiznet_flags; /**<wiz stuff */
+    Flags               censor_flags;			/**<New censor flags -- Montrey */
     int              invis_level = 0;
     int              lurk_level = 0;
     int              position = 0;
@@ -130,8 +128,8 @@ public:
     int              secure_level = 0;
     MobProgActList *    mpact = nullptr;
     int                 mpactnum = 0;
-    Tail *              tail = nullptr;         /* -- Elrac */
-    Edit *              edit = nullptr;         /* -- Elrac */
+    Tail *              tail = nullptr;         /**<-- Elrac */
+    Edit *              edit = nullptr;         /**<-- Elrac */
 
     virtual const std::string identifier() const { return this->name; }
 
@@ -160,7 +158,7 @@ private:
 //                        ? dex_app[GET_ATTR_DEX(ch)].defensive : 0 )           
 //                       - (( !(ch)->is_npc() && ch->pcdata->remort_count > 0 )    
 //                        ? (((ch->pcdata->remort_count * ch->level) / 50)) : 0 ))  should give -1 per 10 levels,
-//                                                                                   -1 per 5 remorts -- Montrey */
+//                                                                                   -1 per 5 remorts -- Montrey
 #define GET_ATTR_HITROLL(ch) \
                 (GET_ATTR((ch), APPLY_HITROLL) + str_app[GET_ATTR_STR((ch))].tohit)
 #define GET_ATTR_DAMROLL(ch) \
@@ -219,23 +217,23 @@ private:
                 (ch)->is_npc() ? ch->short_descr : ch->name : "someone")
 
 
-void    obj_to_char     args(( Object *obj, Character *ch ) );
-void    obj_from_char   args(( Object *obj ) );
-void    obj_to_locker   args(( Object *obj, Character *ch ) );
-void    obj_to_strongbox args(( Object *obj, Character *ch ) );
-void    obj_from_locker args(( Object *obj ) );
-void    obj_from_strongbox args(( Object *obj) );
-bool    can_drop_obj    args(( Character *ch, Object *obj ) );
-bool    deduct_cost     args( (Character *ch, int cost) );
+void    obj_to_char(Object *obj, Character *ch);
+void    obj_from_char(Object *obj);
+void    obj_to_locker(Object *obj, Character *ch);
+void    obj_to_strongbox(Object *obj, Character *ch);
+void    obj_from_locker(Object *obj);
+void    obj_from_strongbox(Object *obj);
+bool    can_drop_obj(Character *ch, Object *obj);
+bool    deduct_cost(Character *ch, int cost);
 
-void    stc    args( ( const String& txt, Character *ch ) );
-void    page_to_char    args( ( const String& txt, Character *ch ) );
+void    stc(const String& txt, Character *ch);
+void    page_to_char(const String& txt, Character *ch);
 
-int 	GET_MAX_HIT		args (	(Character *ch )	);
-int 	GET_MAX_MANA	args (	(Character *ch )	);
-int 	GET_MAX_STAM	args (	(Character *ch )	);
-int		GET_ATTR_AC		args (	(Character *ch )	);
-int		GET_AC			args (	(Character *ch, int type)	);
+int 	GET_MAX_HIT(Character *ch);
+int 	GET_MAX_MANA(Character *ch);
+int 	GET_MAX_STAM(Character *ch);
+int		GET_ATTR_AC(Character *ch);
+int		GET_AC(Character *ch, int type);
 
 // printf to a character
 template<class... Params>

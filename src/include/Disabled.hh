@@ -10,9 +10,9 @@ public:
     Disabled() {}
     virtual ~Disabled() {}
 
-    Disabled *next = nullptr;             /* pointer to next node */
-    struct cmd_type const *command = nullptr;  /* pointer to the command struct*/
-    String disabled_by;               /* name of disabler */
+    Disabled *next = nullptr;             /**< pointer to next node */
+    struct cmd_type const *command = nullptr;  /**< pointer to the command struct*/
+    String disabled_by;               /**< name of disabler */
     String reason;
 
 private:

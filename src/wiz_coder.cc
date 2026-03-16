@@ -50,11 +50,11 @@ extern  time_t  reboot_time;
 extern  int     top_exit;
 
 /* externals for counting purposes */
-extern  Object        *obj_free;
-extern  Character       *char_free;
-extern  Descriptor *descriptor_free;
-extern  Player         *pcdata_free;
-extern  affect::Affect     *affect_free;
+//extern  Object        *obj_free;
+//extern  Character       *char_free;
+//extern  Descriptor *descriptor_free;
+//extern  Player         *pcdata_free;
+//extern  affect::Affect     *affect_free;
 
 void do_autoboot(Character *ch, String argument)
 {
@@ -109,7 +109,7 @@ void do_autoboot(Character *ch, String argument)
 	fappend(SHUTDOWN_FILE, buf);
 }
 
-char *fgetf(char *s, int n, register FILE *iop)
+char *fgetf(char *s, int n, FILE *iop)
 {
 	int c;
 	char *cs;

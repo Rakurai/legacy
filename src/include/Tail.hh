@@ -21,9 +21,11 @@ private:
 	Tail& operator=(const Tail&);
 };
 
-/*
- * Tail (Snoop) flags
+/**
+ * @defgroup TailFlags Constants defining Tail (Snoop) flags
+ * @{
  */
 constexpr Flags::Bit TAIL_NONE = Flags::none;
 constexpr Flags::Bit TAIL_ACT  = Flags::A;
 constexpr Flags::Bit TAIL_ALL  = TAIL_ACT;
+/** @} */

@@ -6,11 +6,11 @@
 #include "Game.hh"
 #include "World.hh"
 
-/* The Vnum of the quest start location -- hard coded! */
-#define QUEST_STARTROOM 12000
 
-void QuestArea::
-init() {
+constexpr int QUEST_STARTROOM = 12000; /**< The Vnum of the quest start location -- hard coded! */
+
+
+void QuestArea::init() {
 	startroom = Game::world().get_room(Location(Vnum(QUEST_STARTROOM)));
 
 	if (startroom == nullptr)
@@ -19,7 +19,6 @@ init() {
 //		area = startroom->area();
 } /* end quest_init */
 
-const Area& QuestArea::
-area() const {
+const Area& QuestArea::area() const {
 	return startroom->area();
 }

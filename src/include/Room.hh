@@ -21,13 +21,13 @@ public:
 	Object *		contents = nullptr;
 	Exit *		exit    [6] = {nullptr};
 
-	affect::Affect *		affected = nullptr;		/* Montrey */
+	affect::Affect *		affected = nullptr;		/**< Montrey */
     Flags           cached_room_flags = 0;
 
 	int			light = 0;
-	int			hunt_id = 0;  /* Unique ID for current hunt */
-	Room *	hunt_next = nullptr;  /* next room in search circle */
-	Room *	hunt_back = nullptr;  /* pointer back toward origin */
+	int			hunt_id = 0;  /**< Unique ID for current hunt */
+	Room *	hunt_next = nullptr;  /**< next room in search circle */
+	Room *	hunt_back = nullptr;  /**< pointer back toward origin */
 
 //	const Vnum& vnum() const { return prototype.vnum; }
 	Area& area() const;
@@ -53,7 +53,7 @@ public:
 	void remove_char(Character *ch);
 
 	RoomPrototype& prototype;
-    Flags           room_flags; // copied from the prototype for room-specific things, such as NO_MOB from fix_exits
+    Flags           room_flags; ///< copied from the prototype for room-specific things, such as NO_MOB from fix_exits
     Location       location;
 
 private:

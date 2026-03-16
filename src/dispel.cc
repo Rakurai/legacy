@@ -7,8 +7,8 @@
 
 struct dispel_type {
 	bool can_undo;
-	bool can_cancel; // can cancel on self
-	bool can_dispel; // can dispel on others with "dispel magic"
+	bool can_cancel; ///< can cancel on self
+	bool can_dispel; ///< can dispel on others with "dispel magic"
 	const String msg_to_room;
 };
 
@@ -86,7 +86,7 @@ bool level_save(int dis_level, int save_level)
 /* Compute a saving throw.  Negative apply's make saving throw better. */
 bool saves_spell(int level, Character *victim, int dam_type)
 {
-	int save = 20; // base chance to save
+	int save = 20; ///< base chance to save
 	save += (victim->level - level) / 2; // level difference
 	save -= GET_ATTR_SAVES(victim); // negative number, probably
 

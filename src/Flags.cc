@@ -3,11 +3,9 @@
 #include "Logging.hh" // bugf
 #include "String.hh"
 
-Flags::
-Flags(const char *str) : Flags(String(str)) {}
+Flags::Flags(const char *str) : Flags(String(str)) {}
 
-Flags::
-Flags(const String& str) {
+Flags::Flags(const String& str) {
 	for (const char *p = str.c_str(); *p; p++) {
 		unsigned char c = *p;
 
@@ -48,8 +46,7 @@ Flags(const String& str) {
 	}	
 }
 
-const String Flags::
-to_string() const {
+const String Flags::to_string() const {
 	String buf;
 
 	for (unsigned long i = 0; i < bits.size(); i++) {

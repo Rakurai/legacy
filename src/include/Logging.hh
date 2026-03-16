@@ -9,7 +9,6 @@ namespace Logging {
 
 void bug(const String& str, int param);
 void log(const String& str);
-void file_bug(FILE *fp, const String& str, int param);
 void file_bug(FILE *fp, const String& str, const Vnum& vnum);
 
 template<class... Params>

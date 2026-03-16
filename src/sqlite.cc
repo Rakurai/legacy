@@ -28,7 +28,7 @@ void db_open()
 	error = sqlite3_open_v2(DB_FILE, &_db, SQLITE_OPEN_READWRITE, nullptr);
 
 	if (error != SQLITE_OK)
-		db_error("db_open");
+		db_error("db_open", "");
 }
 
 void db_close()

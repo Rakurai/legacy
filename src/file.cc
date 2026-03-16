@@ -75,9 +75,10 @@ const Flags fread_flag(FILE *fp)
 	return Flags(fread_word(fp));
 }
 
-String fread_string(FILE *fp, char to_char)
+String fread_string(FILE *fp)
 {
 	char c;
+	char to_char = '~';
 
 	/* Skip blanks. Read first char. */
 	do {
@@ -112,7 +113,38 @@ String fread_string(FILE *fp, char to_char)
 
 String fread_string_eol(FILE *fp)
 {
-	return fread_string(fp, '\n');
+	char c;
+	char to_char = '\n';
+
+	/* Skip blanks. Read first char. */
+	do {
+		c = getc(fp);
+	}
+	while (isspace(c));
+
+	if (c == to_char)
+		return "";
+
+	String buf;
+	buf = c;
+
+	while (true) {
+		c = getc(fp);
+
+		switch (c) {
+			case EOF:
+				Logging::bug("Fread_string: EOF", 0);
+				return buf;
+			case '\r':
+				break; // skip it
+			default:
+				if (c == to_char)
+					return buf;
+
+				buf += c;
+				break;
+		}
+	}
 }
 
 /*

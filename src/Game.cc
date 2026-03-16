@@ -26,15 +26,13 @@ bool Game::wizlock = false;
 bool Game::newlock = false;
 
 // makes Game a singleton holder of world
-World& Game::
-world() {
+World& Game::world() {
 	static World w;
 	return w;
 }
 
 /* Big mama top level function */
-void Game::
-boot() {
+void Game::boot() {
 	Game::booting = true;
 
 	/* Init random number generator */

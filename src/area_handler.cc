@@ -433,7 +433,7 @@ void do_areas(Character *ch, String argument)
 	size_t ptrs_size;
 	int    count = 0;
 	Area *ap;
-	char range[12];      /* {xnnn-nnn{x + '\0' */
+	char range[12];      /**<{xnnn-nnn{x + '\0' */
 	String dbuf;
 	/* misc */
 	int j, k;

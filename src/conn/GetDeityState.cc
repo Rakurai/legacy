@@ -9,8 +9,7 @@
 
 namespace conn {
 
-State * GetDeityState::
-handleInput(Descriptor *d, const String& argument) {
+State * GetDeityState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	if (argument.has_prefix("help")) {

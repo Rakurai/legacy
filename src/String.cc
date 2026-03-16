@@ -35,8 +35,7 @@ bool operator!= (const String &lhs, const char *rhs) {
 	return !(lhs == rhs);
 }
 
-std::size_t String::
-find(const String& str, std::size_t start_pos) const {
+std::size_t String::find(const String& str, std::size_t start_pos) const {
 	if (start_pos > size() - str.size())
 		return std::string::npos;
 
@@ -55,8 +54,7 @@ find(const String& str, std::size_t start_pos) const {
 	return it - cbegin();
 }
 
-std::size_t String::
-find_nth(std::size_t nth, const String& str, std::size_t start_pos) const {
+std::size_t String::find_nth(std::size_t nth, const String& str, std::size_t start_pos) const {
 	std::size_t pos = find(str, start_pos);
 
 	if (pos == std::string::npos)
@@ -68,47 +66,40 @@ find_nth(std::size_t nth, const String& str, std::size_t start_pos) const {
 	return pos;
 }
 
-bool String::
-has_prefix(const String& str, std::size_t min_chars) const {
+bool String::has_prefix(const String& str, std::size_t min_chars) const {
 	return str.is_prefix_of(*this, min_chars);
 }
 
-bool String::
-is_prefix_of(const String& str, std::size_t min_chars) const {
+bool String::is_prefix_of(const String& str, std::size_t min_chars) const {
 	if (size() < min_chars || str.size() < size())
 		return false;
 
 	return *this == str.substr(0, size());
 }
 
-bool String::
-has_infix(const String& str, std::size_t min_chars) const {
+bool String::has_infix(const String& str, std::size_t min_chars) const {
 	return str.is_infix_of(*this, min_chars);
 }
 
-bool String::
-is_infix_of(const String& str, std::size_t min_chars) const {
+bool String::is_infix_of(const String& str, std::size_t min_chars) const {
 	if (size() < min_chars || str.size() < size())
 		return false;
 
 	return str.find(*this) != std::string::npos;
 }
 
-bool String::
-has_suffix(const String& str, std::size_t min_chars) const {
+bool String::has_suffix(const String& str, std::size_t min_chars) const {
 	return str.is_suffix_of(*this, min_chars);
 }
 
-bool String::
-is_suffix_of(const String& str, std::size_t min_chars) const {
+bool String::is_suffix_of(const String& str, std::size_t min_chars) const {
 	if (size() < min_chars || str.size() < size())
 		return false;
 
 	return *this == str.substr(str.size() - size());
 }
 
-bool String::
-has_words(const String& wordlist, bool exact) const {
+bool String::has_words(const String& wordlist, bool exact) const {
 	String words = wordlist.strip();
 	String str = this->strip();
 
@@ -147,13 +138,11 @@ has_words(const String& wordlist, bool exact) const {
 	}
 }
 
-bool String::
-has_exact_words(const String& wordlist) const {
+bool String::has_exact_words(const String& wordlist) const {
 	return has_words(wordlist, true);
 }
 
-bool String::
-is_number() const {
+bool String::is_number() const {
 	if (empty())
 		return false;
 
@@ -175,30 +164,25 @@ is_number() const {
  * in place.  This allows syntax like print(str.capitalize()), without unexpected side effects.
  */
 
-const String String::
-substr(std::size_t pos, std::size_t count) const {
+const String String::substr(std::size_t pos, std::size_t count) const {
 	return std::string::substr(pos, count);
 }
 
-const String String::
-lstrip(const String& chars) const {
+const String String::lstrip(const String& chars) const {
 	std::size_t pos = find_first_not_of(chars);
 	return pos == std::string::npos ? "" : substr(pos);
 }
 
-const String String::
-rstrip(const String& chars) const {
+const String String::rstrip(const String& chars) const {
 	std::size_t pos = find_last_not_of(chars);
 	return pos == std::string::npos ? "" : substr(0, pos+1);
 }
 
-const String String::
-strip(const String& chars) const {
+const String String::strip(const String& chars) const {
 	return lstrip(chars).rstrip(chars);
 }
 
-const String String::
-capitalize() const {
+const String String::capitalize() const {
 	String str(*this);
 	std::size_t pos = str.find_first_not_of(" \t\r\n");
 
@@ -208,8 +192,7 @@ capitalize() const {
 	return str;
 }
 
-const String String::
-uppercase() const {
+const String String::uppercase() const {
 	String str(*this);
 
 	for (std::size_t pos = 0; pos < str.length(); pos++)
@@ -219,8 +202,7 @@ uppercase() const {
 	return str;
 }
 
-const String String::
-lowercase() const {
+const String String::lowercase() const {
 	String str(*this);
 
 	for (std::size_t pos = 0; pos < str.length(); pos++)
@@ -230,8 +212,7 @@ lowercase() const {
 	return str;
 }
 
-const String String::
-uncolor() const {
+const String String::uncolor() const {
 	String buf;
 
 	for (auto it = cbegin(); it != cend(); it++) {
@@ -252,22 +233,19 @@ uncolor() const {
 	return buf;
 }
 
-const String String::
-lsplit(const String& chars) const {
+const String String::lsplit(const String& chars) const {
 	String word;
 	lsplit(word, chars);
 	return word;
 }
 
-const String String::
-rsplit(const String& chars) const {
+const String String::rsplit(const String& chars) const {
 	String word;
 	rsplit(word, chars);
 	return word;
 }
 
-const String String::
-lsplit(String& word, const String& chars) const {
+const String String::lsplit(String& word, const String& chars) const {
 	std::size_t start_pos = find_first_not_of(chars);
 
 	if (start_pos == std::string::npos) {
@@ -286,8 +264,7 @@ lsplit(String& word, const String& chars) const {
 	return substr(end_pos).lstrip(chars);
 }
 
-const String String::
-rsplit(String& word, const String& chars) const {
+const String String::rsplit(String& word, const String& chars) const {
 	std::size_t end_pos = find_last_not_of(chars);
 
 	if (end_pos == std::string::npos) {
@@ -306,16 +283,14 @@ rsplit(String& word, const String& chars) const {
 	return substr(0, start_pos + 1).rstrip();
 }
 
-String& String::
-erase(size_t pos, size_t len) {
+String& String::erase(size_t pos, size_t len) {
 	if (pos < (*this).size())
 		(*this).std::string::erase(pos, len);
 
 	return *this;
 }
 
-const String String::
-replace(const String& what, const String& with, int times) const {
+const String String::replace(const String& what, const String& with, int times) const {
 	if (what.empty())
 		return *this;
 
@@ -330,16 +305,14 @@ replace(const String& what, const String& with, int times) const {
 	return str;
 }
 
-const String String::
-insert(const String& what, std::size_t pos) const {
+const String String::insert(const String& what, std::size_t pos) const {
 	if (pos > size())
 		pos = size();
 
 	return substr(0, pos) + what + substr(pos);
 }
 
-const String String::
-center(std::size_t total_len) const {
+const String String::center(std::size_t total_len) const {
 	String str(*this), space;
 
 	while (str.uncolor().size() > total_len)

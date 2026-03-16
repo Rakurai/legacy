@@ -26,7 +26,7 @@ public:
     virtual ~Object();
 
 	ObjectPrototype *	pIndexData = nullptr;
-	const Reset *		reset = nullptr;		/* let's make it keep track of what reset it */
+	const Reset *		reset = nullptr;		/**< let's make it keep track of what reset it */
 	Object *            next = nullptr;
 	Object *            next_content = nullptr;
 	Object *            in_obj = nullptr;
@@ -36,7 +36,7 @@ public:
 	Character *		in_locker = nullptr;
 	Character *		in_strongbox = nullptr;
 	Object *		contains = nullptr;
-    long            donated = 0; // timestamp when an obj was donated, for pit cleanup
+    long            donated = 0; ///< timestamp when an obj was donated, for pit cleanup
 
 	String 	        name;
 	String 	        short_descr;
@@ -54,19 +54,19 @@ public:
 	int			condition = 0;
 	int			wear_loc = 0;
 	int			timer = 0;
-	int			clean_timer = 0;		/* Montrey */
+	int			clean_timer = 0;		/**< Montrey */
 
     Flags           cached_extra_flags;
 
     /* ugly way to do this: rather than everywhere cycling through the affects given by
        the object's index data separately from the affects given by inset gems, we
        compile a list of affects whenever one of those changes (rare event). -- Montrey */
- //   Affect *   perm_affected; // initially identical to the index, can be changed by enchants and addapply
-    affect::Affect *   affected = nullptr; // the compiled list, never shown in 'stat' or 'lore', so it can be deduped.
-    bool            affects_modified = false; // set true if an affect changes, so they can be recompiled in the update loop
+ //   Affect *   perm_affected; ///< initially identical to the index, can be changed by enchants and addapply
+    affect::Affect *   affected = nullptr; ///< the compiled list, never shown in 'stat' or 'lore', so it can be deduped.
+    bool            affects_modified = false; ///< set true if an affect changes, so they can be recompiled in the update loop
 
     char            num_settings = 0;
-    Object *      gems = nullptr; // gems in settings
+    Object *      gems = nullptr; ///< gems in settings
     affect::Affect *   gem_affected = nullptr;
 
     virtual const std::string identifier() const { return this->name; }

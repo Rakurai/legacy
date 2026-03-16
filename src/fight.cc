@@ -65,41 +65,34 @@
 #include "Weather.hh"
 #include "World.hh"
 
-#define PKTIME 10       /* that's x3 seconds, 30 currently */
 
 /* Maybe this will help me compile. -- Outsider */
-void    wear_obj        args((Character *ch, Object *obj, bool fReplace));
+extern void    wear_obj         (Character *ch, Object *obj, bool fReplace);
 
 /*
  * Local functions.
  */
-void    check_assist    args((Character *ch, Character *victim));
-void    check_cond      args((Character *ch, Object *obj));
-void    check_all_cond  args((Character *ch));
-void    check_killer    args((Character *ch, Character *victim));
-bool    check_dodge     args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));
-bool    check_blur      args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));
-bool    check_shblock   args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));
-bool    check_parry     args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));
-bool    check_dual_parry args((Character *ch, Character *victim, skill::type attack_skill, int attack_type));    /* not a skill, evo dual wield */
-void    do_riposte      args((Character *ch, Character *victim));
-void    dam_message     args((Character *ch, Character *victim, int dam, skill::type attack_skill, int attack_type, bool immune, bool sanc_immune));
-void    death_cry       args((Character *ch));
-//void    group_gain      args((Character *ch, Character *victim));
-int    	group_gain      args((Character *ch, Character *victim));
-int     xp_compute      args((Character *gch, Character *victim, int total_levels, int diff_classes));
-bool    is_safe         args((Character *ch, Character *victim, bool showmsg));
-void    make_corpse     args((Character *ch));
-bool    check_pulse     args((Character *victim));
-void    kill_off        args((Character *ch, Character *victim));
-void    one_hit         args((Character *ch, Character *victim, skill::type attack_skill, bool secondary));
-void    mob_hit         args((Character *ch, Character *victim, skill::type attack_skill));
-void    raw_kill        args((Character *victim));
-void    set_fighting    args((Character *ch, Character *victim));
-void    combat_regen    args((Character *ch));
-void    noncombat_regen    args((Character *ch));
-void    do_lay_on_hands       args((Character *ch, const char *argument));
-bool 	defense_heal	args((Character *victim, int chance, int percent));
+void    check_assist     (Character *ch, Character *victim);
+void    check_cond       (Character *ch, Object *obj);
+bool    check_dodge      (Character *ch, Character *victim, skill::type attack_skill, int attack_type);
+bool    check_blur       (Character *ch, Character *victim, skill::type attack_skill, int attack_type);
+bool    check_shblock    (Character *ch, Character *victim, skill::type attack_skill, int attack_type);
+bool    check_parry      (Character *ch, Character *victim, skill::type attack_skill, int attack_type);
+bool    check_dual_parry (Character *ch, Character *victim, skill::type attack_skill, int attack_type);    /* not a skill, evo dual wield */
+void    do_riposte       (Character *ch, Character *victim);
+void    dam_message      (Character *ch, Character *victim, int dam, skill::type attack_skill, int attack_type, bool immune, bool sanc_immune);
+int    	group_gain       (Character *ch, Character *victim);
+int     xp_compute       (Character *gch, Character *victim, int total_levels, int diff_classes);
+void    make_corpse      (Character *ch);
+bool    check_pulse      (Character *victim);
+void    kill_off         (Character *ch, Character *victim);
+void    one_hit          (Character *ch, Character *victim, skill::type attack_skill, bool secondary);
+void    mob_hit          (Character *ch, Character *victim, skill::type attack_skill);
+void    raw_kill         (Character *victim);
+void    set_fighting     (Character *ch, Character *victim);
+void    combat_regen     (Character *ch);
+void    noncombat_regen  (Character *ch);
+bool    defense_heal     (Character *victim, int chance, int percent);
 
 
 /* Global XP */
@@ -111,7 +104,7 @@ bool global_quick = false;
 
 /* Control the fights going on.
    Called periodically by update_handler. */
-void violence_update(void)
+void violence_update()
 {
 	Character *victim;
 
@@ -933,7 +926,7 @@ void one_hit(Character *ch, Character *victim, skill::type attack_skill, bool se
 	   us a damage noun (if no skill) and a damage type.
 	 */
 
-	int attack_type = 0; // index into attack table, where we get a damage noun and damage type
+	int attack_type = 0; ///< index into attack table, where we get a damage noun and damage type
 
 	if (wield != nullptr && wield->item_type == ITEM_WEAPON)
 		attack_type = wield->value[3];
@@ -5473,7 +5466,7 @@ void do_sla(Character *ch, String argument)
 
 void do_slay(Character *ch, String argument)
 {
-	char buf[MAX_STRING_LENGTH]; /* For [FYI] */
+	char buf[MAX_STRING_LENGTH]; /**<For [FYI] */
 	Character *victim;
 
 	if (argument.empty()) {

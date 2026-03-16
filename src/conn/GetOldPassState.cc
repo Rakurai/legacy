@@ -117,8 +117,7 @@ void update_site(const Character *ch)
 		            db_esc(ch->name), db_esc(ch->desc->host), db_esc(shortsite));
 }
 
-State * GetOldPassState::
-handleInput(Descriptor *d, const String& argument) {
+State * GetOldPassState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	write_to_buffer(d, "\n");

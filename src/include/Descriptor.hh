@@ -23,8 +23,8 @@ public:
     Descriptor *        snoop_by = nullptr;
     Character *         character = nullptr;
     Character *         original = nullptr;
-    long                hostaddr = 0;       /* numeric IP addr -- Elrac */
-    String              host;           /* text addr */
+    long                hostaddr = 0;       /**< numeric IP addr -- Elrac */
+    String              host;           /**< text addr */
     int              descriptor = 0;
     bool                fcommand = false;
     char                inbuf           [4 * MAX_INPUT_LENGTH] = {0};
@@ -43,4 +43,4 @@ private:
     Descriptor& operator=(const Descriptor&);
 };
 
-extern Descriptor   *descriptor_list; // in comm.c
+extern Descriptor   *descriptor_list; ///< in comm.c

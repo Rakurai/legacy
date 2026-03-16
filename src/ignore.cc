@@ -39,7 +39,6 @@
 #include "sql.hh"
 #include "String.hh"
 
-void ignore_offline(Character *, const String& );
 
 bool is_ignoring(Character *ch, Character *victim)
 {
@@ -63,6 +62,44 @@ bool is_ignoring(Character *ch, Character *victim)
 		return true;
 
 	return false;
+}
+
+
+void ignore_offline(Character *ch, const String& arg)
+{
+	char name[MIL];
+
+	if (db_queryf("ignore_offline", "SELECT name, cgroup FROM pc_index WHERE name LIKE '%s'", db_esc(arg)) != SQL_OK) {
+		if (db_next_row() != SQL_OK) {
+			if (db_get_column_flags(1).has(GROUP_GEN)) {
+				stc("You're not going to ignore us that easily!\n", ch);
+				return;
+			}
+
+			strcpy(name, db_get_column_str(0));
+		}
+		else {
+			stc("There is no one by that name to ignore.\n", ch);
+			return;
+		}
+	}
+	else {
+		stc("Sorry, we couldn't retrieve that player's data.\nPlease report this with the 'bug' command.\n", ch);
+		return;
+	}
+
+	auto search = std::find(ch->pcdata->ignore.begin(), ch->pcdata->ignore.end(), name);
+
+	if (search == ch->pcdata->ignore.end()) {
+		// add
+		ptc(ch, "You now ignore %s.\n", name);
+		ch->pcdata->ignore.push_back(name);
+	}
+	else {
+		// remove
+		ptc(ch, "You stop ignoring %s.\n", name);
+		ch->pcdata->ignore.erase(search);
+	}
 }
 
 /* Stripped from do_query basically - Lotus */
@@ -140,43 +177,6 @@ void do_ignore(Character *ch, String argument)
 		ptc(ch, "You stop ignoring %s.\n", victim->name);
 		ptc(victim, "%s stops ignoring you.\n", ch->name);
 		rch->pcdata->ignore.erase(search);
-	}
-}
-
-void ignore_offline(Character *ch, const String& arg)
-{
-	char name[MIL];
-
-	if (db_queryf("ignore_offline", "SELECT name, cgroup FROM pc_index WHERE name LIKE '%s'", db_esc(arg)) != SQL_OK) {
-		if (db_next_row() != SQL_OK) {
-			if (db_get_column_flags(1).has(GROUP_GEN)) {
-				stc("You're not going to ignore us that easily!\n", ch);
-				return;
-			}
-
-			strcpy(name, db_get_column_str(0));
-		}
-		else {
-			stc("There is no one by that name to ignore.\n", ch);
-			return;
-		}
-	}
-	else {
-		stc("Sorry, we couldn't retrieve that player's data.\nPlease report this with the 'bug' command.\n", ch);
-		return;
-	}
-
-	auto search = std::find(ch->pcdata->ignore.begin(), ch->pcdata->ignore.end(), name);
-
-	if (search == ch->pcdata->ignore.end()) {
-		// add
-		ptc(ch, "You now ignore %s.\n", name);
-		ch->pcdata->ignore.push_back(name);
-	}
-	else {
-		// remove
-		ptc(ch, "You stop ignoring %s.\n", name);
-		ch->pcdata->ignore.erase(search);
 	}
 }
 

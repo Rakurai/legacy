@@ -555,14 +555,14 @@ void unequip_char(Character *ch, Object *obj)
 /*
  * Count occurrences of an obj in a list.
  */
-int count_obj_list(ObjectPrototype *pObjIndex, Object *list)
+int count_obj_list(ObjectPrototype *proto, Object *list)
 {
 	Object *obj;
 	int nMatch;
 	nMatch = 0;
 
 	for (obj = list; obj != nullptr; obj = obj->next_content) {
-		if (obj->pIndexData == pObjIndex)
+		if (obj->pIndexData == proto)
 			nMatch++;
 	}
 
@@ -923,12 +923,12 @@ bool mob_exists(const char *name)
  * Find some object with a given index data.
  * Used by area-reset 'P' command.
  */
-Object *get_obj_type(ObjectPrototype *pObjIndex)
+Object *get_obj_type(ObjectPrototype *proto)
 {
 	Object *obj;
 
 	for (obj = Game::world().object_list; obj != nullptr; obj = obj->next) {
-		if (obj->pIndexData == pObjIndex)
+		if (obj->pIndexData == proto)
 			return obj;
 	}
 

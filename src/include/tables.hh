@@ -49,12 +49,21 @@ struct revoke_type
 	String message;
 };
 
+/**
+ * @defgroup FlagCandidates Constants defining flag candidates
+ * @{
+ */
 constexpr int CAND_CHAR   = 0;
 constexpr int CAND_MOB    = 1;
 constexpr int CAND_PLAYER = 2;
 constexpr int CAND_OBJ    = 3;
 constexpr int CAND_ROOM   = 4;
+/** @} */
 
+/**
+ * @defgroup FlagFields Constants defining flag fields
+ * @{
+ */
 constexpr int FIELD_PLAYER   = 0;
 constexpr int FIELD_PCDATA   = 1;
 constexpr int FIELD_CGROUP   = 2;
@@ -71,6 +80,7 @@ constexpr int FIELD_EXTRA    = 12;
 constexpr int FIELD_WEAR     = 13;
 constexpr int FIELD_WEAPON   = 14;
 constexpr int FIELD_ROOM     = 15;
+/** @} */
 
 struct flag_type
 {
@@ -159,10 +169,10 @@ extern  const   std::vector<MagT_type>     MagT_table;
 extern  const   std::vector<CleT_type>     CleT_table;
 extern  const   std::vector<ThiT_type>     ThiT_table;
 extern  const   std::vector<WarT_type>     WarT_table;
-extern	const	std::vector<chan_type>     chan_table;		/* new channel table */
-extern	const	std::vector<revoke_type>   revoke_table;		/* revoke command table */
-extern	const	std::vector<csetting_type> csetting_table;	/* color settings table */
-extern	const	std::vector<color_type>    color_table;		/* color table */
+extern	const	std::vector<chan_type>     chan_table;		/**< new channel table */
+extern	const	std::vector<revoke_type>   revoke_table;		/**< revoke command table */
+extern	const	std::vector<csetting_type> csetting_table;	/**< color settings table */
+extern	const	std::vector<color_type>    color_table;		/**< color table */
 extern	const	std::vector<sector_type>   sector_table;
 
 /* flag tables */
@@ -174,7 +184,7 @@ extern  const   std::vector<flag_type> pcdata_flags;
 extern  const   std::vector<flag_type> wiz_flags;
 extern  const   std::vector<flag_type> affect_flags;
 extern  const   std::vector<flag_type> off_flags;
-extern  const   std::vector<flag_type> imm_flags;
+//extern  const   std::vector<flag_type> imm_flags;
 extern  const   std::vector<flag_type> form_flags;
 extern  const   std::vector<flag_type> part_flags;
 extern  const   std::vector<flag_type> group_flags;
@@ -182,12 +192,12 @@ extern  const   std::vector<flag_type> comm_flags;
 extern  const   std::vector<flag_type> censor_flags;
 extern  const   std::vector<flag_type> revoke_flags;
 extern  const   std::vector<flag_type> extra_flags;
-extern	const	std::vector<flag_type> eq_flags;	//loot system vegita
+//extern	const	std::vector<flag_type> eq_flags;	///<loot system vegita
 extern  const   std::vector<flag_type> wear_flags;
-extern  const   std::vector<flag_type> container_flags;
-extern  const   std::vector<flag_type> portal_flags;
+//extern  const   std::vector<flag_type> container_flags;
+//extern  const   std::vector<flag_type> portal_flags;
 extern  const   std::vector<flag_type> room_flags;
-extern  const   std::vector<flag_type> exit_flags;
+//extern  const   std::vector<flag_type> exit_flags;
 extern  const   std::vector<flag_type> cgroup_flags;
 extern  const   std::vector<flag_type> cont_flags;
 

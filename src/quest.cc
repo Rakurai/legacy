@@ -43,20 +43,29 @@
 #include "World.hh"
 #include "RoomPrototype.hh"
 
-/* Object vnums for object quest 'tokens' */
-#define QUEST_OBJQUEST1 1283
-#define QUEST_OBJQUEST2 1284
-#define QUEST_OBJQUEST3 1285
-#define QUEST_OBJQUEST4 1286
-#define QUEST_OBJQUEST5 1287
+/**
+ * @defgroup QuestObjectTokens Object Tokens for Quests
+ * @{
+ */
+constexpr int QUEST_OBJQUEST1 = 1283;
+constexpr int QUEST_OBJQUEST2 = 1284;
+constexpr int QUEST_OBJQUEST3 = 1285;
+constexpr int QUEST_OBJQUEST4 = 1286;
+constexpr int QUEST_OBJQUEST5 = 1287;
+/** @} */
 
-/* syllable tables */
-#define MAXMSYL1        77
-#define MAXMSYL2        38
-#define MAXMSYL3        83
-#define MAXFSYL1        76
-#define MAXFSYL2        42
-#define MAXFSYL3        54
+/**
+ * @defgroup SyllableTables Syllable Tables for Name Generation
+ * @{
+ */
+constexpr int MAXMSYL1 = 77;
+constexpr int MAXMSYL2 = 38;
+constexpr int MAXMSYL3 = 83;
+constexpr int MAXFSYL1 = 76;
+constexpr int MAXFSYL2 = 42;
+constexpr int MAXFSYL3 = 54;
+/** @}
+ */
 
 /* Usage info on the QUEST commands -- Elrac */
 /* Keep this in line with the do_quest function's keywords */

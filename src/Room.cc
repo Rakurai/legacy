@@ -8,8 +8,7 @@
 #include "GameTime.hh"
 #include "World.hh"
 
-Room::
-Room(RoomPrototype& p) : 
+Room::Room(RoomPrototype& p) : 
 	prototype(p), 
 	room_flags(p.room_flags), 
 	location(RoomID(p.vnum, ++p.count)) // increment the count for the prototype
@@ -28,10 +27,11 @@ int Room::heal_rate() const { return prototype.heal_rate; }
 int Room::mana_rate() const { return prototype.mana_rate; }
 const Location& Room::tele_dest() const { return prototype.tele_dest; }
 
+extern void spread_plague(Room *room, const affect::Affect *plague, int chance);
+
 bool Room::is_on_map() const { return location.coord.is_valid(); }
 
-void Room::
-add_char(Character *ch) {
+void Room::add_char(Character *ch) {
 	ch->in_room         = this;
 	ch->next_in_room    = this->people;
 	this->people        = ch;
@@ -49,8 +49,7 @@ add_char(Character *ch) {
 		spread_plague(this, plague, 6);
 }
 
-void Room::
-remove_char(Character *ch) {
+void Room::remove_char(Character *ch) {
 	// make sure they're actually in this room first.  The only place I can find
 	// where this might not happen is in do_load, but there's no sense in not
 	// checking in case someone does something dumb.  I want this light thing
@@ -97,8 +96,7 @@ remove_char(Character *ch) {
 	ch->on           = nullptr;  /* sanity check! */
 }
 
-bool Room::
-is_dark() const {
+bool Room::is_dark() const {
 	if (is_very_dark())
 		return true;
 
@@ -118,8 +116,7 @@ is_dark() const {
 	return false;
 }
 
-bool Room::
-is_very_dark() const {
+bool Room::is_very_dark() const {
 	if (flags().has(ROOM_NOLIGHT))
 		return true;
 

@@ -27,7 +27,8 @@ class Location;
 struct VnumRange {
 	VnumRange(Vnum mn, Vnum mx) : min(mn), max(mx) {}
 	inline friend bool operator<(const VnumRange& lhs, const VnumRange& rhs) { return lhs.max < rhs.min; }
-	Vnum min, max;
+	Vnum min;
+	Vnum max;
 };
 
 class World
@@ -40,7 +41,7 @@ public:
 	GameTime time;
 	Weather weather;
 	QuestArea quest;
-	GarbageCollectingList<Character *> char_list; // owned here
+	GarbageCollectingList<Character *> char_list; ///< owned here
 	Object *object_list = nullptr;
 
 	Object *donation_pit = nullptr;;

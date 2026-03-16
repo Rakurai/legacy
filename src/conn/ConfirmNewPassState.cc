@@ -9,8 +9,7 @@
 
 namespace conn {
 
-State * ConfirmNewPassState::
-handleInput(Descriptor *d, const String& argument) {
+State * ConfirmNewPassState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	String pass;

@@ -113,8 +113,7 @@ const Vnum Region::get_vnum(unsigned int x, unsigned int y) const {
 	return color_to_vnum(get_color(x, y));
 }
 
-void Region::
-create_rooms() const {
+void Region::create_rooms() const {
 	for (unsigned int y = 0; y < image.height(); y++) {
 		for (unsigned int x = 0; x < image.width(); x++) {
 			MapColor color = get_color(x, y);

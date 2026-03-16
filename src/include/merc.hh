@@ -50,13 +50,13 @@ struct  str_app_type
 	int      todam;
 	int      carry;
 	int      wield;
-	int	stp;		/* bonus to stamina -- Montrey */
+	int	stp;		/**<*< bonus to stamina -- Montrey */
 };
 
 struct  int_app_type
 {
 	int      learn;
-	int	manap;		/* bonus to mana -- Montrey */
+	int	manap;		/**<*< bonus to mana -- Montrey */
 };
 
 struct  wis_app_type
@@ -91,21 +91,21 @@ struct deity_type
 
 struct  guild_type
 {
-	String      name;                   /* the full name of the class */
-	String      who_name;               /* Three-letter name for 'who'  */
-	int      stat_prime;             /* Prime attribute              */
-	int      weapon;                 /* First weapon                 */
-	int      skill_adept;            /* Maximum skill level          */
-	int      thac0_00;               /* Thac0 for level  0           */
-	int      thac0_32;               /* Thac0 for level 32           */
-	String      base_group;             /* base skills gained           */
-	String      default_group;          /* default skills gained        */
-	int      hp_min;                 /* Min hp gained on leveling    */
-	int      hp_max;                 /* Max hp gained on leveling    */
-	int	mana_min;		/* Min mana gained on leveling  */
-	int	mana_max;		/* Max mana gained on leveling  */
-	int	stam_min;		/* Min stamina gained on leveling */
-	int	stam_max;		/* Max stamina gained on leveling */
+	String      name;                   /**< the full name of the class */
+	String      who_name;               /**< Three-letter name for 'who'  */
+	int      stat_prime;             /**< Prime attribute              */
+	int      weapon;                 /**< First weapon                 */
+	int      skill_adept;            /**< Maximum skill level          */
+	int      thac0_00;               /**< Thac0 for level  0           */
+	int      thac0_32;               /**< Thac0 for level 32           */
+	String      base_group;             /**< base skills gained           */
+	String      default_group;          /**< default skills gained        */
+	int      hp_min;                 /**< Min hp gained on leveling    */
+	int      hp_max;                 /**< Max hp gained on leveling    */
+	int	mana_min;		/**< Min mana gained on leveling  */
+	int	mana_max;		/**< Max mana gained on leveling  */
+	int	stam_min;		/**< Min stamina gained on leveling */
+	int	stam_max;		/**< Max stamina gained on leveling */
 };
 
 struct item_type
@@ -132,45 +132,45 @@ struct wiznet_type
 
 struct attack_type
 {
-	String      name;                   /* name */
-	String      noun;                   /* message */
-	int         damage;                 /* damage class */
+	String      name;                   /**< name */
+	String      noun;                   /**< message */
+	int         damage;                 /**< damage class */
 };
 
 struct race_type
 {
-	String      name;                   /* call name of the race */
-	bool        pc_race;                /* can be chosen by pcs */
-	Flags       act;                    /* act bits for the race */
-	Flags       aff;                    /* aff bits for the race */
-	Flags       off;                    /* off bits for the race */
-	Flags       imm;                    /* imm bits for the race */
-	Flags       res;                    /* res bits for the race */
-	Flags       vuln;                   /* vuln bits for the race */
-	Flags       form;                   /* default form flag for the race */
-	Flags       parts;                  /* default parts for the race */
+	String      name;                   /**< call name of the race */
+	bool        pc_race;                /**< can be chosen by pcs */
+	Flags       act;                    /**< act bits for the race */
+	Flags       aff;                    /**< aff bits for the race */
+	Flags       off;                    /**< off bits for the race */
+	Flags       imm;                    /**< imm bits for the race */
+	Flags       res;                    /**< res bits for the race */
+	Flags       vuln;                   /**< vuln bits for the race */
+	Flags       form;                   /**< default form flag for the race */
+	Flags       parts;                  /**< default parts for the race */
 };
 
 
 struct pc_race_type  /* additional data for pc races */
 {
-	String      name;                   /* MUST be in race_type */
-	String      who_name;		/* first 3 characters are used in 'who' */
-	int	    base_age;		/* the base age for the race */
-	int      points;                 /* cost in points of the race */
-	int      guild_mult[Guild::size];  /* exp multiplier for class, * 100 */
-	int      stats[MAX_STATS];       /* starting stats */
-	int      max_stats[MAX_STATS];   /* maximum stats */
-	int      size;                   /* aff bits for the race */
-	int         remort_level;           /* remort level of race */
-	String      skills[5];              /* bonus skills for the race */
+	String      name;                   /**< MUST be in race_type */
+	String      who_name;		/**< first 3 characters are used in 'who' */
+	int	    base_age;		/**< the base age for the race */
+	int      points;                 /**< cost in points of the race */
+	int      guild_mult[Guild::size];  /**< exp multiplier for class, * 100 */
+	int      stats[MAX_STATS];       /**< starting stats */
+	int      max_stats[MAX_STATS];   /**< maximum stats */
+	int      size;                   /**< aff bits for the race */
+	int         remort_level;           /**< remort level of race */
+	String      skills[5];              /**< bonus skills for the race */
 };
 
 
 struct spec_type
 {
-	String      name;                   /* special function name */
-	SPEC_FUN *  function;               /* the function */
+	String      name;                   /**< special function name */
+	SPEC_FUN *  function;               /**< the function */
 };
 
 
@@ -235,7 +235,7 @@ extern		char 			*departed_list_line;
 /* War stuff */
 extern 		War		*war_table_head;
 extern 		War		*war_table_tail;
-//extern		Mercenary	*merc_table_head; // currently unused
+//extern		Mercenary	*merc_table_head; ///< currently unused
 //extern		Mercenary	*merc_table_tail;
 
 

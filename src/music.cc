@@ -47,7 +47,7 @@
 int channel_songs[MAX_GLOBAL + 1];
 std::vector<struct song_data> song_table;
 
-void song_update(void)
+void song_update()
 {
 	Object *obj;
 	Character *victim;
@@ -150,7 +150,7 @@ void song_update(void)
 	}
 }
 
-void load_songs(void)
+void load_songs()
 {
 	FILE *fp;
 	int i;

@@ -9,7 +9,7 @@
  * It is most certainly NOT ok for argument to be identical to arg!
  * The strcpy at the end sometimes throws a SIGABRT on overlap! -- Montrey
  */
-int number_argument(const char *argument, char *arg)
+int _number_argument(const char *argument, char *arg)
 {
 	/* Check for leading digit. Saves time */
 	if (*argument >= '0' && *argument <= '9') {
@@ -51,14 +51,14 @@ int number_argument(const char *argument, char *arg)
  * It is most certainly NOT ok for argument to be identical to arg!
  * The strcpy at the end sometimes throws a SIGABRT on overlap! -- Montrey
  */
-Flags::Bit entity_argument(const char *argument, char *arg)
+Flags::Bit _entity_argument(const char *argument, char *arg)
 {
 	char tmp_buf[strlen(argument)+1];
 	char *ap;   /* pointer to argument */
 	int  number;
 	Flags::Bit etype = Flags::none;
 	/* check for and isolate leading numeric */
-	number = number_argument(argument, tmp_buf);
+	number = _number_argument(argument, tmp_buf);
 	ap = tmp_buf;
 
 	if (ap[0] != '\0' && ap[1] == '.') {
@@ -108,7 +108,7 @@ Flags::Bit entity_argument(const char *argument, char *arg)
 /*
  * Given a string like 14*foo, return 14 and 'foo'
 */
-int mult_argument(const char *argument, char *arg)
+int _mult_argument(const char *argument, char *arg)
 {
 	int number;
 	char buf[strlen(argument)+1];
@@ -133,7 +133,7 @@ int mult_argument(const char *argument, char *arg)
  * Pick off one argument from a string and return the rest.
  * Understands quotes.
  */
-const char *one_argument(const char *argument, char *arg_first)
+const char *_one_argument(const char *argument, char *arg)
 {
 	char cEnd;
 
@@ -151,12 +151,12 @@ const char *one_argument(const char *argument, char *arg_first)
 			break;
 		}
 
-		*arg_first = /*tolower(*/*argument/*)*/;
-		arg_first++;
+		*arg = /*tolower(*/*argument/*)*/;
+		arg++;
 		argument++;
 	}
 
-	*arg_first = '\0';
+	*arg = '\0';
 
 	while (isspace(*argument))
 		argument++;
@@ -166,28 +166,28 @@ const char *one_argument(const char *argument, char *arg_first)
 
 int number_argument(const String& argument, String& arg) {
 	char buf[argument.size()+1];
-	int ret = number_argument(argument.c_str(), buf);
+	int ret = _number_argument(argument.c_str(), buf);
 	arg.assign(buf);
 	return ret;
 }
 
 Flags::Bit entity_argument(const String& argument, String& arg) {
 	char buf[argument.size()+1];
-	Flags::Bit ret = entity_argument(argument.c_str(), buf);
+	Flags::Bit ret = _entity_argument(argument.c_str(), buf);
 	arg.assign(buf);
 	return ret;
 }
 
 int mult_argument(const String& argument, String& arg) {
 	char buf[argument.size()+1];
-	int ret = mult_argument(argument.c_str(), buf);
+	int ret = _mult_argument(argument.c_str(), buf);
 	arg.assign(buf);
 	return ret;
 }
 
 const char *one_argument(const String& argument, String& arg) {
 	char buf[argument.size()+1];
-	const char *ret = one_argument(argument.c_str(), buf);
+	const char *ret = _one_argument(argument.c_str(), buf);
 	arg.assign(buf);
 	return ret;
 }

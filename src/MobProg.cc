@@ -1,8 +1,7 @@
 #include "MobProg.hh"
 #include "file.hh"
 
-MobProg::
-MobProg(FILE *fp) {
+MobProg::MobProg(FILE *fp) {
 	type = name_to_type(fread_word(fp));
 
 	switch (type) {
@@ -22,8 +21,7 @@ MobProg(FILE *fp) {
  *  mob_prog bitvector types. This allows the use of the words in the
  *  mob/script files.
  */
-Flags::Bit MobProg::
-name_to_type(const String& name) {
+Flags::Bit MobProg::name_to_type(const String& name) {
 //	if (name == "in_file_prog")   return IN_FILE_PROG;
 	if (name == "act_prog")       return ACT_PROG;
 	if (name == "speech_prog")    return SPEECH_PROG;
@@ -44,8 +42,7 @@ name_to_type(const String& name) {
 	return (ERROR_PROG);
 }
 
-const String MobProg::
-type_to_name(Flags::Bit type) {
+const String MobProg::type_to_name(Flags::Bit type) {
 	switch (type) {
 //	case IN_FILE_PROG:          return "in_file_prog";
 	case ACT_PROG:              return "act_prog";

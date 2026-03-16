@@ -21,8 +21,13 @@ private:
 	Edit& operator=(const Edit&);
 };
 
+/**
+ * @defgroup EditTypes Constants defining edit types
+ * @{
+ */
 constexpr int EDIT_TYPE_NONE = 0;
 constexpr int EDIT_TYPE_NOTE = 1;
 constexpr int EDIT_TYPE_DESC = 2;
 constexpr int EDIT_TYPE_ROOM = 3;
 constexpr int EDIT_TYPE_HELP = 4;
+/** @} */

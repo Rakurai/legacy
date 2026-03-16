@@ -20,7 +20,9 @@ public:
 		return *this;
 	}
 
-	unsigned int red, green, blue;
+	unsigned int red;
+	unsigned int green;
+	unsigned int blue;
 	static const MapColor uncolored;
 
 	inline bool operator==(const MapColor& rhs) const {

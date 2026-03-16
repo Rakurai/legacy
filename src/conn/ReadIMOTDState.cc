@@ -5,8 +5,7 @@
 
 namespace conn {
 
-State * ReadIMOTDState::
-handleInput(Descriptor *d, const String& argument) {
+State * ReadIMOTDState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	ptc(ch, "\n");

@@ -11,22 +11,19 @@
 #include "RoomPrototype.hh"
 #include "Room.hh"
 
-World::
-World() :
+World::World() :
 	time(Game::current_time),
 	weather(time),
 	overworld(),
 	maptree(overworld.width())
 {}
 
-World::
-~World() {
+World::~World() {
 	for (auto& pair : areas)
 		delete pair.second;
 }
 
-void World::
-update() {
+void World::update() {
 	static int pulse_area = 0;
 
 	if (--pulse_area <= 0) {
@@ -39,18 +36,15 @@ update() {
 	char_list.delete_garbage();
 }
 
-void World::
-add_char(Character *ch) {
+void World::add_char(Character *ch) {
 	char_list.add(ch);
 }
 
-void World::
-remove_char(Character *ch) {
+void World::remove_char(Character *ch) {
 	char_list.remove(ch);
 }
 
-Area * World::
-get_area(const Vnum& vnum) const {
+Area * World::get_area(const Vnum& vnum) const {
 	// it would be really nice if we could sort the areas on their vnum ranges
 	// and then do a binary search here, but i have bigger fish to fry.  there
 	// should only be 100 or so areas anyway
@@ -62,8 +56,7 @@ get_area(const Vnum& vnum) const {
 	return pair->second;
 }
 
-MobilePrototype * World::
-get_mob_prototype(const Vnum& vnum)
+MobilePrototype * World::get_mob_prototype(const Vnum& vnum)
 {
 	Area *area = get_area(vnum);
 	MobilePrototype *proto = nullptr;
@@ -78,8 +71,7 @@ get_mob_prototype(const Vnum& vnum)
 	return proto;
 }
 
-ObjectPrototype * World::
-get_obj_prototype(const Vnum& vnum)
+ObjectPrototype * World::get_obj_prototype(const Vnum& vnum)
 {
 	Area *area = get_area(vnum);
 	ObjectPrototype *proto = nullptr;
@@ -94,8 +86,7 @@ get_obj_prototype(const Vnum& vnum)
 	return proto;
 }
 
-RoomPrototype * World::
-get_room_prototype(const Vnum& vnum) {
+RoomPrototype * World::get_room_prototype(const Vnum& vnum) {
 	Area *area = get_area(vnum);
 	RoomPrototype *proto = nullptr;
 
@@ -109,8 +100,7 @@ get_room_prototype(const Vnum& vnum) {
 	return proto;
 }
 
-Room * World::
-get_room(const Location& location)
+Room * World::get_room(const Location& location)
 {
 	if (location.coord.is_valid())
 		return maptree.get(location.coord);
@@ -130,8 +120,7 @@ get_room(const Location& location)
 	return nullptr;
 }
 
-void World::
-get_minimap(Character *ch, std::vector<String>& vec) const {
+void World::get_minimap(Character *ch, std::vector<String>& vec) const {
 	const int map_width = 30;
 	const int map_height = 22;
 
@@ -197,8 +186,7 @@ get_minimap(Character *ch, std::vector<String>& vec) const {
 	}
 }
 
-void World::
-load_areas() {
+void World::load_areas() {
 	/* Read in all the area files */
 	FILE *fpList = fopen(AREA_LIST, "r");
 
@@ -230,8 +218,7 @@ load_areas() {
 // possibly a map<vnum, vector<Room *>>, but only if looking up by vnum is
 // worthwhile (possibly true because of searching by area, only have to look
 // up each prototype vnum)
-void World::
-create_rooms() {
+void World::create_rooms() {
 	for (auto& pair : areas) {
 		pair.second->create_rooms();
 	}
@@ -242,8 +229,7 @@ create_rooms() {
  * Has to be done after all rooms are read in.
  * Check for bad reverse exits.
  */
-void World::
-create_exits(void)
+void World::create_exits()
 {
 	for (const auto& area_pair : areas) {
 		for (const auto& pair : area_pair.second->rooms) {

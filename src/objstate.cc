@@ -25,8 +25,8 @@
 #include "World.hh"
 
 extern int CURRENT_VERSION;
-extern cJSON *fwrite_obj(Object *);
-extern Object *fread_obj(cJSON *, int);
+extern cJSON *fwrite_obj(Object *obj);
+extern Object *fread_obj(cJSON *json, int version);
 
 /* see if an object has contents that don't appear in it's 'put' resets, return
    true if so.  we don't save normal objects that lie around */
@@ -127,7 +127,7 @@ int objstate_save_items()
 }
 
 int count_items(const Object *obj) {
-	int count = 1; // this item
+	int count = 1; ///< this item
 
 	for (const Object *c = obj->contains; c != nullptr; c = c->next_content)
 		count += count_items(c);

@@ -4,21 +4,15 @@
 
 class String;
 
-int number_argument(const char * argument, char* arg);
-Flags::Bit entity_argument(const char * argument, char* arg);
-int mult_argument(const char * argument, char* arg);
-const char *one_argument(const char * argument, char* arg);
-
 int number_argument(const String& argument, String& arg);
 Flags::Bit entity_argument(const String& argument, String& arg);
 int mult_argument(const String& argument, String& arg);
 const char *one_argument(const String& argument, String& arg);
 
 
-/*
- * Values returned by entity_argument()
- * These represent players, mobiles, characters (either),
- * objects and rooms, respectively.
+/**
+ * @defgroup EntityArgumentValues Values returned by entity_argument()
+ * @{
  */
 constexpr Flags::Bit ENTITY_P = Flags::A;
 constexpr Flags::Bit ENTITY_M = Flags::B;
@@ -27,6 +21,7 @@ constexpr Flags::Bit ENTITY_O = Flags::C;
 constexpr Flags::Bit ENTITY_R = Flags::D;
 
 /* More entity types: Mobs, objects and rooms as Vnums */
-constexpr Flags::Bit ENTITY_VM = Flags::E;   /* Mob Vnum */
-constexpr Flags::Bit ENTITY_VO = Flags::F;   /* Obj Vnum */
-constexpr Flags::Bit ENTITY_VR = Flags::G;   /* Room Vnum */
+constexpr Flags::Bit ENTITY_VM = Flags::E;   /**< Mob Vnum */
+constexpr Flags::Bit ENTITY_VO = Flags::F;   /**< Obj Vnum */
+constexpr Flags::Bit ENTITY_VR = Flags::G;   /**< Room Vnum */
+/** @} */

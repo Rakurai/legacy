@@ -2242,8 +2242,8 @@ const std::map<skill::type, skill::skill_table_t> skill_table = {
 		0, 4,	"", Guild::none,
 		{0, 0, 0, 0, 0, 0, 0, 0}, { 0, 0, 0, 0, 0, 0, 0, 0}
 	}},
+	/* Bard Sing new spells for use with revised sing skill */
 	/*
-	/* Bard Sing new spells for use with revised sing skill 
 	//Carols (offensive single target)
 	{	skill::type::carolflame,         {
 		"Carol of Flame",

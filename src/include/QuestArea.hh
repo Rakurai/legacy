@@ -14,7 +14,7 @@ public:
 	const Area& area() const;
 
 	bool open = false;
-	bool pk = true; // unlimited pk
+	bool pk = true; ///< unlimited pk
 	int min_level = 0;
 	int max_level = MAX_LEVEL;
 

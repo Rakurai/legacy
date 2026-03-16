@@ -23,7 +23,8 @@ private:
 	Worldmap& operator=(const Worldmap&);
 
 	const Sector color_to_sector(const MapColor& color) const;
-	unsigned int _height, _width;
+	unsigned int _height;
+	unsigned int _width;
 	unsigned char ** rows = nullptr;
 };
 

@@ -53,35 +53,8 @@
 
 bool MOBtrigger;
 
-/*
- * Local function prototypes
- */
-
-char *mprog_next_command  args((char *clist));
-bool    mprog_seval             args((const String& lhs, const String& opr, const String& rhs));
-bool    mprog_veval             args((int lhs, const String& opr, int rhs));
-bool    mprog_do_ifchck         args((const String& ifchck, Character *mob,
-                                      Character *actor, Object *obj,
-                                      void *vo, Character *rndm));
-char *mprog_process_if  args((const String& ifchck, char *com_list,
-                                      Character *mob, Character *actor,
-                                      Object *obj, void *vo,
-                                      Character *rndm));
-String  mprog_translate         args((char ch, Character *mob,
-                                      Character *actor, Object *obj,
-                                      void *vo, Character *rndm));
-void    mprog_process_cmnd      args((const String& cmnd, Character *mob,
-                                      Character *actor, Object *obj,
-                                      void *vo, Character *rndm));
-void    mprog_driver            args((const String& com_list, Character *mob,
-                                      Character *actor, Object *obj,
-                                      void *vo));
-
-/***************************************************************************
- * Local function code and brief comments.
- */
-
-/* Used to get sequential lines of a multi line string (separated by "\n")
+/** 
+ * Used to get sequential lines of a multi line string (separated by "\n")
  * Thus its like one_argument(), but a trifle different. It is destructive
  * to the multi line string argument, and thus clist must not be shared.
  */
@@ -98,7 +71,277 @@ char *mprog_next_command(char *clist)
 	return (pointer);
 }
 
-/* These two functions do the basic evaluation of ifcheck operators.
+
+/**
+ * This routine handles the variables for command expansion.
+ * If you want to add any go right ahead, it should be fairly
+ * clear how it is done and they are quite easy to do, so you
+ * can be as creative as you want. The only catch is to check
+ * that your variables exist before you use them. At the moment,
+ * using $t when the secondary target refers to an object
+ * i.e. >prog_act drops~<nl>if ispc($t)<nl>sigh<nl>endif<nl>~<nl>
+ * probably makes the mud crash (vice versa as well) The cure
+ * would be to change act() so that vo becomes vict & v_obj.
+ * but this would require a lot of small changes all over the code.
+ */
+String mprog_translate(char ch, Character *mob, Character *actor,
+                     Object *obj, void *vo, Character *rndm)
+{
+	static char *he_she        [] = { "it",  "he",  "she" };
+	static char *him_her       [] = { "it",  "him", "her" };
+	static char *his_her       [] = { "its", "his", "her" };
+	Character   *vict             = (Character *) vo;
+	Object    *v_obj            = (Object *) vo;
+	String t;
+
+	switch (ch) {
+	case 'i':
+		t = mob->name.lsplit();
+		break;
+
+	case 'I':
+		t = mob->short_descr;
+		break;
+
+	case 'n':
+		if (actor) {
+			if (can_see_char(mob, actor))
+				t = actor->name;
+
+			if (!actor->is_npc())
+				t[0] = toupper(t[0]);
+		}
+
+		break;
+
+	case 'N':
+		if (actor) {
+			if (can_see_char(mob, actor)) {
+				if (actor->is_npc())
+					t = actor->short_descr;
+				else {
+					t = actor->name;
+					t += " ";
+					t += actor->pcdata->title;
+				}
+			}
+			else
+				t = "someone";
+		}
+
+		break;
+
+	case 't':
+		if (vict) {
+			if (can_see_char(mob, vict))
+				t = vict->name;
+
+			if (!vict->is_npc())
+				t[0] = toupper(t[0]);
+		}
+
+		break;
+
+	case 'T':
+		if (vict) {
+			if (can_see_char(mob, vict)) {
+				if (vict->is_npc())
+					t = vict->short_descr;
+				else {
+					t = vict->name;
+					t += " ";
+					t += vict->pcdata->title;
+				}
+			}
+			else
+				t = "someone";
+		}
+
+		break;
+
+	case 'r':
+		if (rndm) {
+			if (can_see_char(mob, rndm))
+				t = rndm->name.lsplit();
+			else
+				t = "someone";
+
+			if (!rndm->is_npc())
+				t[0] = toupper(t[0]);
+		}
+
+		break;
+
+	case 'R':
+		if (rndm) {
+			if (can_see_char(mob, rndm)) {
+				if (rndm->is_npc())
+					t = rndm->short_descr;
+				else {
+					t = rndm->name;
+					t += " ";
+					t += rndm->pcdata->title;
+				}
+			}
+			else
+				t = "someone";
+		}
+
+		break;
+
+	case 'e':
+		if (actor)
+			t = can_see_char(mob, actor) ? he_she[GET_ATTR_SEX(actor)] : "someone";
+
+		break;
+
+	case 'm':
+		if (actor)
+			t = can_see_char(mob, actor) ? him_her[GET_ATTR_SEX(actor)] : "someone";
+
+		break;
+
+	case 's':
+		if (actor)
+			t = can_see_char(mob, actor) ? his_her[GET_ATTR_SEX(actor)] : "someone's";
+
+		break;
+
+	case 'E':
+		if (vict)
+			t = can_see_char(mob, vict) ? he_she[GET_ATTR_SEX(vict)] : "someone";
+
+		break;
+
+	case 'M':
+		if (vict)
+			t = can_see_char(mob, vict) ? him_her[GET_ATTR_SEX(vict)] : "someone";
+
+		break;
+
+	case 'S':
+		if (vict)
+			t = can_see_char(mob, vict) ? his_her[GET_ATTR_SEX(vict)] : "someone's";
+
+		break;
+
+	case 'j':
+		t = he_she[GET_ATTR_SEX(mob)];
+		break;
+
+	case 'k':
+		t = him_her[GET_ATTR_SEX(mob)];
+		break;
+
+	case 'l':
+		t = his_her[GET_ATTR_SEX(mob)];
+		break;
+
+	case 'J':
+		if (rndm)
+			t = can_see_char(mob, rndm) ? he_she[GET_ATTR_SEX(rndm)] : "someone";
+
+		break;
+
+	case 'K':
+		if (rndm)
+			t = can_see_char(mob, rndm) ? him_her[GET_ATTR_SEX(rndm)] : "someone";
+
+		break;
+
+	case 'L':
+		if (rndm)
+			t = can_see_char(mob, rndm) ? his_her[GET_ATTR_SEX(rndm)] : "someone's";
+
+		break;
+
+	case 'o':
+		if (obj)
+			t = can_see_obj(mob, obj) ? String(obj->name).lsplit() : "something";
+
+		break;
+
+	case 'O':
+		if (obj)
+			t = can_see_obj(mob, obj) ? obj->short_descr : "something";
+
+		break;
+
+	case 'p':
+		if (v_obj)
+			t = can_see_obj(mob, v_obj) ? String(v_obj->name).lsplit() : "something";
+
+		break;
+
+	case 'P':
+		if (v_obj)
+			t = can_see_obj(mob, v_obj) ? v_obj->short_descr : "something";
+
+		break;
+
+	case 'a':
+		if (obj)
+			switch (tolower(obj->name[0])) {
+			case 'a': case 'e': case 'i':
+			case 'o': case 'u': t = "an";
+				break;
+
+			default: t = "a";
+			}
+
+		break;
+
+	case 'A':
+		if (v_obj)
+			switch (tolower(v_obj->name[0])) {
+			case 'a': case 'e': case 'i':
+			case 'o': case 'u': t = "an";
+				break;
+
+			default: t = "a";
+			}
+
+		break;
+
+	case '$':
+		t = "$";
+		break;
+
+	default:
+		Logging::bugf("Mob: %d bad $var", mob->pIndexData->vnum);
+		break;
+	}
+
+	return t;
+}
+
+/* This procedure simply copies the cmnd to a buffer while expanding
+ * any variables by calling the translate procedure.  The observant
+ * code scrutinizer will notice that this is taken from act()
+ */
+void mprog_process_cmnd(const String& cmnd, Character *mob, Character *actor,
+                        Object *obj, void *vo, Character *rndm)
+{
+	String buf;
+	const char *str = cmnd.c_str();
+
+	while (*str != '\0') {
+		if (*str != '$') {
+			buf += *str++;
+			continue;
+		}
+
+		str++;
+		buf += mprog_translate(*str, mob, actor, obj, vo, rndm);
+		str++;
+	}
+
+	interpret(mob, buf);
+	return;
+}
+
+/**
+ * These two functions do the basic evaluation of ifcheck operators.
  *  It is important to note that the string operations are not what
  *  you probably expect.  Equality is exact and division is substring.
  *  remember that lhs has been stripped of leading space, but can
@@ -123,6 +366,14 @@ bool mprog_seval(const String& lhs, const char *opr, const char *rhs)
 	return 0;
 }
 
+/**
+ * These two functions do the basic evaluation of ifcheck operators.
+ *  It is important to note that the string operations are not what
+ *  you probably expect.  Equality is exact and division is substring.
+ *  remember that lhs has been stripped of leading space, but can
+ *  still have trailing spaces so be careful when editing since:
+ *  "guard" and "guard " are not equal.
+ */
 bool mprog_veval(int lhs, const char *opr, int rhs)
 {
 	if (!strcmp(opr, "=="))
@@ -153,7 +404,8 @@ bool mprog_veval(int lhs, const char *opr, int rhs)
 	return 0;
 }
 
-/* This function performs the evaluation of the if checks.  It is
+/**
+ * This function performs the evaluation of the if checks.  It is
  * here that you can add any ifchecks which you so desire. Hopefully
  * it is clear from what follows how one would go about adding your
  * own. The syntax for an if check is: ifchck ( arg ) [opr val]
@@ -1083,7 +1335,8 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
 	Logging::bugf("Mob: %d unknown ifchck", mob->pIndexData->vnum);
 	return -1;
 }
-/* Quite a long and arduous function, this guy handles the control
+/**
+ * Quite a long and arduous function, this guy handles the control
  * flow part of MOBprograms.  Basicially once the driver sees an
  * 'if' attention shifts to here.  While many syntax errors are
  * caught, some will still get through due to the handling of break
@@ -1094,8 +1347,8 @@ bool mprog_do_ifchck(const char *ifchck, Character *mob, Character *actor,
  * at that point. I havent tested all the possibilites, so I'm speaking
  * in theory, but it is 'guaranteed' to work on syntactically correct
  * MOBprograms, so if the mud crashes here, check the mob carefully!
- */
-/* Yesterday, this routine *did* crash on a syntactically correct
+ *
+ * Yesterday, this routine *did* crash on a syntactically correct
  * mobprog. com_list was nullptr, and yet its value was being checked.
  * While the code is terriffic in general, I think the original author
  * was a bit fuzzy on the difference between nullptr and an empty string.
@@ -1294,274 +1547,8 @@ char *mprog_process_if(const char *ifchck, char *com_list, Character *mob,
 	}
 }
 
-/* This routine handles the variables for command expansion.
- * If you want to add any go right ahead, it should be fairly
- * clear how it is done and they are quite easy to do, so you
- * can be as creative as you want. The only catch is to check
- * that your variables exist before you use them. At the moment,
- * using $t when the secondary target refers to an object
- * i.e. >prog_act drops~<nl>if ispc($t)<nl>sigh<nl>endif<nl>~<nl>
- * probably makes the mud crash (vice versa as well) The cure
- * would be to change act() so that vo becomes vict & v_obj.
- * but this would require a lot of small changes all over the code.
- */
-String mprog_translate(char ch, Character *mob, Character *actor,
-                     Object *obj, void *vo, Character *rndm)
-{
-	static char *he_she        [] = { "it",  "he",  "she" };
-	static char *him_her       [] = { "it",  "him", "her" };
-	static char *his_her       [] = { "its", "his", "her" };
-	Character   *vict             = (Character *) vo;
-	Object    *v_obj            = (Object *) vo;
-	String t;
-
-	switch (ch) {
-	case 'i':
-		t = mob->name.lsplit();
-		break;
-
-	case 'I':
-		t = mob->short_descr;
-		break;
-
-	case 'n':
-		if (actor) {
-			if (can_see_char(mob, actor))
-				t = actor->name;
-
-			if (!actor->is_npc())
-				t[0] = toupper(t[0]);
-		}
-
-		break;
-
-	case 'N':
-		if (actor) {
-			if (can_see_char(mob, actor)) {
-				if (actor->is_npc())
-					t = actor->short_descr;
-				else {
-					t = actor->name;
-					t += " ";
-					t += actor->pcdata->title;
-				}
-			}
-			else
-				t = "someone";
-		}
-
-		break;
-
-	case 't':
-		if (vict) {
-			if (can_see_char(mob, vict))
-				t = vict->name;
-
-			if (!vict->is_npc())
-				t[0] = toupper(t[0]);
-		}
-
-		break;
-
-	case 'T':
-		if (vict) {
-			if (can_see_char(mob, vict)) {
-				if (vict->is_npc())
-					t = vict->short_descr;
-				else {
-					t = vict->name;
-					t += " ";
-					t += vict->pcdata->title;
-				}
-			}
-			else
-				t = "someone";
-		}
-
-		break;
-
-	case 'r':
-		if (rndm) {
-			if (can_see_char(mob, rndm))
-				t = rndm->name.lsplit();
-			else
-				t = "someone";
-
-			if (!rndm->is_npc())
-				t[0] = toupper(t[0]);
-		}
-
-		break;
-
-	case 'R':
-		if (rndm) {
-			if (can_see_char(mob, rndm)) {
-				if (rndm->is_npc())
-					t = rndm->short_descr;
-				else {
-					t = rndm->name;
-					t += " ";
-					t += rndm->pcdata->title;
-				}
-			}
-			else
-				t = "someone";
-		}
-
-		break;
-
-	case 'e':
-		if (actor)
-			t = can_see_char(mob, actor) ? he_she[GET_ATTR_SEX(actor)] : "someone";
-
-		break;
-
-	case 'm':
-		if (actor)
-			t = can_see_char(mob, actor) ? him_her[GET_ATTR_SEX(actor)] : "someone";
-
-		break;
-
-	case 's':
-		if (actor)
-			t = can_see_char(mob, actor) ? his_her[GET_ATTR_SEX(actor)] : "someone's";
-
-		break;
-
-	case 'E':
-		if (vict)
-			t = can_see_char(mob, vict) ? he_she[GET_ATTR_SEX(vict)] : "someone";
-
-		break;
-
-	case 'M':
-		if (vict)
-			t = can_see_char(mob, vict) ? him_her[GET_ATTR_SEX(vict)] : "someone";
-
-		break;
-
-	case 'S':
-		if (vict)
-			t = can_see_char(mob, vict) ? his_her[GET_ATTR_SEX(vict)] : "someone's";
-
-		break;
-
-	case 'j':
-		t = he_she[GET_ATTR_SEX(mob)];
-		break;
-
-	case 'k':
-		t = him_her[GET_ATTR_SEX(mob)];
-		break;
-
-	case 'l':
-		t = his_her[GET_ATTR_SEX(mob)];
-		break;
-
-	case 'J':
-		if (rndm)
-			t = can_see_char(mob, rndm) ? he_she[GET_ATTR_SEX(rndm)] : "someone";
-
-		break;
-
-	case 'K':
-		if (rndm)
-			t = can_see_char(mob, rndm) ? him_her[GET_ATTR_SEX(rndm)] : "someone";
-
-		break;
-
-	case 'L':
-		if (rndm)
-			t = can_see_char(mob, rndm) ? his_her[GET_ATTR_SEX(rndm)] : "someone's";
-
-		break;
-
-	case 'o':
-		if (obj)
-			t = can_see_obj(mob, obj) ? String(obj->name).lsplit() : "something";
-
-		break;
-
-	case 'O':
-		if (obj)
-			t = can_see_obj(mob, obj) ? obj->short_descr : "something";
-
-		break;
-
-	case 'p':
-		if (v_obj)
-			t = can_see_obj(mob, v_obj) ? String(v_obj->name).lsplit() : "something";
-
-		break;
-
-	case 'P':
-		if (v_obj)
-			t = can_see_obj(mob, v_obj) ? v_obj->short_descr : "something";
-
-		break;
-
-	case 'a':
-		if (obj)
-			switch (tolower(obj->name[0])) {
-			case 'a': case 'e': case 'i':
-			case 'o': case 'u': t = "an";
-				break;
-
-			default: t = "a";
-			}
-
-		break;
-
-	case 'A':
-		if (v_obj)
-			switch (tolower(v_obj->name[0])) {
-			case 'a': case 'e': case 'i':
-			case 'o': case 'u': t = "an";
-				break;
-
-			default: t = "a";
-			}
-
-		break;
-
-	case '$':
-		t = "$";
-		break;
-
-	default:
-		Logging::bugf("Mob: %d bad $var", mob->pIndexData->vnum);
-		break;
-	}
-
-	return t;
-}
-
-/* This procedure simply copies the cmnd to a buffer while expanding
- * any variables by calling the translate procedure.  The observant
- * code scrutinizer will notice that this is taken from act()
- */
-void mprog_process_cmnd(const String& cmnd, Character *mob, Character *actor,
-                        Object *obj, void *vo, Character *rndm)
-{
-	String buf;
-	const char *str = cmnd.c_str();
-
-	while (*str != '\0') {
-		if (*str != '$') {
-			buf += *str++;
-			continue;
-		}
-
-		str++;
-		buf += mprog_translate(*str, mob, actor, obj, vo, rndm);
-		str++;
-	}
-
-	interpret(mob, buf);
-	return;
-}
-
-/* The main focus of the MOBprograms.  This routine is called
+/**
+ * The main focus of the MOBprograms.  This routine is called
  *  whenever a trigger is successful.  It is responsible for parsing
  *  the command list and figuring out what to do. However, like all
  *  complex procedures, everything is farmed out to the other guys.
@@ -1600,7 +1587,9 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 	char buf[MSL];
 
 	while (*cmnd != '\0') {
-		morebuf = one_argument(cmnd, buf);
+		String strBuf;
+		morebuf = one_argument(String(cmnd), strBuf);
+		strcpy(buf, strBuf.c_str());
 
 		if (!strcmp(buf, "if")) {
 			command_list = mprog_process_if(morebuf, command_list, mob,
@@ -1621,16 +1610,13 @@ void mprog_driver(const String& com_list, Character *mob, Character *actor,
 	}
 } /* end mprog_driver() */
 
-/***************************************************************************
- * Global function code and brief comments.
- */
 
-/* The next two routines are the basic trigger types. Either trigger
- *  on a certain percent, or trigger on a keyword or word phrase.
+/**
+ * Basic trigger on a keyword or word phrase.
  *  To see how this works, look at the various trigger routines..
  */
 void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
-                          Object *obj, void *vo, Flags::Bit type)
+                          Object *object, void *vo, Flags::Bit type)
 {
 	char        temp1[ MAX_STRING_LENGTH ];
 	char        temp2[ MAX_INPUT_LENGTH ];
@@ -1667,7 +1653,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 					        || *end == '\n'
 					        || *end == '\r'
 					        || *end == '\0')) {
-						mprog_driver(mprg->comlist, mob, actor, obj, vo);
+						mprog_driver(mprg->comlist, mob, actor, object, vo);
 						break;
 					}
 					else
@@ -1683,7 +1669,7 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 						        || *end == '\n'
 						        || *end == '\r'
 						        || *end == '\0')) {
-							mprog_driver(mprg->comlist, mob, actor, obj, vo);
+							mprog_driver(mprg->comlist, mob, actor, object, vo);
 							break;
 						}
 						else
@@ -1695,7 +1681,12 @@ void mprog_wordlist_check(const String& arg, Character *mob, Character *actor,
 	return;
 }
 
-void mprog_percent_check(Character *mob, Character *actor, Object *obj,
+/**
+ * This is the percent chance check for MOBprograms.  It is used
+ *  by the various triggers to determine if the program should
+ *  be run or not.
+ */
+void mprog_percent_check(Character *mob, Character *actor, Object *object,
                          void *vo, Flags::Bit type)
 {
 	for (const auto mprg : mob->pIndexData->mobprogs) {
@@ -1704,7 +1695,7 @@ void mprog_percent_check(Character *mob, Character *actor, Object *obj,
 
 		if ((mprg->type == type)
 		    && (number_percent() < atoi(mprg->arglist))) {
-			mprog_driver(mprg->comlist, mob, actor, obj, vo);
+			mprog_driver(mprg->comlist, mob, actor, object, vo);
 
 			if (type != GREET_PROG && type != ALL_GREET_PROG)
 				break;
@@ -1714,7 +1705,8 @@ void mprog_percent_check(Character *mob, Character *actor, Object *obj,
 	return;
 }
 
-/* The triggers.. These are really basic, and since most appear only
+/**
+ * The triggers.. These are really basic, and since most appear only
  * once in the code (hmm. i think they all do) it would be more efficient
  * to substitute the code in and make the mprog_xxx_check routines global.
  * However, they are all here in one nice place at the moment to make it

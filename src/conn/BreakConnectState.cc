@@ -8,8 +8,7 @@ namespace conn {
 
 extern bool attempt_reconnect(Descriptor *d, const String& name);
 
-State * BreakConnectState::
-handleInput(Descriptor *d, const String& argument) {
+State * BreakConnectState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 	Descriptor *d_old, *d_next;
 

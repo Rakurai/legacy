@@ -2,8 +2,7 @@
 #include "constants.hh"
 #include "file.hh"
 
-ExitPrototype::
-ExitPrototype(FILE *fp) :
+ExitPrototype::ExitPrototype(FILE *fp) :
 	description(fread_string(fp)),
 	keyword(fread_string(fp)) {
 

@@ -7,8 +7,7 @@
 
 namespace conn {
 
-State * GetWeaponState::
-handleInput(Descriptor *d, const String& argument) {
+State * GetWeaponState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	ptc(ch, "\n");

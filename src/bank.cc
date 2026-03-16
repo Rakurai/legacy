@@ -23,7 +23,7 @@
 void do_deposit(Character *ch, String argument)
 {
 	char buf[MAX_INPUT_LENGTH];
-	long max_gold;  /* to get rid of a warning on make :P */
+	long max_gold;  /**<to get rid of a warning on make :P */
 	long max_silver;
 
 	String arg1, arg2;

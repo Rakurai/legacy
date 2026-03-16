@@ -59,7 +59,7 @@ Note *personal_list;
 Note *trade_list;
 
 /* Names for note types. Keep these in line with the
-   #define names NOTE_NOTE, NOTE_IDEA etc. in merc.h !!! */
+   define names NOTE_NOTE, NOTE_IDEA etc. in merc.h !!! */
 const std::vector<board_index_struct> board_index = {
 	{ "{PN", &note_list,    "note",                 "notes",                "note"                  },
 	{ "{YI", &idea_list,    "idea",                 "ideas",                "idea"                  },
@@ -251,7 +251,7 @@ void save_notes(int type)
 	}
 }
 
-void load_notes(void)
+void load_notes()
 {
 /*
 	load_thread(NOTE_FILE, &note_list, NOTE_NOTE, 10 * 24 * 60 * 60);
@@ -1766,8 +1766,8 @@ const String format_page(const String& orig_page, int wrap_len) {
 	return output;
 }
 
-String format_string(const String& s) {
-	return format_page(s, 77);
+String format_string(const String& oldstring) {
+	return format_page(oldstring, 77);
 }
 
 /*

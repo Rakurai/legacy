@@ -65,21 +65,22 @@
 #include "Weather.hh"
 #include "World.hh"
 
-/* global focus variable */
-extern bool     focus;
-
 /* The kludgy global is for spells who want more stuff from command line. */
 String target_name;
 
-void    kill_off        args((Character *ch, Character *victim));
-
-/* Local functions. */
-void    say_spell       args((Character *ch, skill::type sn));
+/* global focus variable */
+extern bool     focus;
 
 /* imported functions */
-bool    remove_obj      args((Character *ch, int iWear, bool fReplace));
-void    wear_obj        args((Character *ch, Object *obj, bool fReplace));
-int     find_exit       args((Character *ch, const String& arg));
+extern bool    remove_obj      (Character *ch, int iWear, bool fReplace);
+extern void    wear_obj        (Character *ch, Object *obj, bool fReplace);
+extern int     find_exit       (Character *ch, const String& arg);
+extern void show_affect_to_char(const affect::Affect *paf, Character *ch);
+extern void    kill_off        (Character *ch, Character *victim);
+
+/* Local functions. */
+void    say_spell       (Character *ch, skill::type sn);
+
 
 
 skill::type find_spell(Character *ch, const String& name)

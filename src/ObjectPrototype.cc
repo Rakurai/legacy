@@ -8,8 +8,7 @@
 #include "Location.hh"
 #include "Logging.hh"
 
-ObjectPrototype::
-ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
+ObjectPrototype::ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 	area(area),
 	vnum(vnum)
 {
@@ -24,7 +23,7 @@ ObjectPrototype(Area& area, const Vnum& vnum, FILE *fp) :
 	num_settings			= 0;
 
 
-	int val = 0; // prevent accidents in altering below switches
+	int val = 0; ///< prevent accidents in altering below switches
 	switch (item_type) {
 	case ITEM_WEAPON:
 		value[val]         = ObjectValue(get_weapon_type(fread_word(fp)));

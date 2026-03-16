@@ -59,30 +59,30 @@
 #include "World.hh"
 
 
-int CURRENT_VERSION = 21;   /* version number for pfiles */
+int CURRENT_VERSION = 21;   /**<version number for pfiles */
 
 bool debug_json = false;
 
 /* Locals */
 
-int rename(const char *oldfname, const char *newfname);
+//int rename(const char *oldfname, const char *newfname);
 
 /*
  * Local functions.
  */
-cJSON * fwrite_player     args((Character *ch));
-cJSON * fwrite_char     args((Character *ch));
-cJSON * fwrite_objects  args((Object *head));
-cJSON * fwrite_pet      args((Character *pet));
-void    fread_char      args((Character *ch,  cJSON *json, int version));
-void    fread_player      args((Character *ch,  cJSON *json, int version));
-void    fread_pet       args((Character *ch,  cJSON *json, int version));
-void	fread_objects	args((Character *ch, cJSON *json, void (*obj_to)(Object *, Character *), int version));
+cJSON * fwrite_player     (Character *ch);
+cJSON * fwrite_char       (Character *ch);
+cJSON * fwrite_objects    (Object *head);
+cJSON * fwrite_pet        (Character *pet);
+void    fread_char        (Character *ch,  cJSON *json, int version);
+void    fread_player      (Character *ch,  cJSON *json, int version);
+void    fread_pet        (Character *ch,  cJSON *json, int version);
+void	fread_objects	(Character *ch, cJSON *json, void (*obj_to)(Object *, Character *), int version);
 bool check_parse_name(const String& name);
 
 // external
-const Object *get_warp_crystal(const String&);
-const String get_warp_loc_string(const Object *);
+extern const Object *get_warp_crystal(const String& str);
+extern const String get_warp_loc_string(const Object *obj);
 
 /*
  * Save a character and inventory.
@@ -159,7 +159,7 @@ void backup_char_obj(Character *ch)
 cJSON *fwrite_player(Character *ch)
 {
 	cJSON *item;
-	cJSON *o = cJSON_CreateObject(); // object to return
+	cJSON *o = cJSON_CreateObject(); ///< object to return
 
 	item = nullptr;
 
@@ -423,7 +423,7 @@ cJSON *fwrite_player(Character *ch)
 cJSON *fwrite_char(Character *ch)
 {
 	cJSON *item;
-	cJSON *o = cJSON_CreateObject(); // object to return
+	cJSON *o = cJSON_CreateObject(); ///< object to return
 
 	JSON::addStringToObject(o,		"Act",			ch->act_flags.to_string());
 
@@ -696,7 +696,7 @@ bool load_char_obj(Descriptor *d, const String& name)
 	                                      PLR_COLOR | PLR_COLOR2;
 	ch->comm_flags                            = COMM_COMBINE | COMM_PROMPT;
 	ch->secure_level                    = RANK_IMM;
-	ch->censor_flags                          = CENSOR_CHAN;    /* default rating is PG */
+	ch->censor_flags                          = CENSOR_CHAN;    /**<default rating is PG */
 	ch->prompt                          = "%CW<%CC%h%CThp %CG%m%CHma %CB%v%CNst%CW> ";
 	ch->pcdata->deity                   = "Nobody";
 	ch->pcdata->mud_exp                 = MEXP_LEGACY_OLDBIE;

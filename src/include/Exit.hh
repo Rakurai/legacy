@@ -13,7 +13,7 @@ public:
 	virtual ~Exit() {}
 
     const ExitPrototype& prototype;
-    Flags exit_flags; // current state, this resets to the prototype's values on area resets
+    Flags exit_flags; ///< current state, this resets to the prototype's values on area resets
     Room *to_room;
 
     static const String& dir_name(unsigned int dir, bool reverse = false);
@@ -27,8 +27,7 @@ private:
 	Exit& operator=(const Exit&);
 };
 
-inline unsigned int Exit::
-rev_dir(unsigned int dir) {
+inline unsigned int Exit::rev_dir(unsigned int dir) {
     static const int rdir[] = {
         2, 3, 0, 1, 5, 4
     };
@@ -36,8 +35,7 @@ rev_dir(unsigned int dir) {
     return rdir[dir % 6];
 }
 
-inline const String& Exit::
-dir_name(unsigned int dir, bool reverse) {
+inline const String& Exit::dir_name(unsigned int dir, bool reverse) {
     static const String dir_name[] = {
         "north", "east", "south", "west", "up", "down"
     };

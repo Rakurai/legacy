@@ -37,7 +37,7 @@
 #include "World.hh"
 #include "Room.hh"
 
-void    show_list_to_char       args((Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont));
+extern void show_list_to_char(Object *list, Character *ch, bool fShort, bool fShowNothing, bool insidecont);
 
 void do_fod(Character *ch, String argument)
 {

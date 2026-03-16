@@ -3,8 +3,7 @@
 
 namespace conn {
 
-State * ClosedState::
-handleInput(Descriptor *d, const String& argument) {
+State * ClosedState::handleInput(Descriptor *d, const String& argument) {
 	// shouldn't happen
 	Logging::bugf("conn::ClosedState: handleInput called");
 	return this;

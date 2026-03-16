@@ -83,7 +83,7 @@ int comp_groupnames(const void *gn1, const void *gn2)
 /* structure of sortable spell info */
 struct s_spell_info {
 	skill::type type;
-	int level; /* level for the current ch */
+	int level; /**<level for the current ch */
 };
 
 /* function for qsort of spells by level and name */
@@ -837,7 +837,7 @@ void do_groups(Character *ch, String argument)
 }
 
 /* checks for skill improvement */
-void check_improve(Character *ch, skill::type type, bool success, int multiplier)
+void check_improve(Character *ch, skill::type sn, bool success, int multiplier)
 {
 	int chance;
 	char buf[100];
@@ -849,20 +849,20 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 	if (ch->guild == Guild::none)
 		return;
 
-	if (ch->level < get_usable_level(type, ch->guild)
-	    ||  skill::lookup(type).rating[ch->guild] == 0
-	    ||  get_learned(ch, type) == 0
-	    ||  get_learned(ch, type) == 100)
+	if (ch->level < get_usable_level(sn, ch->guild)
+	    ||  skill::lookup(sn).rating[ch->guild] == 0
+	    ||  get_learned(ch, sn) == 0
+	    ||  get_learned(ch, sn) == 100)
 		return;  /* skill is not known */
 
 	/* check to see if the character has a chance to learn */
 	chance = 10 * int_app[GET_ATTR_INT(ch)].learn;
 	chance /= (multiplier
-	           *       skill::lookup(type).rating[ch->guild]
+	           *       skill::lookup(sn).rating[ch->guild]
 	           *       4);
 	chance += ch->level;
 
-	if (skill::lookup(type).remort_guild != Guild::none)
+	if (skill::lookup(sn).remort_guild != Guild::none)
 	{   chance *= 2; chance /= 3; }
 
 	/* -1 multiplier means auto success -- Montrey */
@@ -870,7 +870,7 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 		return;
 
 	/* pre-calculate the experience gain */
-	xp = 2 * skill::lookup(type).rating[ch->guild];
+	xp = 2 * skill::lookup(sn).rating[ch->guild];
 	/*
 	if ( ch->pcdata->remort_count > 1 )
 	    xp /= ch->pcdata->remort_count;
@@ -879,25 +879,25 @@ void check_improve(Character *ch, skill::type type, bool success, int multiplier
 	/* now that the character has a CHANCE to learn, see if they really have */
 
 	if (success) {
-		chance = URANGE(5, 100 - get_learned(ch, type), 95);
+		chance = URANGE(5, 100 - get_learned(ch, sn), 95);
 
 		if (number_percent() < chance || multiplier == -1) {
 			Format::sprintf(buf, "{GYou have become better at {H%s{G!{x\n",
-			        skill::lookup(type).name);
+			        skill::lookup(sn).name);
 			stc(buf, ch);
-			set_learned(ch, type, get_learned(ch, type) + 1);
+			set_learned(ch, sn, get_learned(ch, sn) + 1);
 			gain_exp(ch, xp);
 		}
 	}
 	else {
-		chance = URANGE(5, get_learned(ch, type) / 2, 30);
+		chance = URANGE(5, get_learned(ch, sn) / 2, 30);
 
 		if (number_percent() < chance || multiplier == -1) {
 			Format::sprintf(buf,
 			        "{GYou learn from your mistakes, and your {H%s {Gskill improves.{x\n",
-			        skill::lookup(type).name);
+			        skill::lookup(sn).name);
 			stc(buf, ch);
-			set_learned(ch, type, get_learned(ch, type) + number_range(1, 3));
+			set_learned(ch, sn, get_learned(ch, sn) + number_range(1, 3));
 			gain_exp(ch, xp);
 		}
 	}
@@ -1106,14 +1106,14 @@ void set_evolution(Character *ch, skill::type sn, int value) {
 	ch->pcdata->evolution[(int)sn] = URANGE(1, value, 4);
 }
 
-int get_evolution(const Character *ch, skill::type type)
+int get_evolution(const Character *ch, skill::type sn)
 {
 	int evolution;
 
 	if (ch->is_npc())
 		evolution = 1;
 	else
-		evolution = URANGE(1, ch->pcdata->evolution[(int)type], 4);
+		evolution = URANGE(1, ch->pcdata->evolution[(int)sn], 4);
 
 	return evolution;
 } /* end get_evolution */
@@ -1370,24 +1370,24 @@ void do_evolve(Character *ch, String argument)
 	ptc(ch, "Insight dawns on you as you envision new ways to use %s.\n", entry.name);
 }
 
-int get_skill_cost(Character *ch, skill::type type)
+int get_skill_cost(Character *ch, skill::type sn)
 {
-	int cost = skill::lookup(type).min_mana;
+	int cost = skill::lookup(sn).min_mana;
 
-	/*      if (!skill::lookup(type).min_mana)
+	/*      if (!skill::lookup(sn).min_mana)
 	                return 0;
 
-	        if (ch->level + 2 == get_usable_level(type, ch->guild))
+	        if (ch->level + 2 == get_usable_level(sn, ch->guild))
 	                cost = 50;
 	        else
-	                cost = std::max(skill::lookup(type).min_mana,
-	                        100 / (2 + ch->level - get_usable_level(type, ch->guild));
+	                cost = std::max(skill::lookup(sn).min_mana,
+	                        100 / (2 + ch->level - get_usable_level(sn, ch->guild));
 
 	        return cost; */
 
-	if (skill::lookup(type).spell_fun == spell_null) {
-		if (/*skill::lookup(type).target == TAR_CHAR_OFFENSIVE && */ch->level <= 50) {
-			int pct_max, level = get_usable_level(type, ch->guild);
+	if (skill::lookup(sn).spell_fun == spell_null) {
+		if (/*skill::lookup(sn).target == TAR_CHAR_OFFENSIVE && */ch->level <= 50) {
+			int pct_max, level = get_usable_level(sn, ch->guild);
 			pct_max = 100 * (ch->level - level) / std::max(50 - level, 1);
 			cost = (cost / 2) + (((cost / 2) * pct_max) / 100);
 		}
@@ -1405,15 +1405,15 @@ int get_skill_cost(Character *ch, skill::type type)
 	return cost;
 }
 
-bool deduct_stamina(Character *ch, skill::type type)
+bool deduct_stamina(Character *ch, skill::type sn)
 {
-	if (skill::lookup(type).spell_fun != spell_null)
+	if (skill::lookup(sn).spell_fun != spell_null)
 		return false;
 
-	if (skill::lookup(type).min_mana <= 0)
+	if (skill::lookup(sn).min_mana <= 0)
 		return true;
 
-	int stam_cost = get_skill_cost(ch, type);
+	int stam_cost = get_skill_cost(ch, sn);
 	
 	/*suffix
 	 *placeholder for stamina cost modifying suffixes
@@ -1432,7 +1432,7 @@ bool deduct_stamina(Character *ch, skill::type type)
 		stam_cost -= stam_cost * 45 / 100;
 
 	if (ch->stam < stam_cost) {
-		ptc(ch, "You are too tired to %s.\n", skill::lookup(type).name);
+		ptc(ch, "You are too tired to %s.\n", skill::lookup(sn).name);
 		return false;
 	}
 	

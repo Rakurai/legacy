@@ -51,10 +51,10 @@
 #include "String.hh"
 #include "World.hh"
 
+void     obj_repair      (Character *ch, Object *obj);
+
 DECLARE_SPELL_FUN(spell_identify);
 DECLARE_SPELL_FUN(spell_charm_person);
-
-void     obj_repair      args((Character *ch, Object *obj));
 
 /*
  * The following special functions are available for mobiles.
@@ -81,8 +81,8 @@ DECLARE_SPEC_FUN(spec_nasty);
 DECLARE_SPEC_FUN(spec_troll_member);
 DECLARE_SPEC_FUN(spec_ogre_member);
 DECLARE_SPEC_FUN(spec_patrolman);
-DECLARE_SPEC_FUN(spec_questmaster);                  /* Vassago */
-DECLARE_SPEC_FUN(spec_squestmaster);          /* Montrey */
+DECLARE_SPEC_FUN(spec_questmaster);                  /**<Vassago */
+DECLARE_SPEC_FUN(spec_squestmaster);          /**<Montrey */
 DECLARE_SPEC_FUN(spec_sage);
 DECLARE_SPEC_FUN(spec_blacksmith);
 DECLARE_SPEC_FUN(spec_charm);

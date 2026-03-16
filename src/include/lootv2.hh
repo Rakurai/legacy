@@ -7,9 +7,13 @@
 #include "affect/Type.hh"
 #include "String.hh"
 
-Object *generate_eq(int level);
+Object *generate_eq(int objlevel);
 
-//blank object vnums for armor pieces (vnums in vegita.are)
+/**
+ * @defgroup LootArmorVnums Blank object vnums for armor pieces
+ * Vnums are objects in vegita.are
+ * @{
+ */
 constexpr int OBJ_VNUM_LIGHT      = 24356;
 constexpr int OBJ_VNUM_FINGER     = 24357;
 constexpr int OBJ_VNUM_NECK       = 24358;
@@ -25,8 +29,13 @@ constexpr int OBJ_VNUM_WAIST      = 24367;
 constexpr int OBJ_VNUM_WRIST      = 24368;
 constexpr int OBJ_VNUM_FLOATING   = 24355;
 constexpr int OBJ_VNUM_HOLD       = 24369;
+/** @} */
 
-//blank object vnums for weapon types (vnums in vegita.are)
+/**
+ * @defgroup LootWeaponVnums Blank object vnums for weapon types
+ * Vnums are objects in vegita.are
+ * @{
+ */
 constexpr int OBJ_VNUM_WIELD_AXE      = 24370;
 constexpr int OBJ_VNUM_WIELD_DAGGER   = 24371;
 constexpr int OBJ_VNUM_WIELD_EXOTIC   = 24372;
@@ -37,10 +46,14 @@ constexpr int OBJ_VNUM_WIELD_SPEAR    = 24376;
 constexpr int OBJ_VNUM_WIELD_SWORD    = 24377;
 constexpr int OBJ_VNUM_WIELD_WHIP     = 24378;
 constexpr int OBJ_VNUM_WIELD_BOW      = 24379;
+/** @} */
 
-
-//weapon and armor type defines 
-//armor is 100-115, weapons 200-208
+/**
+ * @defgroup LootWeaponArmorTypes Weapon and armor type definitions
+ * Armor is 100-199
+ * Weapons are 200-299
+ * @{
+ */
 constexpr int ARMOR_LIGHT      = 100;
 constexpr int ARMOR_FINGER     = 101;
 constexpr int ARMOR_NECK       = 102;
@@ -66,6 +79,7 @@ constexpr int WIELD_SPEAR      = 206;
 constexpr int WIELD_SWORD      = 207;
 constexpr int WIELD_WHIP       = 208;
 constexpr int WIELD_BOW        = 209;
+/** @} */
 
 
 /*
@@ -98,13 +112,13 @@ extern const std::map<affect::type, mod_t> mod_table;
 // set gear info
 
 struct set_gear {
-	int set_name;			//use exact set name (IE:SET_MAGE_INVOKER)
-	String display;			//what is displayed to player
-	String set1;			//1 pc bonus
-	String set2;			//2 pc bonus
-	String set3;			//3 pc bonus
-	String set4;			//4 pc bonus
-	String set5;			//5 pc bonus
+	int set_name;			///<use exact set name (IE:SET_MAGE_INVOKER)
+	String display;			///<what is displayed to player
+	String set1;			///<1 pc bonus
+	String set2;			///<2 pc bonus
+	String set3;			///<3 pc bonus
+	String set4;			///<4 pc bonus
+	String set5;			///<5 pc bonus
 };
 
 extern const std::vector<set_gear> set_table;

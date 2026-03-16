@@ -95,7 +95,8 @@ void cJSON_Delete(cJSON *c)
 /* Parse the input text to generate a number, and populate the result into item. */
 static const char *parse_number(cJSON *item,const char *num)
 {
-	double n=0,sign=1,scale=0;int subscale=0,signsubscale=1;
+	double n=0,sign=1,scale=0;
+	int subscale=0,signsubscale=1;
 
 	if (*num=='-') sign=-1,num++;	/* Has sign? */
 	if (*num=='0') num++;			/* is zero */
@@ -116,7 +117,11 @@ static const char *parse_number(cJSON *item,const char *num)
 
 static int pow2gt (int x)	{	--x;	x|=x>>1;	x|=x>>2;	x|=x>>4;	x|=x>>8;	x|=x>>16;	return x+1;	}
 
-typedef struct {char *buffer; int length; int offset; } printbuffer;
+typedef struct {
+	char *buffer;
+	int length;
+	int offset; 
+} printbuffer;
 
 static char* ensure(printbuffer *p,int needed)
 {
@@ -761,5 +766,5 @@ void cJSON_Minify(char *json)
 		else if (*json=='\"'){*into++=*json++;while (*json && *json!='\"'){if (*json=='\\') *into++=*json++;*into++=*json++;}*into++=*json++;} /* string literals, which are \" sensitive. */
 		else *into++=*json++;			/* All other characters. */
 	}
-	*into=0;	/* and null-terminate. */
+	*into=0;	/**< and null-terminate. */
 }

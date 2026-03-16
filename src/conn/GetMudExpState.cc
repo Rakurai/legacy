@@ -7,8 +7,7 @@
 
 namespace conn {
 
-State * GetMudExpState::
-handleInput(Descriptor *d, const String& argument) {
+State * GetMudExpState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	switch (argument[0]) {

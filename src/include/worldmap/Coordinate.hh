@@ -29,7 +29,7 @@ public:
 			return; // invalid
 
 		// this is a coordinate pair, grab last 30 bits
-		int mask = (1 << 15)-1; // 17 0s and 15 1s
+		int mask = (1 << 15)-1; ///< 17 0s and 15 1s
 		x = (value >> 15) & mask;
 		y = value & mask;
 	}
@@ -54,7 +54,7 @@ public:
 		if (!is_valid())
 			return -1;
 
-		int ret = 1 << 30; // set 31st bit
+		int ret = 1 << 30; ///< set 31st bit
 		ret |= (x << 15);
 		ret |= y;
 		return ret;

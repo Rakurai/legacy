@@ -22,8 +22,7 @@
 #include "Shop.hh"
 #include "World.hh"
 
-Area::
-Area(World& w, const String& file_name) : world(w), file_name(file_name) {
+Area::Area(World& w, const String& file_name) : world(w), file_name(file_name) {
 	// separated from loading so that the area is valid in the world, for error checking lookups
 	// but, need the header for placing into the area map
 	fpArea = fopen(String(String(AREA_DIR) + file_name).c_str(), "r");
@@ -50,8 +49,7 @@ Area(World& w, const String& file_name) : world(w), file_name(file_name) {
 	load_header(fpArea);
 }
 
-void Area::
-load() {
+void Area::load() {
 	for (; ;) {
 		if (fread_letter(fpArea) != '#') {
 			Logging::file_bug(fpArea, "Load_area: # not found.", 0);
@@ -79,8 +77,7 @@ load() {
 	fclose(fpArea);
 }
 
-Area::
-~Area() {
+Area::~Area() {
 	for (Reset *reset: resets)
 		delete reset;
 
@@ -100,8 +97,7 @@ Area::
 		delete entry.second;
 }
 
-void Area::
-load_header(FILE *fp) {
+void Area::load_header(FILE *fp) {
 	fread_string(fp); //	file_name = fread_string(fp);
 	name = fread_string(fp);
 	credits = fread_string(fp);
@@ -133,16 +129,14 @@ load_header(FILE *fp) {
 	scan_credits();
 }
 
-void Area::
-load_region(FILE *fp) {
+void Area::load_region(FILE *fp) {
 	if (region != nullptr)
 		delete region;
 
 	region = new worldmap::Region(*this, fp);
 }
 
-void Area::
-load_rooms(FILE *fp) {
+void Area::load_rooms(FILE *fp) {
 	while (true) {
 		char letter = fread_letter(fp);
 
@@ -171,8 +165,7 @@ load_rooms(FILE *fp) {
 	}
 }
 
-void Area::
-load_mobiles(FILE *fp)
+void Area::load_mobiles(FILE *fp)
 {
 	while (true) {
 		char letter = fread_letter(fp);
@@ -202,8 +195,7 @@ load_mobiles(FILE *fp)
 	}
 }
 
-void Area::
-load_objects(FILE *fp)
+void Area::load_objects(FILE *fp)
 {
 	while (true) {
 		char letter = fread_letter(fp);
@@ -233,8 +225,7 @@ load_objects(FILE *fp)
 	}
 }
 
-void Area::
-load_shops(FILE *fp)
+void Area::load_shops(FILE *fp)
 {
 	for (; ;) {
 		int shopkeeper = fread_number(fp);
@@ -256,8 +247,7 @@ load_shops(FILE *fp)
 	return;
 }
 
-void Area::
-load_resets(FILE *fp)
+void Area::load_resets(FILE *fp)
 {
 	for (; ;) {
 		char letter = fread_letter(fp);
@@ -311,8 +301,7 @@ void load_rooms(FILE *fp)
 /*
  * Snarf spec proc declarations.
  */
-void Area::
-load_specials(FILE *fp)
+void Area::load_specials(FILE *fp)
 {
 	MobilePrototype *pMobIndex;
 	char letter;
@@ -351,8 +340,7 @@ load_specials(FILE *fp)
 	}
 }
 
-MobilePrototype * Area::
-get_mob_prototype(const Vnum& vnum) {
+MobilePrototype * Area::get_mob_prototype(const Vnum& vnum) {
 	const auto& pair = mob_prototypes.find(vnum);
 
 	if (pair != mob_prototypes.cend())
@@ -361,8 +349,7 @@ get_mob_prototype(const Vnum& vnum) {
 	return nullptr;
 }
 
-ObjectPrototype * Area::
-get_obj_prototype(const Vnum& vnum) {
+ObjectPrototype * Area::get_obj_prototype(const Vnum& vnum) {
 	const auto& pair = obj_prototypes.find(vnum);
 
 	if (pair != obj_prototypes.cend())
@@ -371,8 +358,7 @@ get_obj_prototype(const Vnum& vnum) {
 	return nullptr;
 }
 
-RoomPrototype * Area::
-get_room_prototype(const Vnum& vnum) {
+RoomPrototype * Area::get_room_prototype(const Vnum& vnum) {
 	const auto& pair = room_prototypes.find(vnum);
 
 	if (pair != room_prototypes.cend())
@@ -381,8 +367,7 @@ get_room_prototype(const Vnum& vnum) {
 	return nullptr;
 }
 
-void Area::
-update() {
+void Area::update() {
 	// Check age and reset.
 	if (--age <= 0) {
 		reset();
@@ -676,8 +661,7 @@ void Area::reset() {
  * {H{{ 5 25} {MFinn    {TThe Fourth Tower
  * - Elrac
  */
-int Area::
-scan_credits()
+int Area::scan_credits()
 {
 	char line[MIL], buf[MIL];
 	String keywords;
@@ -837,8 +821,7 @@ scan_credits()
 	return area_type;
 } /* end scan_credits() */
 
-void Area::
-create_rooms() {
+void Area::create_rooms() {
 	for (const auto& pair : room_prototypes) {
 		const auto& vnum = pair.first;
 		const auto prototype = pair.second;
@@ -863,8 +846,7 @@ create_rooms() {
 		region->create_rooms();
 }
 
-void Area::
-add_char(Character *ch) {
+void Area::add_char(Character *ch) {
 	if (ch->is_npc())
 		return;
 
@@ -874,8 +856,7 @@ add_char(Character *ch) {
 		_num_players++;
 }
 
-void Area::
-remove_char(Character *ch) {
+void Area::remove_char(Character *ch) {
 	if (ch->is_npc())
 		return;
 
@@ -891,8 +872,7 @@ remove_char(Character *ch) {
 
 /* pick a random room to reset into -- Montrey */
 
-Room * Area::
-get_random_reset_room(const MobilePrototype *mob)
+Room * Area::get_random_reset_room(const MobilePrototype *mob)
 {
 	if (region == nullptr
 	 || region->allowed_mob_resets.count(mob->vnum) == 0)

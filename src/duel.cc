@@ -26,9 +26,6 @@
 #include "World.hh"
 #include "RoomPrototype.hh"
 
-#define ARENA_DIR       "../misc/"
-#define ARENA_FILE      "arena.txt"
-
 void remove_duel(Duel *c);
 Room *get_random_arena_room(Duel::Arena *arena, const Location& notloc);
 void duel_announce(char *buf, Duel *duel);
@@ -94,7 +91,10 @@ void load_arena_table()
 	int i, maxArenas;
 	Duel::Arena *new_arena;
 
-	if ((fp = fopen(ARENA_DIR ARENA_FILE, "r")) != nullptr) {
+
+	char buf[MIL];
+	Format::sprintf(buf, "%s%s", ARENA_DIR, ARENA_FILE);
+	if ((fp = fopen(buf, "r")) != nullptr) {
 		fscanf(fp, "%d\n", &maxArenas);
 		arena_table_head = new Duel::Arena;
 		arena_table_tail = new Duel::Arena;
@@ -132,7 +132,7 @@ void load_arena_table()
 		fclose(fp);
 	}
 	else
-		Logging::bug("Could not open " ARENA_FILE " for reading!", 0);
+		Logging::bugf("Could not open %s for reading!", ARENA_FILE);
 }
 
 void append_duel(Duel *c)

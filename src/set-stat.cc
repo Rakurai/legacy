@@ -57,84 +57,8 @@
 #include "World.hh"
 
 /* RT set replaces sset, mset, oset, rset and cset */
-DECLARE_DO_FUN( do_mset );
-DECLARE_DO_FUN( do_rset );
-DECLARE_DO_FUN( do_oset );
-DECLARE_DO_FUN( do_sset );
-DECLARE_DO_FUN( do_evoset );
-DECLARE_DO_FUN( do_raffset );
-DECLARE_DO_FUN( do_extraset );
 
-void do_set(Character *ch, String argument)
-{
-	String arg;
-	argument = one_argument(argument, arg);
-
-	if (arg.empty()) {
-		stc("Syntax:\n", ch);
-		stc("  set mob   <name> <field> <value>\n", ch);
-		stc("  set obj   <name> <field> <value>\n", ch);
-		stc("  set room  <room> <field> <value>\n", ch);
-
-		if (IS_HEAD(ch)) {
-			stc("  set plr   <name> <field> <value>\n", ch);
-			stc("  set skill <name> <spell or skill> <value>\n", ch);
-			stc("  set evol  <name> <spell or skill> <value>\n", ch);
-			stc("  set raff  <name> <remort affect>\n", ch);
-			stc("  set extra <name> <skill>\n", ch);
-		}
-
-		return;
-	}
-
-	if (arg.is_prefix_of("mobile") || arg.is_prefix_of("character")) {
-		do_mset(ch, argument);
-		return;
-	}
-
-	if (arg.is_prefix_of("room")) {
-		do_rset(ch, argument);
-		return;
-	}
-
-	if (arg.is_prefix_of("object")) {
-		do_oset(ch, argument);
-		return;
-	}
-
-	/* non-heads of departments can only set mobs, objects, rooms */
-	if (!IS_HEAD(ch)) {
-		do_set(ch, "");
-		return;
-	}
-
-	if (arg.is_prefix_of("plr") || arg.is_prefix_of("player")) {
-		do_mset(ch, argument);
-		return;
-	}
-
-	if (arg.is_prefix_of("skill") || arg.is_prefix_of("spell")) {
-		do_sset(ch, argument);
-		return;
-	}
-
-	if (arg.is_prefix_of("evolve") || arg.is_prefix_of("evolution")) {
-		do_evoset(ch, argument);
-		return;
-	}
-
-	if (arg.is_prefix_of("raffect")) {
-		do_raffset(ch, argument);
-		return;
-	}
-
-	if (arg.is_prefix_of("extraclass")) {
-		do_extraset(ch, argument);
-		return;
-	}
-
-	do_set(ch, "");
-}
+extern void show_affect_to_char(const affect::Affect *paf, Character *ch);
 
 void do_sset(Character *ch, String argument)
 {
@@ -251,7 +175,7 @@ void do_evoset(Character *ch, String argument)
 	}
 
 	if (arg2.empty()) {
-		extern int can_evolve args((Character * ch, skill::type sn));
+		extern int can_evolve(Character * ch, skill::type sn);
 		String buffer;
 		int can;
 		buffer += "They have the following skills and spells evolved:\n\n";
@@ -2055,7 +1979,7 @@ void do_stat(Character *ch, String argument)
 void do_pstat(Character *ch, String argument)
 {
 	Character *victim;
-	int xpl, xnl; /* experience per/next level */
+	int xpl, xnl; /**<experience per/next level */
 
 	if ((victim = get_player_world(ch, argument, VIS_PLR)) == nullptr) {
 		ptc(ch, "No player named '%s' found in the game.\n", argument);
@@ -2194,4 +2118,76 @@ void do_pstat(Character *ch, String argument)
 
 	stc("{a{x\n", ch);
 	set_color(ch, WHITE, NOBOLD);
+}
+
+
+void do_set(Character *ch, String argument)
+{
+	String arg;
+	argument = one_argument(argument, arg);
+
+	if (arg.empty()) {
+		stc("Syntax:\n", ch);
+		stc("  set mob   <name> <field> <value>\n", ch);
+		stc("  set obj   <name> <field> <value>\n", ch);
+		stc("  set room  <room> <field> <value>\n", ch);
+
+		if (IS_HEAD(ch)) {
+			stc("  set plr   <name> <field> <value>\n", ch);
+			stc("  set skill <name> <spell or skill> <value>\n", ch);
+			stc("  set evol  <name> <spell or skill> <value>\n", ch);
+			stc("  set raff  <name> <remort affect>\n", ch);
+			stc("  set extra <name> <skill>\n", ch);
+		}
+
+		return;
+	}
+
+	if (arg.is_prefix_of("mobile") || arg.is_prefix_of("character")) {
+		do_mset(ch, argument);
+		return;
+	}
+
+	if (arg.is_prefix_of("room")) {
+		do_rset(ch, argument);
+		return;
+	}
+
+	if (arg.is_prefix_of("object")) {
+		do_oset(ch, argument);
+		return;
+	}
+
+	/* non-heads of departments can only set mobs, objects, rooms */
+	if (!IS_HEAD(ch)) {
+		do_set(ch, "");
+		return;
+	}
+
+	if (arg.is_prefix_of("plr") || arg.is_prefix_of("player")) {
+		do_mset(ch, argument);
+		return;
+	}
+
+	if (arg.is_prefix_of("skill") || arg.is_prefix_of("spell")) {
+		do_sset(ch, argument);
+		return;
+	}
+
+	if (arg.is_prefix_of("evolve") || arg.is_prefix_of("evolution")) {
+		do_evoset(ch, argument);
+		return;
+	}
+
+	if (arg.is_prefix_of("raffect")) {
+		do_raffset(ch, argument);
+		return;
+	}
+
+	if (arg.is_prefix_of("extraclass")) {
+		do_extraset(ch, argument);
+		return;
+	}
+
+	do_set(ch, "");
 }

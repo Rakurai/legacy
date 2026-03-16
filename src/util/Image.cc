@@ -93,8 +93,7 @@ bool Image::load(const String& filename) {
 	return true;
 }
 
-Image::
-~Image() {
+Image::~Image() {
 	if (rows != nullptr) {
 		for (unsigned int h = 0; h < height(); h++)
 			delete[] rows[h];
@@ -103,8 +102,7 @@ Image::
 	}
 }
 
-unsigned int Image::
-value(Channel rgb, unsigned int x, unsigned int y) const {
+unsigned int Image::value(Channel rgb, unsigned int x, unsigned int y) const {
 	if (rows == nullptr || x > width() || y > height())
 		return 0;
 

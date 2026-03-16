@@ -77,8 +77,8 @@ private:
 	Quadtree& operator=(const Quadtree&);
 
 	unsigned int get_child_index(const Coordinate& coord) const {
-		unsigned int xchild = 2 * coord.x / capacity; //  west = 0,  east = 1
-		unsigned int ychild = 2 * coord.y / capacity; // north = 0, south = 1
+		unsigned int xchild = 2 * coord.x / capacity; ///<  west = 0,  east = 1
+		unsigned int ychild = 2 * coord.y / capacity; ///< north = 0, south = 1
 		return xchild + ychild * 2;
 	}
 
@@ -92,7 +92,7 @@ private:
 	}
 
 	T *data = nullptr;
-	Quadtree *children[4] = {nullptr}; // NW NE SE SW
+	Quadtree *children[4] = {nullptr}; ///< NW NE SE SW
 	unsigned int level = 0;
 	unsigned int capacity = 0;
 };

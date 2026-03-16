@@ -26,6 +26,10 @@ private:
 
 extern bool    MOBtrigger;
 
+/**
+ * @defgroup MobProgTypes Constants defining MobProg types
+ * @{
+ */
 constexpr Flags::Bit ERROR_PROG         = Flags::none;
 constexpr Flags::Bit IN_FILE_PROG       = Flags::A;
 constexpr Flags::Bit ACT_PROG           = Flags::B;
@@ -43,6 +47,7 @@ constexpr Flags::Bit BUY_PROG           = Flags::M;
 constexpr Flags::Bit TICK_PROG          = Flags::N;
 constexpr Flags::Bit BOOT_PROG	       = Flags::O;
 constexpr Flags::Bit RAND_AREA_PROG     = Flags::P;
+/** @} */
 
 /* mob_prog.c */
 void    mprog_wordlist_check   ( const String& arg, Character *mob,
@@ -59,7 +64,7 @@ void    mprog_bribe_trigger    ( Character* mob, Character* ch,
 void    mprog_entry_trigger    ( Character* mob );
 void    mprog_give_trigger     ( Character* mob, Character* ch,
 										Object* obj );
-void    mprog_greet_trigger    ( Character* mob );
+void    mprog_greet_trigger    ( Character* ch );
 void    mprog_fight_trigger    ( Character* mob, Character* ch );
 void    mprog_buy_trigger      ( Character* mob, Character* ch );
 void    mprog_hitprcnt_trigger ( Character* mob, Character* ch );

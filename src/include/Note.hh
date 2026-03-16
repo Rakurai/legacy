@@ -3,6 +3,10 @@
 #include "String.hh"
 #include "Pooled.hh"
 
+/**
+ * @defgroup NoteTypes Constants defining note types
+ * @{
+ */
 constexpr int NOTE_NOTE       = 0;
 constexpr int NOTE_IDEA       = 1;
 constexpr int NOTE_ROLEPLAY   = 2;
@@ -10,6 +14,7 @@ constexpr int NOTE_IMMQUEST   = 3;
 constexpr int NOTE_CHANGES    = 4;
 constexpr int NOTE_PERSONAL   = 5;
 constexpr int NOTE_TRADE      = 6;
+/** @} */
 
 class Note :
 public Pooled<Note>
@@ -48,4 +53,4 @@ extern const std::vector<board_index_struct> board_index;
 Note *new_note();
 void    free_note(Note *note);
 String  format_string( const String& oldstring );
-void    load_notes(void);
+void    load_notes();

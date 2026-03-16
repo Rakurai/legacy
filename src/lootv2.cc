@@ -48,12 +48,20 @@ const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect:
 const String get_base_name(int eq_type, int ilevel);
 const String get_legendary_name(int eq_type);
 
-#define EQ_QUALITY_SET		 0
-#define EQ_QUALITY_UNIQUE	 1
-#define EQ_QUALITY_LEGENDARY 2
-#define EQ_QUALITY_RARE      3
-#define EQ_QUALITY_UNCOMMON  4
-#define EQ_QUALITY_NORMAL    5
+/**
+ * @defgroup LootQualityTypes Loot Quality Types
+ * @brief Constant representing the "set" operation or state for EQ quality.
+ *
+ * This constant is used to indicate the "set" action or value in the context of EQ (Equalizer) quality settings.
+ * @{
+ */
+constexpr int EQ_QUALITY_SET       = 0;
+constexpr int EQ_QUALITY_UNIQUE    = 1;
+constexpr int EQ_QUALITY_LEGENDARY = 2;
+constexpr int EQ_QUALITY_RARE      = 3;
+constexpr int EQ_QUALITY_UNCOMMON  = 4;
+constexpr int EQ_QUALITY_NORMAL    = 5;
+/** @} */
 
 struct eq_quality_t {
 	int chance;
@@ -266,7 +274,7 @@ const String get_base_name(int eq_type, int ilevel) {
 	count = URANGE(0, ilevel, count - 1);
 
 	// then get all of the values matching eq_type
-	auto base_names = base_name_table.equal_range(eq_type);//origin -1
+	auto base_names = base_name_table.equal_range(eq_type);///<origin -1
 
 	// get an iterator and increment it to the value we want (this is stupid)
 	auto it = base_names.first;
@@ -302,7 +310,7 @@ const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect:
 
 	while (true) {
 		auto it = mods.first;
-		int index = number_range(0, count - 1); // choose a random mod
+		int index = number_range(0, count - 1); ///< choose a random mod
 
 		// increment it up to the mod
 		for (int i = 0; i < index; i++)
@@ -330,7 +338,7 @@ const String roll_mod(Object *obj, int eq_type, const std::multimap<int, affect:
 	af.modifier     = number_range(mod.af_mod_min, mod.af_mod_max);
 
 	if (mod.scaling) {
-		float scalar = obj->level / 75.0; // range 1/75 to 100/75, constrain below
+		float scalar = obj->level / 75.0; ///< range 1/75 to 100/75, constrain below
 		if (af.modifier > 0)
 			af.modifier = URANGE(1, af.modifier * scalar, mod.af_mod_max);
 		else if (af.modifier < 0)
@@ -368,7 +376,7 @@ int random_prototype(String key)
 			// loop through all prototypes
 			for (const auto& proto_pair : area_pair.second->obj_prototypes){
 								
-				ObjectPrototype *proto = proto_pair.second; //ObjectPrototype
+				ObjectPrototype *proto = proto_pair.second; ///<ObjectPrototype
 			
 				if (!proto->name.has_words(key))
 					continue;

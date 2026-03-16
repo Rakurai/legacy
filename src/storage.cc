@@ -6,9 +6,6 @@
 #include "StoredPlayer.hh"
 #include "String.hh"
 
-void read_line(FILE *, StoredPlayer *);
-void save_line(FILE *, StoredPlayer *);
-
 /**********************************************************************/
 
 StoredPlayer *storage_list_head;

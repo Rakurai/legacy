@@ -13,9 +13,9 @@
     This code requires the following additions to the room_index_data
     structure:
 
-    int                 hunt_id;    // unique id for current hunt
-    Room *   hunt_next;  // next room in search circle
-    Room *   hunt_back;  // pointer back toward origin
+    int                 hunt_id;    ///< unique id for current hunt
+    Room *   hunt_next;  ///< next room in search circle
+    Room *   hunt_back;  ///< pointer back toward origin
 
     'hunt_next' is used to connect rooms in concentric rings growing
     outward from the origin and having equal distance from the origin.

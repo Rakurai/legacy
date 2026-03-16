@@ -2,12 +2,11 @@
 #include "Descriptor.hh"
 #include "String.hh"
 
-extern void substitute_alias(Descriptor *d, String input);
+extern void substitute_alias(Descriptor *d, String argument);
 
 namespace conn {
 
-State * PlayingState::
-handleInput(Descriptor *d, const String& argument) {
+State * PlayingState::handleInput(Descriptor *d, const String& argument) {
 	substitute_alias(d, argument);
 	return this;
 }

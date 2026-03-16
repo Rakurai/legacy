@@ -4,8 +4,7 @@
 
 namespace conn {
 
-State * CopyoverRecoverState::
-handleInput(Descriptor *d, const String& argument) {
+State * CopyoverRecoverState::handleInput(Descriptor *d, const String& argument) {
 	return this;
 }
 

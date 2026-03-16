@@ -22,10 +22,6 @@
 #include "Player.hh"
 #include "String.hh"
 
-#define WAR_DIR         "../war/"
-#define EVENT_DIR       "../war/events/"
-#define WAR_FILE        "war.txt"
-#define EVENT_TMP       "eventtmp"
 
 War *get_same_war(Clan *clanA, Clan *clanB);
 void war_win(War *war, Character *ch);
@@ -134,7 +130,7 @@ void save_war_events()
 			rename(EVENT_TMP, strsave);
 		}
 		else
-			Logging::bug("Could not open " EVENT_TMP " for writing!", 0);
+			Logging::bugf("Could not open %s for writing!", EVENT_TMP);
 
 		war = war->next;
 	}
@@ -144,13 +140,16 @@ void load_war_table()
 {
 	FILE *fp;
 	War *war;
-	int i, count = 0;
+	int i;
+//	int count = 0;
 	war_table_head = new War();
 	war_table_tail = new War();
 	war_table_head->next            = war_table_tail;
 	war_table_tail->previous        = war_table_head;
 
-	if ((fp = fopen(WAR_DIR WAR_FILE, "r")) != nullptr) {
+	char buf[MIL];
+	Format::sprintf(buf, "%s%s", WAR_DIR, WAR_FILE);
+	if ((fp = fopen(buf, "r")) != nullptr) {
 		for (; ;) {
 			if (fread_word(fp) == "END")
 				break;
@@ -175,13 +174,13 @@ void load_war_table()
 
 			war->ongoing = atoi(fread_string(fp));
 			append_war(war);
-			count++;
+//			count++;
 		}
 
 		fclose(fp);
 	}
 	else
-		Logging::bug("Could not open " WAR_FILE " for reading!", 0);
+		Logging::bugf("Could not open %s for reading!", WAR_FILE);
 }
 
 void save_war_table()
@@ -190,7 +189,10 @@ void save_war_table()
 	War *war;
 	int i;
 
-	if ((fp = fopen(WAR_DIR WAR_FILE, "w")) != nullptr) {
+
+	char buf[MIL];
+	Format::sprintf(buf, "%s%s", WAR_DIR, WAR_FILE);
+	if ((fp = fopen(buf, "w")) != nullptr) {
 		war = war_table_head->next;
 
 		while (war != war_table_tail) {
@@ -220,7 +222,7 @@ void save_war_table()
 		fclose(fp);
 	}
 	else
-		Logging::bug("Could not open " WAR_FILE " for writing!", 0);
+		Logging::bugf("Could not open %s for writing!", WAR_FILE);
 }
 
 void fix_war(War *war)

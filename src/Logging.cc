@@ -9,8 +9,7 @@
 /*
  * Reports a bug.
  */
-void Logging::
-bug(const String& str, int param)
+void Logging::bug(const String& str, int param)
 {
 	String buf = Format::format(String("[*****] BUG: ") + str, param);
 	Logging::log(buf);
@@ -21,8 +20,7 @@ bug(const String& str, int param)
 /*
  * Writes a string to the log.
  */
-void Logging::
-log(const String& str)
+void Logging::log(const String& str)
 {
 	char *strtime;
 	strtime                    = ctime(&Game::current_time);
@@ -31,8 +29,7 @@ log(const String& str)
 	return;
 }
 
-void Logging::
-file_bug(FILE *fp, const String& str, int param)
+void Logging::file_bug(FILE *fp, const String& str, const Vnum& vnum)
 {
 	if (fp != nullptr) {
 		int iLine = 0;
@@ -53,10 +50,5 @@ file_bug(FILE *fp, const String& str, int param)
 		Logging::bugf("[*****] LINE: %d", iLine);
 	}
 
-	Logging::bugf(str, param);
-}
-
-void Logging::
-file_bug(FILE *fp, const String& str, const Vnum& vnum) {
-	file_bug(fp, str, vnum.value());
+	Logging::bugf(str, vnum.value());
 }

@@ -4,8 +4,8 @@
 #include "constants.hh"
 #include "String.hh"
 
-constexpr int MAX_LINES = 100;   // this boils down to about 1k per song
-constexpr int MAX_GLOBAL = 10;   // max songs the global jukebox can hold
+constexpr int MAX_LINES = 100;   ///< this boils down to about 1k per song
+constexpr int MAX_GLOBAL = 10;   ///< max songs the global jukebox can hold
 
 struct song_data
 {
@@ -17,5 +17,5 @@ struct song_data
 
 extern std::vector<struct song_data> song_table;
 
-void song_update(void);
-void load_songs(void);
+void song_update();
+void load_songs();

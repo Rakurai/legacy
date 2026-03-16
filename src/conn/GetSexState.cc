@@ -7,8 +7,7 @@
 
 namespace conn {
 
-State * GetSexState::
-handleInput(Descriptor *d, const String& argument) {
+State * GetSexState::handleInput(Descriptor *d, const String& argument) {
 	Character *ch = d->character;
 
 	switch (argument[0]) {

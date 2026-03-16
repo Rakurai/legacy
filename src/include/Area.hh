@@ -6,14 +6,15 @@
 #include "Vnum.hh"
 #include "Location.hh"
 
-/*
- * Credits defines stuff
+/**
+ * @defgroup AreaLevelRanges Constants defining level ranges for areas
+ * @{
  */
-
 constexpr int RANGE_OK   = 0;
 constexpr int RANGE_ALL  = 1;
 constexpr int RANGE_CLAN = 2;
 constexpr int RANGE_IMM  = 3;
+/** @} */
 
 class Area
 {
@@ -57,11 +58,11 @@ public:
 
 
     // descriptive vars
-    String              author;     /* -- Elrac */
-    String              title;      /* -- Elrac */
-    String              keywords;   /* -- Elrac */
-    int              version = 1;    /* Area file versioning -- Montrey */
-    char                area_type = 0;  /* -- Elrac */
+    String              author;     /**<-- Elrac */
+    String              title;      /**<-- Elrac */
+    String              keywords;   /**<-- Elrac */
+    int              version = 1;    /**<Area file versioning -- Montrey */
+    char                area_type = 0;  /**<-- Elrac */
     int              low_range = 0;
     int              high_range = 0;
 
@@ -88,7 +89,7 @@ private:
     void load_resets(FILE *fp);
     void load_shops(FILE *fp);
     void load_specials(FILE *fp);
-    void load_region(FILE *fp);// { region = new worldmap::Region(*this, fp); }
+    void load_region(FILE *fp);///< { region = new worldmap::Region(*this, fp); }
     int scan_credits();
 
     /* pick a random room to reset into -- Montrey */
@@ -99,7 +100,7 @@ private:
     // only an imm is there.
     int _num_players = 0;
     int _num_imms = 0;
-    FILE *fpArea; // for loading split between constructor and load function
+    FILE *fpArea; ///< for loading split between constructor and load function
 };
 
 
